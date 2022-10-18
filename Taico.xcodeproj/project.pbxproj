@@ -14,6 +14,21 @@
 		439D7B8D28FD9F40006C92FD /* TaicoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7B8C28FD9F40006C92FD /* TaicoTests.swift */; };
 		439D7B9728FD9F40006C92FD /* TaicoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7B9628FD9F40006C92FD /* TaicoUITests.swift */; };
 		439D7B9928FD9F40006C92FD /* TaicoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7B9828FD9F40006C92FD /* TaicoUITestsLaunchTests.swift */; };
+		439D7BA728FDA266006C92FD /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7BA628FDA266006C92FD /* Drink.swift */; };
+		439D7BAA28FDA40B006C92FD /* CustomCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7BA928FDA40B006C92FD /* CustomCarousel.swift */; };
+		439D7BAC28FDA425006C92FD /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7BAB28FDA425006C92FD /* Order.swift */; };
+		439D7BAE28FDA436006C92FD /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7BAD28FDA436006C92FD /* Tab.swift */; };
+		439D7BB028FDAB81006C92FD /* CustomArcShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7BAF28FDAB81006C92FD /* CustomArcShape.swift */; };
+		439D7BBF28FDB5A9006C92FD /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 439D7BBE28FDB5A9006C92FD /* Lottie */; };
+		439D7BC528FDB5CF006C92FD /* Chat.json in Resources */ = {isa = PBXBuildFile; fileRef = 439D7BC028FDB5CF006C92FD /* Chat.json */; };
+		439D7BC628FDB5CF006C92FD /* Saved.json in Resources */ = {isa = PBXBuildFile; fileRef = 439D7BC128FDB5CF006C92FD /* Saved.json */; };
+		439D7BC728FDB5CF006C92FD /* Notification.json in Resources */ = {isa = PBXBuildFile; fileRef = 439D7BC228FDB5CF006C92FD /* Notification.json */; };
+		439D7BC828FDB5CF006C92FD /* Account.json in Resources */ = {isa = PBXBuildFile; fileRef = 439D7BC328FDB5CF006C92FD /* Account.json */; };
+		439D7BC928FDB5CF006C92FD /* Home.json in Resources */ = {isa = PBXBuildFile; fileRef = 439D7BC428FDB5CF006C92FD /* Home.json */; };
+		439D7BCB28FDB5F0006C92FD /* BottomTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7BCA28FDB5F0006C92FD /* BottomTab.swift */; };
+		439D7BCD28FDB60E006C92FD /* AnimatedIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7BCC28FDB60E006C92FD /* AnimatedIcon.swift */; };
+		439D7BCF28FDB639006C92FD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7BCE28FDB639006C92FD /* MainView.swift */; };
+		439D7BD128FDB6F8006C92FD /* ResizableLottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7BD028FDB6F8006C92FD /* ResizableLottieView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +60,20 @@
 		439D7B9228FD9F40006C92FD /* TaicoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaicoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		439D7B9628FD9F40006C92FD /* TaicoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaicoUITests.swift; sourceTree = "<group>"; };
 		439D7B9828FD9F40006C92FD /* TaicoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaicoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		439D7BA628FDA266006C92FD /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		439D7BA928FDA40B006C92FD /* CustomCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCarousel.swift; sourceTree = "<group>"; };
+		439D7BAB28FDA425006C92FD /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		439D7BAD28FDA436006C92FD /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		439D7BAF28FDAB81006C92FD /* CustomArcShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomArcShape.swift; sourceTree = "<group>"; };
+		439D7BC028FDB5CF006C92FD /* Chat.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Chat.json; sourceTree = "<group>"; };
+		439D7BC128FDB5CF006C92FD /* Saved.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Saved.json; sourceTree = "<group>"; };
+		439D7BC228FDB5CF006C92FD /* Notification.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Notification.json; sourceTree = "<group>"; };
+		439D7BC328FDB5CF006C92FD /* Account.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Account.json; sourceTree = "<group>"; };
+		439D7BC428FDB5CF006C92FD /* Home.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Home.json; sourceTree = "<group>"; };
+		439D7BCA28FDB5F0006C92FD /* BottomTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTab.swift; sourceTree = "<group>"; };
+		439D7BCC28FDB60E006C92FD /* AnimatedIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedIcon.swift; sourceTree = "<group>"; };
+		439D7BCE28FDB639006C92FD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		439D7BD028FDB6F8006C92FD /* ResizableLottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableLottieView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				439D7BBF28FDB5A9006C92FD /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +105,9 @@
 		439D7B6E28FD9F3E006C92FD = {
 			isa = PBXGroup;
 			children = (
+				439D7BBC28FDB4E8006C92FD /* Tab icons */,
+				439D7BA828FDA400006C92FD /* View */,
+				439D7BA528FD9FB0006C92FD /* Model */,
 				439D7B7928FD9F3E006C92FD /* Taico */,
 				439D7B8B28FD9F40006C92FD /* TaicoTests */,
 				439D7B9528FD9F40006C92FD /* TaicoUITests */,
@@ -129,6 +162,41 @@
 			path = TaicoUITests;
 			sourceTree = "<group>";
 		};
+		439D7BA528FD9FB0006C92FD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				439D7BA628FDA266006C92FD /* Drink.swift */,
+				439D7BAD28FDA436006C92FD /* Tab.swift */,
+				439D7BCA28FDB5F0006C92FD /* BottomTab.swift */,
+				439D7BCC28FDB60E006C92FD /* AnimatedIcon.swift */,
+				439D7BD028FDB6F8006C92FD /* ResizableLottieView.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		439D7BA828FDA400006C92FD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				439D7BA928FDA40B006C92FD /* CustomCarousel.swift */,
+				439D7BAB28FDA425006C92FD /* Order.swift */,
+				439D7BAF28FDAB81006C92FD /* CustomArcShape.swift */,
+				439D7BCE28FDB639006C92FD /* MainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		439D7BBC28FDB4E8006C92FD /* Tab icons */ = {
+			isa = PBXGroup;
+			children = (
+				439D7BC328FDB5CF006C92FD /* Account.json */,
+				439D7BC028FDB5CF006C92FD /* Chat.json */,
+				439D7BC428FDB5CF006C92FD /* Home.json */,
+				439D7BC228FDB5CF006C92FD /* Notification.json */,
+				439D7BC128FDB5CF006C92FD /* Saved.json */,
+			);
+			path = "Tab icons";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +213,9 @@
 			dependencies = (
 			);
 			name = Taico;
+			packageProductDependencies = (
+				439D7BBE28FDB5A9006C92FD /* Lottie */,
+			);
 			productName = Taico;
 			productReference = 439D7B7728FD9F3E006C92FD /* Taico.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +288,9 @@
 				Base,
 			);
 			mainGroup = 439D7B6E28FD9F3E006C92FD;
+			packageReferences = (
+				439D7BBD28FDB5A9006C92FD /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 439D7B7828FD9F3E006C92FD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,6 +307,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				439D7BC528FDB5CF006C92FD /* Chat.json in Resources */,
+				439D7BC628FDB5CF006C92FD /* Saved.json in Resources */,
+				439D7BC728FDB5CF006C92FD /* Notification.json in Resources */,
+				439D7BC828FDB5CF006C92FD /* Account.json in Resources */,
+				439D7BC928FDB5CF006C92FD /* Home.json in Resources */,
 				439D7B8328FD9F3F006C92FD /* Preview Assets.xcassets in Resources */,
 				439D7B7F28FD9F3F006C92FD /* Assets.xcassets in Resources */,
 			);
@@ -259,7 +338,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				439D7BAA28FDA40B006C92FD /* CustomCarousel.swift in Sources */,
 				439D7B7D28FD9F3E006C92FD /* ContentView.swift in Sources */,
+				439D7BCD28FDB60E006C92FD /* AnimatedIcon.swift in Sources */,
+				439D7BCF28FDB639006C92FD /* MainView.swift in Sources */,
+				439D7BB028FDAB81006C92FD /* CustomArcShape.swift in Sources */,
+				439D7BAC28FDA425006C92FD /* Order.swift in Sources */,
+				439D7BD128FDB6F8006C92FD /* ResizableLottieView.swift in Sources */,
+				439D7BAE28FDA436006C92FD /* Tab.swift in Sources */,
+				439D7BA728FDA266006C92FD /* Drink.swift in Sources */,
+				439D7BCB28FDB5F0006C92FD /* BottomTab.swift in Sources */,
 				439D7B7B28FD9F3E006C92FD /* TaicoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,7 +517,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
@@ -467,7 +555,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
@@ -612,6 +700,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		439D7BBD28FDB5A9006C92FD /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		439D7BBE28FDB5A9006C92FD /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 439D7BBD28FDB5A9006C92FD /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 439D7B6F28FD9F3E006C92FD /* Project object */;
 }
