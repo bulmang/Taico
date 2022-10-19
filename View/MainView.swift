@@ -25,21 +25,21 @@ struct MainView: View {
     var body: some View {
         VStack(spacing: 0){
             TabView(selection: $currentTab) {
-                Text("Home")
+                Home()
                     .setBG()
                     .tag(BottomTab.home)
                 
                 Text("Messages")
                     .setBG()
-                    .tag(BottomTab.chat)
+                    .tag(BottomTab.card)
                 
                 Order()
                     .setBG()
-                    .tag(BottomTab.notifications)
+                    .tag(BottomTab.order)
                 
                 Text("Saved")
                     .setBG()
-                    .tag(BottomTab.saved)
+                    .tag(BottomTab.shopping)
                 
                 Text("Profile")
                     .setBG()

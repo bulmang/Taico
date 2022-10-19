@@ -252,7 +252,7 @@ struct Order: View {
         return attString
     }
 }
-struct Home_Previews: PreviewProvider {
+struct Order_Previews: PreviewProvider {
     static var previews: some View {
         Order()
     }
