@@ -18,17 +18,12 @@ struct Card: View {
     var body: some View {
         ZStack{
             
-            Color("BG")
-                .ignoresSafeArea()
-            
-            Image("TopCircle")
-                .offset(x: 150, y: -90)
-            
-            Image("BottomCircle")
-                .offset(x: -150, y: 90)
-            
-            Image("CenterCircle")
-                .offset(x: -40, y: -100)
+            NeuromorphicUI {
+                        RoundedRectangle(cornerRadius: 25)
+                            .frame(width: 400, height: 450)
+                            .offset(y:-50)
+                    }.ignoresSafeArea()
+
             VStack(spacing: 10){
                 
                 Text("Pay")
@@ -36,33 +31,52 @@ struct Card: View {
                     .fontWeight(.heavy)
                     .frame(maxWidth: .infinity,alignment: .leading)
                     .padding(.horizontal)
-                    .padding(.bottom,200)
+                    .padding(.bottom,90)
                     
+            
+                
                 GlassMorphicCard()
                     .frame(maxWidth: .infinity)
+                    .padding(.bottom)
                 
                 Text("Taico 카드를 등록하셨습니다.")
                     .font(.system(size: 25))
                     .fontWeight(.bold)
+                    
                 
-                Text("매장과 사이렌오더에서 쉽고 편리하게\n사용할 수 있고, 별도 적립할 수 있습니다.")
-                                
-                Text("")
-                    .frame(maxHeight: .infinity)
+                // MARK: Slider to show Demo
+                Toggle("카드 활성화", isOn: $activateGlassMorphism)
+                    .font(.title3)
+                    .onChange(of: activateGlassMorphism) { newValue in
+                        // Changing Blur Radius And Saturation
+                        blurView.gaussianBlurRadius = (activateGlassMorphism ? 10 : defaultBlurRadius)
+                        blurView.saturationAmount = (activateGlassMorphism ? 1.8 : defaultSaturationAmount)
+                    }
+                    
+                    .padding(.horizontal,25)
+                                                                        
+
+                
+                Text("융합소프트웨어 X TAICO \n융합소프트웨어학과 10% 할인")
+                    .multilineTextAlignment(.leading)
+                    .foregroundColor(.white)
+                    .frame(height: 100)
+                    .frame(maxWidth: .infinity)
+                    .background(
+                        (Color("Color"))
+                    .clipShape(Rectangle())
+                    )
+                    .padding(.top,90)
+                    
+
+                  
+
                 
                 
             }
             
-            // MARK: Slider to show Demo
-            Toggle("카드 활성화", isOn: $activateGlassMorphism)
-                .font(.title3)
-                .onChange(of: activateGlassMorphism) { newValue in
-                    // Changing Blur Radius And Saturation
-                    blurView.gaussianBlurRadius = (activateGlassMorphism ? 10 : defaultBlurRadius)
-                    blurView.saturationAmount = (activateGlassMorphism ? 1.8 : defaultSaturationAmount)
-                }
-                .frame(maxHeight: .infinity,alignment: .bottom)
-                .padding(15)
+            
+
         }
     }
     
@@ -120,6 +134,7 @@ struct Card: View {
                 Text("TAICO MEMBERSHIP")
                     .modifier(CustomModifier(font: .callout))
                     .font(.system(size: 20))
+                    .fontWeight(.bold)
                 
                 Image("image1")
                     .resizable()
@@ -132,9 +147,11 @@ struct Card: View {
             
             Text("HA MYUNG KWAN")
                 .modifier(CustomModifier(font: .title3))
+                .fontWeight(.bold)
             
             Text("융합소프트웨어 2017121052")
                 .modifier(CustomModifier(font: .callout))
+                .fontWeight(.bold)
         }
         .padding(20)
         .padding(.vertical,10)
@@ -258,5 +275,23 @@ extension NSObject{
         (value(forKey: key) as? [NSObject])?.first(where: { obj in
             return obj.value(forKeyPath: "filterType") as? String == filter
         })
+    }
+}
+
+struct NeuromorphicUI <Content : View> : View {
+    let content : Content
+    
+    init(@ViewBuilder content: () -> Content) {
+        self.content = content()
+    }
+    
+    var body: some View {
+        ZStack {
+      
+            content
+                .foregroundColor(Color("mainColor"))
+                .shadow(color: Color("topLeftShadow"), radius: 5, x: -6, y: -6)
+                .shadow(color: Color("bottomRightShadow"), radius: 5, x: 6, y: 6)
+        }
     }
 }

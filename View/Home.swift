@@ -9,22 +9,27 @@ import SwiftUI
 
 struct Home: View {
     var body: some View {
-        VStack(alignment: .leading){
-            ScrollView{
-                Text("안녕하세요\nTAICO입니다")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .frame(maxWidth: .infinity)
-                    .padding(.trailing, 150.0)
+        GeometryReader { geo in
+            ZStack{
+                VStack(alignment: .leading){
+                    ScrollView{
+
+                        
+                        Text("안녕하세요\nTAICO입니다")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .frame(maxWidth: .infinity)
+                            .padding(.trailing, 150.0)
+                        
+                        ForEach(blogs) { blog in
+                            CardView(image: blog.image, category: blog.category, heading: blog.heading, author: blog.author)
+                        }
+                    }
                     
-                ForEach(blogs) { blog in
-                    CardView(image: blog.image, category: blog.category, heading: blog.heading, author: blog.author)
                 }
+                .padding()
             }
-            
         }
-        
-        .padding()
         
     }
 }
@@ -43,43 +48,27 @@ struct CardView: View {
     var author: String
     
     var body: some View{
-        VStack {
+        
+        VStack (spacing: 20){
+            
             Button{
                 
             }label: {
-                Image(image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            }
-
-            
-            HStack{
-                VStack (alignment: .leading){
-                    Text(category)
-                        .font(.headline)
-                        .foregroundColor(.secondary)
-                    Text(heading)
-                        .font(.title)
-                        .fontWeight(.black)
-                        .foregroundColor(.primary)
-                        .lineLimit(3)
-                    Text("작성자".uppercased()+author.uppercased())
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                    
-                }
-                .layoutPriority(100)
-                Spacer()
+                NeuromorphicUI {
+                    RoundedRectangle(cornerRadius: 25)
+                        .overlay(Image(image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                        )
+                        .frame(width: 400,height: 250)
+                    }
+                .ignoresSafeArea()
                 
             }
-            .padding()
+            
+          
         }
-        .cornerRadius(10)
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.2), lineWidth: 1)
-        )
-        .padding(.bottom)
+   
         
     }
     
