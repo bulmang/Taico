@@ -44,9 +44,14 @@ struct CardView: View {
     
     var body: some View{
         VStack {
-            Image(image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+            Button{
+                
+            }label: {
+                Image(image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            }
+
             
             HStack{
                 VStack (alignment: .leading){

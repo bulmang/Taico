@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		431162142902E2F500565BA3 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431162132902E2F500565BA3 /* Card.swift */; };
 		432BCA5F2900082400084438 /* BlogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432BCA5E2900082400084438 /* BlogModel.swift */; };
 		432BCA612900093500084438 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432BCA602900093500084438 /* Home.swift */; };
 		4369416328FE8BDC00A0771B /* hover-shopping.json in Resources */ = {isa = PBXBuildFile; fileRef = 4369416228FE8BDC00A0771B /* hover-shopping.json */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		431162132902E2F500565BA3 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; usesTabs = 0; };
 		432BCA5E2900082400084438 /* BlogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogModel.swift; sourceTree = "<group>"; };
 		432BCA602900093500084438 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		4369416228FE8BDC00A0771B /* hover-shopping.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "hover-shopping.json"; sourceTree = "<group>"; };
@@ -191,8 +193,9 @@
 				439D7BA928FDA40B006C92FD /* CustomCarousel.swift */,
 				439D7BAB28FDA425006C92FD /* Order.swift */,
 				439D7BAF28FDAB81006C92FD /* CustomArcShape.swift */,
-				439D7BCE28FDB639006C92FD /* MainView.swift */,
 				432BCA602900093500084438 /* Home.swift */,
+				439D7BCE28FDB639006C92FD /* MainView.swift */,
+				431162132902E2F500565BA3 /* Card.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				432BCA612900093500084438 /* Home.swift in Sources */,
 				439D7BD128FDB6F8006C92FD /* ResizableLottieView.swift in Sources */,
 				432BCA5F2900082400084438 /* BlogModel.swift in Sources */,
+				431162142902E2F500565BA3 /* Card.swift in Sources */,
 				439D7BAE28FDA436006C92FD /* Tab.swift in Sources */,
 				439D7BA728FDA266006C92FD /* Drink.swift in Sources */,
 				439D7BCB28FDB5F0006C92FD /* BottomTab.swift in Sources */,

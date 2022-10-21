@@ -29,7 +29,7 @@ struct MainView: View {
                     .setBG()
                     .tag(BottomTab.home)
                 
-                Text("Messages")
+                Card()
                     .setBG()
                     .tag(BottomTab.card)
                 
