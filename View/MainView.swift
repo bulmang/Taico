@@ -41,7 +41,7 @@ struct MainView: View {
                     .setBG()
                     .tag(BottomTab.shopping)
                 
-                Text("Profile")
+                LoginView()
                     .setBG()
                     .tag(BottomTab.account)
                             

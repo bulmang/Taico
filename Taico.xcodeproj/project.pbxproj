@@ -13,6 +13,9 @@
 		4369416328FE8BDC00A0771B /* hover-shopping.json in Resources */ = {isa = PBXBuildFile; fileRef = 4369416228FE8BDC00A0771B /* hover-shopping.json */; };
 		4369416B28FE8D5400A0771B /* 571-black-tea-lineal.json in Resources */ = {isa = PBXBuildFile; fileRef = 4369416A28FE8D5400A0771B /* 571-black-tea-lineal.json */; };
 		4369416D28FE8E1700A0771B /* in-card.json in Resources */ = {isa = PBXBuildFile; fileRef = 4369416C28FE8E1700A0771B /* in-card.json */; };
+		437FDD4C29058AF400A42FF1 /* CustomViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437FDD4B29058AF400A42FF1 /* CustomViews.swift */; };
+		437FDD4E29058B1400A42FF1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437FDD4D29058B1400A42FF1 /* LoginView.swift */; };
+		437FDD5029058B3100A42FF1 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437FDD4F29058B3100A42FF1 /* SignUpView.swift */; };
 		439D7B7B28FD9F3E006C92FD /* TaicoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7B7A28FD9F3E006C92FD /* TaicoApp.swift */; };
 		439D7B7D28FD9F3E006C92FD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7B7C28FD9F3E006C92FD /* ContentView.swift */; };
 		439D7B7F28FD9F3F006C92FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 439D7B7E28FD9F3F006C92FD /* Assets.xcassets */; };
@@ -61,6 +64,9 @@
 		4369416228FE8BDC00A0771B /* hover-shopping.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "hover-shopping.json"; sourceTree = "<group>"; };
 		4369416A28FE8D5400A0771B /* 571-black-tea-lineal.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "571-black-tea-lineal.json"; sourceTree = "<group>"; };
 		4369416C28FE8E1700A0771B /* in-card.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "in-card.json"; sourceTree = "<group>"; };
+		437FDD4B29058AF400A42FF1 /* CustomViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViews.swift; sourceTree = "<group>"; };
+		437FDD4D29058B1400A42FF1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		437FDD4F29058B3100A42FF1 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		439D7B7728FD9F3E006C92FD /* Taico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		439D7B7A28FD9F3E006C92FD /* TaicoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaicoApp.swift; sourceTree = "<group>"; };
 		439D7B7C28FD9F3E006C92FD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -196,6 +202,9 @@
 				432BCA602900093500084438 /* Home.swift */,
 				439D7BCE28FDB639006C92FD /* MainView.swift */,
 				431162132902E2F500565BA3 /* Card.swift */,
+				437FDD4B29058AF400A42FF1 /* CustomViews.swift */,
+				437FDD4D29058B1400A42FF1 /* LoginView.swift */,
+				437FDD4F29058B3100A42FF1 /* SignUpView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -371,7 +380,10 @@
 				431162142902E2F500565BA3 /* Card.swift in Sources */,
 				439D7BAE28FDA436006C92FD /* Tab.swift in Sources */,
 				439D7BA728FDA266006C92FD /* Drink.swift in Sources */,
+				437FDD5029058B3100A42FF1 /* SignUpView.swift in Sources */,
+				437FDD4C29058AF400A42FF1 /* CustomViews.swift in Sources */,
 				439D7BCB28FDB5F0006C92FD /* BottomTab.swift in Sources */,
+				437FDD4E29058B1400A42FF1 /* LoginView.swift in Sources */,
 				439D7B7B28FD9F3E006C92FD /* TaicoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -194,13 +194,13 @@ struct Order: View {
                 
             } label: {
                 HStack(spacing: 10){
-                    Image("Pic")
+                    Image("Pic1")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 35,height: 35)
                         .clipShape(Circle())
                     
-                    Text("명관")
+                    Text("로그인")
                         .font(.system(size: 14, weight: .semibold))
                         .foregroundColor(.black)
                 }
