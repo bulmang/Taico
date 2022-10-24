@@ -16,6 +16,9 @@
 		437FDD4C29058AF400A42FF1 /* CustomViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437FDD4B29058AF400A42FF1 /* CustomViews.swift */; };
 		437FDD4E29058B1400A42FF1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437FDD4D29058B1400A42FF1 /* LoginView.swift */; };
 		437FDD5029058B3100A42FF1 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437FDD4F29058B3100A42FF1 /* SignUpView.swift */; };
+		437FDD522905A02800A42FF1 /* Tea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437FDD512905A02800A42FF1 /* Tea.swift */; };
+		437FDD542905A48400A42FF1 /* Smudi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437FDD532905A48400A42FF1 /* Smudi.swift */; };
+		437FDD562905AD2F00A42FF1 /* BubbleTea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437FDD552905AD2F00A42FF1 /* BubbleTea.swift */; };
 		439D7B7B28FD9F3E006C92FD /* TaicoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7B7A28FD9F3E006C92FD /* TaicoApp.swift */; };
 		439D7B7D28FD9F3E006C92FD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7B7C28FD9F3E006C92FD /* ContentView.swift */; };
 		439D7B7F28FD9F3F006C92FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 439D7B7E28FD9F3F006C92FD /* Assets.xcassets */; };
@@ -67,6 +70,9 @@
 		437FDD4B29058AF400A42FF1 /* CustomViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViews.swift; sourceTree = "<group>"; };
 		437FDD4D29058B1400A42FF1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		437FDD4F29058B3100A42FF1 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		437FDD512905A02800A42FF1 /* Tea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tea.swift; sourceTree = "<group>"; };
+		437FDD532905A48400A42FF1 /* Smudi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smudi.swift; sourceTree = "<group>"; };
+		437FDD552905AD2F00A42FF1 /* BubbleTea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleTea.swift; sourceTree = "<group>"; };
 		439D7B7728FD9F3E006C92FD /* Taico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		439D7B7A28FD9F3E006C92FD /* TaicoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaicoApp.swift; sourceTree = "<group>"; };
 		439D7B7C28FD9F3E006C92FD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -120,6 +126,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		437FDD572905AD3400A42FF1 /* OrderMenu */ = {
+			isa = PBXGroup;
+			children = (
+				439D7BA628FDA266006C92FD /* Drink.swift */,
+				437FDD512905A02800A42FF1 /* Tea.swift */,
+				437FDD532905A48400A42FF1 /* Smudi.swift */,
+				437FDD552905AD2F00A42FF1 /* BubbleTea.swift */,
+			);
+			path = OrderMenu;
+			sourceTree = "<group>";
+		};
 		439D7B6E28FD9F3E006C92FD = {
 			isa = PBXGroup;
 			children = (
@@ -183,7 +200,7 @@
 		439D7BA528FD9FB0006C92FD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				439D7BA628FDA266006C92FD /* Drink.swift */,
+				437FDD572905AD3400A42FF1 /* OrderMenu */,
 				439D7BAD28FDA436006C92FD /* Tab.swift */,
 				439D7BCA28FDB5F0006C92FD /* BottomTab.swift */,
 				439D7BCC28FDB60E006C92FD /* AnimatedIcon.swift */,
@@ -370,10 +387,12 @@
 			files = (
 				439D7BAA28FDA40B006C92FD /* CustomCarousel.swift in Sources */,
 				439D7B7D28FD9F3E006C92FD /* ContentView.swift in Sources */,
+				437FDD542905A48400A42FF1 /* Smudi.swift in Sources */,
 				439D7BCD28FDB60E006C92FD /* AnimatedIcon.swift in Sources */,
 				439D7BCF28FDB639006C92FD /* MainView.swift in Sources */,
 				439D7BB028FDAB81006C92FD /* CustomArcShape.swift in Sources */,
 				439D7BAC28FDA425006C92FD /* Order.swift in Sources */,
+				437FDD522905A02800A42FF1 /* Tea.swift in Sources */,
 				432BCA612900093500084438 /* Home.swift in Sources */,
 				439D7BD128FDB6F8006C92FD /* ResizableLottieView.swift in Sources */,
 				432BCA5F2900082400084438 /* BlogModel.swift in Sources */,
@@ -382,6 +401,7 @@
 				439D7BA728FDA266006C92FD /* Drink.swift in Sources */,
 				437FDD5029058B3100A42FF1 /* SignUpView.swift in Sources */,
 				437FDD4C29058AF400A42FF1 /* CustomViews.swift in Sources */,
+				437FDD562905AD2F00A42FF1 /* BubbleTea.swift in Sources */,
 				439D7BCB28FDB5F0006C92FD /* BottomTab.swift in Sources */,
 				437FDD4E29058B1400A42FF1 /* LoginView.swift in Sources */,
 				439D7B7B28FD9F3E006C92FD /* TaicoApp.swift in Sources */,
