@@ -19,25 +19,35 @@ struct LoginView: View {
                 VStack {
                     VStack (spacing : 40) {
                         ZStack {
-                            Ellipse()
-                                .frame(width: 510, height: 478)
+                            Rectangle()
+                                .frame(width: 710, height: 478)
                                 .padding(.leading, -200)
                                 .foregroundColor(Color("color2"))
                                 .padding(.top, -200)
                             
-                            Ellipse()
-                                .frame(width: 458, height: 420)
-                                .padding(.trailing, -500)
-                                .foregroundColor(Color("color1"))
-                                .padding(.top, -200)
+//                            Ellipse()
+//                                .frame(width: 458, height: 420)
+//                                .padding(.trailing, -500)
+//                                .foregroundColor(Color("color1"))
+//                                .padding(.top, -200)
+//
+                            VStack(spacing: 20){
+                                Text("안녕하세요\n타이코입니다.")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 35))
+                                    .fontWeight(.bold)
+                                    .multilineTextAlignment(.leading)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.leading, 80)
+                                
+                                Text("회원 서비스 이용을 위해 로그인 해주세요.")
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(.white)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.leading, 80)
+                            }
                             
-                            Text("Welcom \n Back")
-                                .foregroundColor(.white)
-                                .font(.system(size: 35))
-                                .fontWeight(.bold)
-                                .multilineTextAlignment(.leading)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.leading, 20)
+                            
                         }
                         
                         VStack (spacing: 30) {
@@ -50,8 +60,16 @@ struct LoginView: View {
                             }
                             
                             VStack (alignment: .trailing){
-                                Text("Forgot Password")
-                                    .fontWeight(.medium)
+                                NavigationLink(destination: FindIdView(), isActive: $isLinkActive) {
+                                    Button{
+                                        self.isLinkActive = true
+                                    } label: {
+                                        Text("Forgot Password")
+                                            .fontWeight(.medium)
+                                            .padding(.trailing)
+                                    }
+                                }
+
                                 
                                 
                                 NavigationLink(destination: SignUpView(), isActive: $isLinkActive) {

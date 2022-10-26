@@ -110,3 +110,31 @@ struct TopBarView: View {
         
     }
 }
+
+struct AgreeButton: View{
+    
+    var title: String
+    var url: String
+    var image: String
+    
+    
+    var body: some View{
+        HStack(spacing: 40){
+            
+            Text(title)
+                .padding(.leading)
+            
+            Spacer()
+            
+            Link(destination: URL(string:(url))!){
+                Image(systemName: image)
+                    .foregroundColor(.black)
+            }
+            .padding(.trailing,20)
+            
+        }
+        
+        
+        
+    }
+}

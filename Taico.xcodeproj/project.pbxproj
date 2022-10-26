@@ -10,6 +10,7 @@
 		431162142902E2F500565BA3 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431162132902E2F500565BA3 /* Card.swift */; };
 		432BCA5F2900082400084438 /* BlogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432BCA5E2900082400084438 /* BlogModel.swift */; };
 		432BCA612900093500084438 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432BCA602900093500084438 /* Home.swift */; };
+		432BD09129090BBE00E981F4 /* FindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432BD09029090BBE00E981F4 /* FindView.swift */; };
 		4369416328FE8BDC00A0771B /* hover-shopping.json in Resources */ = {isa = PBXBuildFile; fileRef = 4369416228FE8BDC00A0771B /* hover-shopping.json */; };
 		4369416B28FE8D5400A0771B /* 571-black-tea-lineal.json in Resources */ = {isa = PBXBuildFile; fileRef = 4369416A28FE8D5400A0771B /* 571-black-tea-lineal.json */; };
 		4369416D28FE8E1700A0771B /* in-card.json in Resources */ = {isa = PBXBuildFile; fileRef = 4369416C28FE8E1700A0771B /* in-card.json */; };
@@ -64,6 +65,7 @@
 		431162132902E2F500565BA3 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; usesTabs = 0; };
 		432BCA5E2900082400084438 /* BlogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogModel.swift; sourceTree = "<group>"; };
 		432BCA602900093500084438 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		432BD09029090BBE00E981F4 /* FindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindView.swift; sourceTree = "<group>"; };
 		4369416228FE8BDC00A0771B /* hover-shopping.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "hover-shopping.json"; sourceTree = "<group>"; };
 		4369416A28FE8D5400A0771B /* 571-black-tea-lineal.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "571-black-tea-lineal.json"; sourceTree = "<group>"; };
 		4369416C28FE8E1700A0771B /* in-card.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "in-card.json"; sourceTree = "<group>"; };
@@ -126,6 +128,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		432BD09229090BC200E981F4 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				432BCA602900093500084438 /* Home.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		432BD09329090BD200E981F4 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				431162132902E2F500565BA3 /* Card.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		432BD09429090BFA00E981F4 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				439D7BA928FDA40B006C92FD /* CustomCarousel.swift */,
+				439D7BAB28FDA425006C92FD /* Order.swift */,
+				439D7BAF28FDAB81006C92FD /* CustomArcShape.swift */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		432BD09529090C2300E981F4 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				437FDD4B29058AF400A42FF1 /* CustomViews.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		432BD09629090C3500E981F4 /* Propile */ = {
+			isa = PBXGroup;
+			children = (
+				437FDD4D29058B1400A42FF1 /* LoginView.swift */,
+				437FDD4F29058B3100A42FF1 /* SignUpView.swift */,
+				432BD09029090BBE00E981F4 /* FindView.swift */,
+			);
+			path = Propile;
+			sourceTree = "<group>";
+		};
 		437FDD572905AD3400A42FF1 /* OrderMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +246,7 @@
 		439D7BA528FD9FB0006C92FD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				432BD09529090C2300E981F4 /* Profile */,
 				437FDD572905AD3400A42FF1 /* OrderMenu */,
 				439D7BAD28FDA436006C92FD /* Tab.swift */,
 				439D7BCA28FDB5F0006C92FD /* BottomTab.swift */,
@@ -213,15 +260,11 @@
 		439D7BA828FDA400006C92FD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				439D7BA928FDA40B006C92FD /* CustomCarousel.swift */,
-				439D7BAB28FDA425006C92FD /* Order.swift */,
-				439D7BAF28FDAB81006C92FD /* CustomArcShape.swift */,
-				432BCA602900093500084438 /* Home.swift */,
+				432BD09629090C3500E981F4 /* Propile */,
+				432BD09429090BFA00E981F4 /* Order */,
+				432BD09329090BD200E981F4 /* Card */,
+				432BD09229090BC200E981F4 /* Home */,
 				439D7BCE28FDB639006C92FD /* MainView.swift */,
-				431162132902E2F500565BA3 /* Card.swift */,
-				437FDD4B29058AF400A42FF1 /* CustomViews.swift */,
-				437FDD4D29058B1400A42FF1 /* LoginView.swift */,
-				437FDD4F29058B3100A42FF1 /* SignUpView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -402,6 +445,7 @@
 				437FDD5029058B3100A42FF1 /* SignUpView.swift in Sources */,
 				437FDD4C29058AF400A42FF1 /* CustomViews.swift in Sources */,
 				437FDD562905AD2F00A42FF1 /* BubbleTea.swift in Sources */,
+				432BD09129090BBE00E981F4 /* FindView.swift in Sources */,
 				439D7BCB28FDB5F0006C92FD /* BottomTab.swift in Sources */,
 				437FDD4E29058B1400A42FF1 /* LoginView.swift in Sources */,
 				439D7B7B28FD9F3E006C92FD /* TaicoApp.swift in Sources */,
