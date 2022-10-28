@@ -12,8 +12,11 @@ struct FindIdView: View {
     @State private var birth: String = ""
     @State private var number: String = ""
     @State private var permission: String = ""
+    @State var isLinkActive: Bool = false
     @State var ColorCircle : Bool = false
     @State var alert: Bool = false
+    @State var alert2: Bool = false
+    @State var show: Bool = true
     
     var body: some View {
         VStack(spacing: 10){
@@ -90,18 +93,22 @@ struct FindIdView: View {
                                     .frame(height: 45)
                                     .foregroundColor(Color(.black))
                                 
-                                    
-
-                                
+                            
+                               
                                 Button("인증요청") {
-                                    alert = true
+                                    if name != "" && birth != "" && number != "" {
+                                        alert = true
+                                    }
+
                                 }
                                 .padding(.trailing)
-                                .alert("메시지\n 인증 메세지를 보냈습니다.", isPresented: $alert){
+                                .alert(
+                                    "메시지\n 인증 메세지를 보냈습니다.", isPresented: $alert){
                                     Button("확인", role: .cancel){
                                         
                                     }
                                 }
+                               
                             }
                             .overlay (
                                 Divider()
@@ -115,11 +122,30 @@ struct FindIdView: View {
                             Spacer()
 
                             if permission != "" {
-                                CustomButton(title: "인증확인", bgColor: "color2")
+                                
+                                NavigationLink(destination: LoginView(), isActive: $isLinkActive) {
+                                    
+                                    Button(action: {
+                                        alert2 = true
+                                    }, label: {
+                                        CustomButton(title: "인증하기", bgColor: "color2")
+                                            .fontWeight(.bold)
+                                            .alert(
+                                                "인증되었습니다.", isPresented: $alert2){
+                                                Button("확인", role: .cancel){
+                                                    self.isLinkActive = true
+                                                }
+                                            }
+                                            
+                                    })
+                                    
+                                }.padding(.horizontal, 20)
                             }
+                            
+
             
                         }
-                        .opacity(ColorCircle ? 0 : 1)
+                        .opacity(ColorCircle ? 1 : 0)
                     }
                     
                     

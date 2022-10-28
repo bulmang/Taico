@@ -14,6 +14,7 @@ struct SignUpView: View {
     @State private var email: String = ""
     @State private var cpassword: String = ""
     @State var isLinkActive = false
+    @State var alert: Bool = false
     
     var body: some View {
         NavigationView {
@@ -29,7 +30,7 @@ struct SignUpView: View {
                                 .padding(.top, -200)
                             
                             
-                            Text("Creat \n Account")
+                            Text("회원가입")
                                 .foregroundColor(.white)
                                 .font(.system(size: 35))
                                 .fontWeight(.bold)
@@ -43,27 +44,35 @@ struct SignUpView: View {
                             
                             VStack (spacing: 0) {
                                 
-                                CustomTextField(placeHolder: "Name", imageName: "person", bColor: "textColor2", tOpacity: 1, value: $name)
+                                CustomTextField(placeHolder: "이름", imageName: "person", bColor: "textColor2", tOpacity: 1, value: $name)
                                 
-                                CustomTextField(placeHolder: "Email", imageName: "envelope", bColor: "textColor2", tOpacity: 1, value: $email)
+                                CustomTextField(placeHolder: "이메일", imageName: "envelope", bColor: "textColor2", tOpacity: 1, value: $email)
                                 
-                                CustomTextField(placeHolder: "Password", imageName: "lock", bColor: "textColor2", tOpacity: 1.0, value: $password)
+                                CustomTextField(placeHolder: "비밀번호", imageName: "lock", bColor: "textColor2", tOpacity: 1.0, value: $password)
                                 
-                                CustomTextField(placeHolder: "Confirm Password", imageName: "lock", bColor: "textColor2", tOpacity: 1.0, value: $password)
+                                CustomTextField(placeHolder: "비밀번호 확인", imageName: "lock.fill", bColor: "textColor2", tOpacity: 1.0, value: $password)
                             }
                             
                             VStack (alignment: .trailing){
                                 NavigationLink(destination: LoginView(), isActive: $isLinkActive) {
                                     Button(action: {
-                                        self.isLinkActive = true
+                                        if name != "" && email != "" && password != "" {
+                                            self.alert = true
+                                        }
                                     }, label: {
-                                        CustomButton(title: "SIGN UP ", bgColor: "color2")
+                                        CustomButton(title: "회원가입 하기", bgColor: "color2")
+                                            .fontWeight(.bold)
+                                            .alert("회원가입을 하셨습니다.", isPresented: $alert){
+                                                Button("확인", role: .cancel){
+                                                    self.isLinkActive = true
+                                                }
+                                            }
                                     })
                                     
                                 }.padding(.horizontal, 20)
                                 
                                 HStack {
-                                    Button(action: {}, label: {
+                                    Link(destination: URL(string:  "https://secure4.store.apple.com/kr/shop/signIn?ssi=1AAABhB7FxbEgym-F8PQOsAc0h_3XgHkgNHymWJFyHaYnXeev-bEYrqUAAAA-aHR0cHM6Ly93d3cuYXBwbGUuY29tL2tyL3N0b3JlfGh0dHBzOi8vd3d3LmFwcGxlLmNvbS9rci9zdG9yZXwAAgFIdQmIArEB8XeDgyOXsnU7PZlLcsWl04jL8OlGECGcyA")!) {
                                         Image("apple")
                                             .resizable()
                                             .frame(width: 30, height: 30)
@@ -71,11 +80,11 @@ struct SignUpView: View {
                                             .padding(.vertical , 15)
                                             .background(Color("button-bg"))
                                             .cornerRadius(15)
-                                    })
+                                    }
                                     
                                     Spacer()
                                     
-                                    Button(action: {}, label: {
+                                    Link(destination: URL(string:  "https://accounts.google.com/v3/signin/identifier?dsh=S-2129707820%3A1666963665688148&continue=https%3A%2F%2Fwww.google.com%2F%3Fclient%3Dsafari%26channel%3Diphone_bm%26ptid%3D19025005%26ptt%3D8%26fpts%3D1666963665275&ec=futura_hpp_bt_si_4746042_p&flowName=GlifWebSignIn&flowEntry=ServiceLogin&ifkv=AQDHYWrdXSW6rWRPFnZz86f8FSjsGn_iUTLTK12u2yWE3WIXke_OplxjyWwqlZ41BsP8nfGrUELWAg")!) {
                                         Image("google")
                                             .resizable()
                                             .frame(width: 30, height: 30)
@@ -83,7 +92,7 @@ struct SignUpView: View {
                                             .padding(.vertical , 15)
                                             .background(Color("button-bg"))
                                             .cornerRadius(15)
-                                    })
+                                    }
                                 }
                                 .padding(.horizontal, 20)
                                 
@@ -92,8 +101,8 @@ struct SignUpView: View {
                         }
                         Spacer()
                         
-                        HStack{
-                            Text("Already have an acoount?")
+                        HStack(spacing:20){
+                            Text("계정이 이미 있으신가요?")
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
                                 .font(.system(size: 18))
@@ -102,7 +111,7 @@ struct SignUpView: View {
                                 Button(action: {
                                     self.isLinkActive = true
                                 }, label: {
-                                    Text("SIGN IN")
+                                    Text("로그인")
                                         .font(.system(size: 18))
                                         .foregroundColor(Color("color1"))
                                         .fontWeight(.bold)

@@ -37,7 +37,7 @@ struct CustomTextField: View {
                 .padding(.leading,20)
                 .foregroundColor(Color(bColor).opacity(tOpacity))
             
-            if placeHolder == "Password" || placeHolder == "Confirm PassWord" {
+            if placeHolder == "비밀번호" || placeHolder == "비밀번호 확인" {
                 ZStack (alignment: .leading){
                     if value.isEmpty {
                         Text(placeHolder)
