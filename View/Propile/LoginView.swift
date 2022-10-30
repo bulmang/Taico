@@ -9,11 +9,14 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @State private var email: String = ""
-    @State private var password: String = ""
+    @State var email: String = ""
+    @State var password: String = ""
     @State var isFindActive = false
     @State var isLinkActive = false
+    @State var isOrderActive = false
     @State var alert: Bool = false
+    @State var login: Bool = false
+    @State var Id: String = ""
     
     var body: some View {
         NavigationView {
@@ -95,21 +98,33 @@ struct LoginView: View {
                                 
                                 
                                 NavigationLink(destination: SignUpView(), isActive: $isLinkActive) {
-                                    
-                                    Button(action: {
-                                        if email != "" && password != ""{
-                                            self.alert = true
-                                        }
-                                        
-                                    }, label: {
-                                        CustomButton(title: "로그인", bgColor: "color1")
-                                            .fontWeight(.bold)
-                                            .alert("가입되지 않은 아이디입니다.회원가입을 하셔야합니다.", isPresented: $alert){
-                                                Button("확인", role: .cancel){
-                                                    self.isLinkActive = true
-                                                }
+                                    NavigationLink(destination: ProfileView(),isActive: $isOrderActive) {
+                                        Button(action: {
+                                            if email == "하명관" && password == "1234"{
+                                                self.login = true
+                                                
+                                            }else
+                                            if email != "" && password != ""{
+                                                self.alert = true
                                             }
-                                    })
+                                            
+                                        }, label: {
+                                            CustomButton(title: "로그인", bgColor: "color1")
+                                                .fontWeight(.bold)
+                                                .alert("가입되지 않은 아이디입니다.회원가입을 하셔야합니다.", isPresented: $alert){
+                                                    Button("확인", role: .cancel){
+                                                        self.isLinkActive = true
+                                                    }
+                                                }
+                                                .alert("로그인 되셨습니다.", isPresented: $login){
+                                                    Button("확인", role: .cancel){
+                                                        
+                                                        self.isOrderActive = true
+                                                    }
+                                                }
+                                        })
+                                    }
+                                    
                                     
                                 }.padding(.horizontal, 20)
                                 

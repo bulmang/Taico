@@ -9,12 +9,13 @@ import SwiftUI
 
 struct SignUpView: View {
     
-    @State private var name: String = ""
-    @State private var password: String = ""
-    @State private var email: String = ""
-    @State private var cpassword: String = ""
+    @State var name: String = ""
+    @State var password: String = ""
+    @State var email: String = ""
+    @State var cpassword: String = ""
     @State var isLinkActive = false
     @State var alert: Bool = false
+    
     
     var body: some View {
         NavigationView {
@@ -51,6 +52,8 @@ struct SignUpView: View {
                                 CustomTextField(placeHolder: "비밀번호", imageName: "lock", bColor: "textColor2", tOpacity: 1.0, value: $password)
                                 
                                 CustomTextField(placeHolder: "비밀번호 확인", imageName: "lock.fill", bColor: "textColor2", tOpacity: 1.0, value: $password)
+                                
+
                             }
                             
                             VStack (alignment: .trailing){
@@ -65,6 +68,7 @@ struct SignUpView: View {
                                             .alert("회원가입을 하셨습니다.", isPresented: $alert){
                                                 Button("확인", role: .cancel){
                                                     self.isLinkActive = true
+                                                    
                                                 }
                                             }
                                     })

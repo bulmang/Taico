@@ -18,20 +18,32 @@ struct Card: View {
     var body: some View {
         ZStack{
             
+            
             NeuromorphicUI {
                         RoundedRectangle(cornerRadius: 25)
                             .frame(width: 400, height: 450)
                             .offset(y:-50)
                     }.ignoresSafeArea()
+            
 
             VStack(spacing: 10){
                 
                 Text("Pay")
+                    .foregroundColor(.white)
                     .font(.system(size: 50))
                     .fontWeight(.heavy)
                     .frame(maxWidth: .infinity,alignment: .leading)
                     .padding(.horizontal)
                     .padding(.bottom,90)
+                    .background{
+                        Color("color2")
+                            .frame(height: 200)
+                            .ignoresSafeArea()
+                            .offset(y:-60)
+                            
+                    }
+                    .offset(y:-40)
+                    
                     
             
                 
@@ -78,6 +90,7 @@ struct Card: View {
             
 
         }
+        
     }
     
     // MARK: GlassMorphism Card
@@ -138,10 +151,11 @@ struct Card: View {
                 
                 Image("barcode")
                     .resizable()
-                    .frame(height: 50)
-                    .frame(maxWidth: .infinity)
+                    .scaleEffect(x:1.5 , y: 2)
+                    
+                    
             }
-            .offset(y: -5)
+            
             
             Spacer()
             

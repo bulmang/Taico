@@ -14,7 +14,12 @@ import Combine
 struct Order: View {
     // 뷰의 속성들
     @State var currentIndex: Int = 0
+    @State var Tea_currentIndex: Int = 0
+    @State var smudi_currentindex: Int = 0
+    @State var BubbleTea_currentIndex: Int = 0
+    
     @State var currentTab: Tab = tabs[1]
+    @State var propile: Bool = false
     
     @Namespace var animation
     
@@ -234,6 +239,7 @@ struct Order: View {
             Color(.white)
                 .ignoresSafeArea()
         }
+        .navigationBarHidden(true)
     }
     
     // 밀크쉐이크 카르셀 뷰
@@ -285,7 +291,7 @@ struct Order: View {
                 }
                 .contentShape(Rectangle())
                 .onTapGesture {
-                    withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.8, blendDuration: 0.8)){
+                    withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.8, blendDuration: 0.1)){
                         selectedMilkShake = milkShake
                         showDetail = true
                     } // 클릭 하였을 때 애니메이션효과가 순서대로 움직일수 있게 만들어줌
@@ -317,7 +323,7 @@ struct Order: View {
     func TeaCarouselView(size: CGSize)-> some View{
         VStack(spacing: -40){
             // 스크린 넓이 / 3
-            CustomCarousel(index: $currentIndex, items: teas,spacing: 0,cardPadding: size.width / 3, id: \.id) {
+            CustomCarousel(index: $Tea_currentIndex, items: teas,spacing: 0,cardPadding: size.width / 3, id: \.id) {
                 milkShake, size in
                 
                 
@@ -371,7 +377,7 @@ struct Order: View {
             }
             .frame(height: size.height * 0.8)
             
-            Indicators()
+            TeaIndicators()
         }
         .frame(width: size.width,height: size.height,alignment: .bottom)
         .padding(.bottom,8)
@@ -392,7 +398,7 @@ struct Order: View {
     func SmudiCarouselView(size: CGSize)-> some View{
         VStack(spacing: -40){
             // 스크린 넓이 / 3
-            CustomCarousel(index: $currentIndex, items: smudis,spacing: 0,cardPadding: size.width / 3, id: \.id) {
+            CustomCarousel(index: $smudi_currentindex, items: smudis,spacing: 0,cardPadding: size.width / 3, id: \.id) {
                 milkShake, size in
                 
                 
@@ -446,7 +452,7 @@ struct Order: View {
             }
             .frame(height: size.height * 0.8)
             
-            Indicators()
+            SmudiIndicators()
         }
         .frame(width: size.width,height: size.height,alignment: .bottom)
         .padding(.bottom,8)
@@ -467,7 +473,7 @@ struct Order: View {
     func BubbleTeaCarouselView(size: CGSize)-> some View{
         VStack(spacing: -40){
             // 스크린 넓이 / 3
-            CustomCarousel(index: $currentIndex, items: bubbleteas,spacing: 0,cardPadding: size.width / 3, id: \.id) {
+            CustomCarousel(index: $BubbleTea_currentIndex, items: bubbleteas,spacing: 0,cardPadding: size.width / 3, id: \.id) {
                 milkShake, size in
                 
                 
@@ -521,7 +527,7 @@ struct Order: View {
             }
             .frame(height: size.height * 0.8)
             
-            Indicators()
+            BubbleTeaIndicators()
         }
         .frame(width: size.width,height: size.height,alignment: .bottom)
         .padding(.bottom,8)
@@ -593,21 +599,80 @@ struct Order: View {
         .animation(.easeInOut, value: currentIndex)
     }
     
+    func TeaIndicators()->some View{
+        HStack(spacing: 2){
+            ForEach(teas.indices, id: \.self){index in
+                Circle()
+                    .fill(Color("Color"))
+                    .frame(width: Tea_currentIndex == index ? 10 : 6, height: Tea_currentIndex == index ? 10 : 6)
+                    .padding(4)
+                    .background {
+                        if Tea_currentIndex == index{
+                            Circle()
+                                .stroke(Color("Color"),lineWidth: 1)
+                                .matchedGeometryEffect(id: "TEA_INDICATOR", in: animation )
+                        }
+                    }
+            }
+        }
+        .animation(.easeInOut, value: Tea_currentIndex)
+    }
+    
+    func SmudiIndicators()->some View{
+        HStack(spacing: 2){
+            ForEach(smudis.indices, id: \.self){index in
+                Circle()
+                    .fill(Color("Color"))
+                    .frame(width: smudi_currentindex == index ? 10 : 6, height: smudi_currentindex == index ? 10 : 6)
+                    .padding(4)
+                    .background {
+                        if smudi_currentindex == index{
+                            Circle()
+                                .stroke(Color("Color"),lineWidth: 1)
+                                .matchedGeometryEffect(id: "Smudi_INDICATOR", in: animation )
+                        }
+                    }
+            }
+        }
+        .animation(.easeInOut, value: smudi_currentindex)
+    }
+    
+    func BubbleTeaIndicators()->some View{
+        HStack(spacing: 2){
+            ForEach(smudis.indices, id: \.self){index in
+                Circle()
+                    .fill(Color("Color"))
+                    .frame(width: BubbleTea_currentIndex == index ? 10 : 6, height: BubbleTea_currentIndex == index ? 10 : 6)
+                    .padding(4)
+                    .background {
+                        if BubbleTea_currentIndex == index{
+                            Circle()
+                                .stroke(Color("Color"),lineWidth: 1)
+                                .matchedGeometryEffect(id: "BubblTea_INDICATOR", in: animation )
+                        }
+                    }
+            }
+        }
+        .animation(.easeInOut, value: BubbleTea_currentIndex)
+    }
+    
     // 헤더 뷰
     @ViewBuilder
     func HeaderView()->some View{
+        
+        
         HStack{
             Button{
                 
             } label: {
                 HStack(spacing: 10){
-                    Image("Pic1")
+                    Image(propile ? "Profile_Image" : "Pic1")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 35,height: 35)
                         .clipShape(Circle())
                     
-                    Text("로그인")
+                    Text(propile ? "하명관" : "로그인")
                         .font(.system(size: 14, weight: .semibold))
                         .foregroundColor(.black)
                 }

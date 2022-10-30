@@ -43,6 +43,7 @@
 		439D7BCD28FDB60E006C92FD /* AnimatedIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7BCC28FDB60E006C92FD /* AnimatedIcon.swift */; };
 		439D7BCF28FDB639006C92FD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7BCE28FDB639006C92FD /* MainView.swift */; };
 		439D7BD128FDB6F8006C92FD /* ResizableLottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7BD028FDB6F8006C92FD /* ResizableLottieView.swift */; };
+		43BAEBED290ED653003773FF /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BAEBEC290ED652003773FF /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		439D7BCC28FDB60E006C92FD /* AnimatedIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedIcon.swift; sourceTree = "<group>"; };
 		439D7BCE28FDB639006C92FD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		439D7BD028FDB6F8006C92FD /* ResizableLottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableLottieView.swift; sourceTree = "<group>"; };
+		43BAEBEC290ED652003773FF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 				437FDD4D29058B1400A42FF1 /* LoginView.swift */,
 				437FDD4F29058B3100A42FF1 /* SignUpView.swift */,
 				432BD09029090BBE00E981F4 /* FindView.swift */,
+				43BAEBEC290ED652003773FF /* ProfileView.swift */,
 			);
 			path = Propile;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				439D7BA728FDA266006C92FD /* Drink.swift in Sources */,
 				437FDD5029058B3100A42FF1 /* SignUpView.swift in Sources */,
 				437FDD4C29058AF400A42FF1 /* CustomViews.swift in Sources */,
+				43BAEBED290ED653003773FF /* ProfileView.swift in Sources */,
 				437FDD562905AD2F00A42FF1 /* BubbleTea.swift in Sources */,
 				432BD09129090BBE00E981F4 /* FindView.swift in Sources */,
 				439D7BCB28FDB5F0006C92FD /* BottomTab.swift in Sources */,
