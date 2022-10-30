@@ -131,15 +131,15 @@ struct Card: View {
     func CardContent()->some View{
         VStack(alignment: .leading, spacing: 12) {
             HStack{
-                Text("TAICO MEMBERSHIP")
-                    .modifier(CustomModifier(font: .callout))
-                    .font(.system(size: 20))
-                    .fontWeight(.bold)
+//                Text("TAICO MEMBERSHIP")
+//                    .modifier(CustomModifier(font: .callout))
+//                    .font(.system(size: 20))
+//                    .fontWeight(.bold)
                 
-                Image("image1")
+                Image("barcode")
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 90, height: 90)
+                    .frame(height: 50)
+                    .frame(maxWidth: .infinity)
             }
             .offset(y: -5)
             
