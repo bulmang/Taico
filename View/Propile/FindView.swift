@@ -16,6 +16,8 @@ struct FindIdView: View {
     @State var ColorCircle : Bool = false
     @State var alert: Bool = false
     @State var alert2: Bool = false
+    @State var alert3: Bool = false
+    @State var alert4: Bool = false
     @State var show: Bool = true
     
     var body: some View {
@@ -72,17 +74,21 @@ struct FindIdView: View {
                             
                         VStack{
                             CustomTextField(placeHolder: "이름", imageName: "person", bColor: "textColor1", tOpacity: 0.6, value: $name)
+                                .opacity(ColorCircle ? 1 : 0)
                             
                             
                             CustomTextField(placeHolder: "생년월일 6자리", imageName: "birthday.cake", bColor: "textColor1", tOpacity: 0.6, value: $birth)
+                                .opacity(ColorCircle ? 1 : 0)
                             
                             CustomTextField(placeHolder: "휴대폰 번호", imageName: "phone", bColor: "textColor1", tOpacity: 0.6, value: $number)
+                                .opacity(ColorCircle ? 1 : 0)
                             
                             HStack{
                                 Text("인증번호")
                                     .foregroundColor(Color(.black).opacity((0.6)))
                                     .padding()
                                     .font(.system(size: 20))
+                                    .opacity(ColorCircle ? 1 : 0)
                                 if permission.isEmpty {
                                     
                                    
@@ -98,16 +104,26 @@ struct FindIdView: View {
                                 Button("인증요청") {
                                     if name != "" && birth != "" && number != "" {
                                         alert = true
+                                    }else {
+                                        alert3 = true
                                     }
 
                                 }
+                                .opacity(ColorCircle ? 1 : 0)
                                 .padding(.trailing)
+                                .alert(
+                                    "이름, 생년월일 , 휴대폰 번호를 입력해주세요", isPresented: $alert3){
+                                    Button("확인", role: .cancel){
+                                        
+                                    }
+                                }
                                 .alert(
                                     "메시지\n 인증 메세지를 보냈습니다.", isPresented: $alert){
                                     Button("확인", role: .cancel){
                                         
                                     }
                                 }
+                                
                                
                             }
                             .overlay (
@@ -119,17 +135,36 @@ struct FindIdView: View {
                                     .padding(.top,50)
                                     .padding(.horizontal)
                             )
+                            .opacity(ColorCircle ? 1 : 0)
                             Spacer()
 
-                            if permission != "" {
+                            
                                 
-                                NavigationLink(destination: LoginView(), isActive: $isLinkActive) {
+                            NavigationLink(destination: LoginView(), isActive: $isLinkActive) {
                                     
-                                    Button(action: {
-                                        alert2 = true
-                                    }, label: {
-                                        CustomButton(title: "인증하기", bgColor: "color2")
+                                    Button {
+                                        if permission == "" {
+                                            alert4 = true
+                                        }else {
+                                            alert2 = true
+                                        }
+                                        
+                                    } label: {
+                                        Text("인증하기")
                                             .fontWeight(.bold)
+                                            .foregroundColor(permission == "" ? Color.black : Color.white)
+                                            .frame(height: 58)
+                                            .frame(minWidth: 0, maxWidth: .infinity)
+                                            .background(permission == "" ? Color.black.opacity(0.06) : Color("color2"))
+                                            .cornerRadius(15)
+                                            .fontWeight(.bold)
+                                            .fontWeight(.bold)
+                                            .alert(
+                                                "인증번호를 입력해주세요", isPresented: $alert4){
+                                                Button("확인", role: .cancel){
+                                                    
+                                                }
+                                            }
                                             .alert(
                                                 "인증되었습니다.", isPresented: $alert2){
                                                 Button("확인", role: .cancel){
@@ -137,15 +172,15 @@ struct FindIdView: View {
                                                 }
                                             }
                                             
-                                    })
+                                    }
                                     
                                 }.padding(.horizontal, 20)
                             }
                             
 
             
-                        }
-                        .opacity(ColorCircle ? 1 : 0)
+                        
+                        
                     }
                     
                     

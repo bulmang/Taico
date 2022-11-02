@@ -11,6 +11,7 @@
 		432BCA5F2900082400084438 /* BlogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432BCA5E2900082400084438 /* BlogModel.swift */; };
 		432BCA612900093500084438 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432BCA602900093500084438 /* Home.swift */; };
 		432BD09129090BBE00E981F4 /* FindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432BD09029090BBE00E981F4 /* FindView.swift */; };
+		4336FC21290F54380007A41A /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336FC20290F54380007A41A /* OrderViewModel.swift */; };
 		435624F7290D767F000E60BC /* Shopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435624F6290D767F000E60BC /* Shopping.swift */; };
 		4369416328FE8BDC00A0771B /* hover-shopping.json in Resources */ = {isa = PBXBuildFile; fileRef = 4369416228FE8BDC00A0771B /* hover-shopping.json */; };
 		4369416B28FE8D5400A0771B /* 571-black-tea-lineal.json in Resources */ = {isa = PBXBuildFile; fileRef = 4369416A28FE8D5400A0771B /* 571-black-tea-lineal.json */; };
@@ -68,6 +69,7 @@
 		432BCA5E2900082400084438 /* BlogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogModel.swift; sourceTree = "<group>"; };
 		432BCA602900093500084438 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		432BD09029090BBE00E981F4 /* FindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindView.swift; sourceTree = "<group>"; };
+		4336FC20290F54380007A41A /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
 		435624F6290D767F000E60BC /* Shopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopping.swift; sourceTree = "<group>"; };
 		4369416228FE8BDC00A0771B /* hover-shopping.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "hover-shopping.json"; sourceTree = "<group>"; };
 		4369416A28FE8D5400A0771B /* 571-black-tea-lineal.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "571-black-tea-lineal.json"; sourceTree = "<group>"; };
@@ -177,15 +179,16 @@
 			path = Propile;
 			sourceTree = "<group>";
 		};
-		437FDD572905AD3400A42FF1 /* OrderMenu */ = {
+		437FDD572905AD3400A42FF1 /* Order */ = {
 			isa = PBXGroup;
 			children = (
 				439D7BA628FDA266006C92FD /* Drink.swift */,
 				437FDD512905A02800A42FF1 /* Tea.swift */,
 				437FDD532905A48400A42FF1 /* Smudi.swift */,
 				437FDD552905AD2F00A42FF1 /* BubbleTea.swift */,
+				4336FC20290F54380007A41A /* OrderViewModel.swift */,
 			);
-			path = OrderMenu;
+			path = Order;
 			sourceTree = "<group>";
 		};
 		439D7B6E28FD9F3E006C92FD = {
@@ -252,7 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				432BD09529090C2300E981F4 /* Profile */,
-				437FDD572905AD3400A42FF1 /* OrderMenu */,
+				437FDD572905AD3400A42FF1 /* Order */,
 				439D7BAD28FDA436006C92FD /* Tab.swift */,
 				439D7BCA28FDB5F0006C92FD /* BottomTab.swift */,
 				439D7BCC28FDB60E006C92FD /* AnimatedIcon.swift */,
@@ -449,6 +452,7 @@
 				431162142902E2F500565BA3 /* Card.swift in Sources */,
 				439D7BAE28FDA436006C92FD /* Tab.swift in Sources */,
 				439D7BA728FDA266006C92FD /* Drink.swift in Sources */,
+				4336FC21290F54380007A41A /* OrderViewModel.swift in Sources */,
 				437FDD5029058B3100A42FF1 /* SignUpView.swift in Sources */,
 				437FDD4C29058AF400A42FF1 /* CustomViews.swift in Sources */,
 				43BAEBED290ED653003773FF /* ProfileView.swift in Sources */,

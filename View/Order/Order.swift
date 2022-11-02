@@ -18,9 +18,13 @@ struct Order: View {
     @State var smudi_currentindex: Int = 0
     @State var BubbleTea_currentIndex: Int = 0
     
-    @State var currentTab: Tab = tabs[1]
-    @State var propile: Bool = false
     
+    
+    @State var currentTab: Tab = tabs[1]
+    @State var profile: Bool = false
+    
+    
+ 
     @Namespace var animation
     
     // 뷰의 새부 속성들
@@ -39,24 +43,89 @@ struct Order: View {
     @State var showSmudiCarousel: Bool = false
     @State var showBubbleTeaCarousel: Bool = false
     
+    @StateObject var homeData = OrderViewModel()
+    
     var body: some View {
+        
+        
         VStack {
-            HeaderView()
-                .background(
-                    Rectangle()
-                        .foregroundColor(Color("color2"))
-                        .frame(height: 400)
+            HStack{
+                Button{
+                    
+                } label: {
+                    HStack(spacing: 10){
+                        Image(profile ? "Profile_Image" : "Pic1")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 35,height: 35)
+                            .clipShape(Circle())
                         
-                )
+                        Text(profile ? "하명관" : "로그인")
+                            .font(.system(size: 14, weight: .semibold))
+                            .foregroundColor(.black)
+                        
+                        
+                    }
+                    .padding(.leading,8)
+                    .padding(.horizontal,12)
+                    .padding(.vertical,6)
+                    .background{
+                        Capsule()
+                            .fill(Color("Color-2"))
+                    }
+                }
+                .frame(maxWidth: .infinity,alignment: .leading)
+                .opacity(showDetail ? 0 : 1)
+                .opacity(showTeaDetail ? 0 : 1)
+                .opacity(showBubbleTeaDetail ? 0 : 1)
+                .opacity(showSmudiDetail ? 0 : 1)
+                
+                // going to show the same button from home view
+                
+//                Button{
+//
+//                }label: {
+//                    Image(systemName: "cart")
+//                        .font(.title2)
+//                        .foregroundColor(.black)
+//                        .overlay(
+//
+//                            Text("\(homeData.cartItems)")
+//                                .font(.caption)
+//                                .fontWeight(.bold)
+//                                .foregroundColor(.white)
+//                                .padding(10)
+//                                .background(Color("orange"))
+//                                .clipShape(Circle())
+//                                .offset(x: 15, y: -10)
+//                                .opacity(homeData.cartItems != 0 ? 1 : 0)
+//                        )
+//                }
+               
+                
+            }
+            
+            .padding(15)
+            .background(
+                Rectangle()
+                    .foregroundColor(Color("color2"))
+                    .frame(height: 400)
+                    
+            )
+       
+     
+                
             ZStack{
                     
                 VStack(alignment: .leading, spacing: 8) {
                     
-                    Text(attributedTitle)
+                    Text("TAICO")
+                        .foregroundColor(.white)
                         .font(.largeTitle.bold())
                         .padding(.leading)
                     
-                    Text(attributedSubTitle)
+                    Text("당신을 위한 음료")
+                        .foregroundColor(.white)
                         .font(.largeTitle.bold())
                         .padding(.leading)
                     
@@ -291,7 +360,7 @@ struct Order: View {
                 }
                 .contentShape(Rectangle())
                 .onTapGesture {
-                    withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.8, blendDuration: 0.1)){
+                    withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.8, blendDuration: 0.8)){
                         selectedMilkShake = milkShake
                         showDetail = true
                     } // 클릭 하였을 때 애니메이션효과가 순서대로 움직일수 있게 만들어줌
@@ -308,7 +377,7 @@ struct Order: View {
         .opacity(showDetail ? 0 : 1)
         // 백그라운드 커스텀
 //        .background{
-//            Circle()
+//            Circle()k
 //                .fill(.white)
 //                .scaleEffect(showDetail ? 1.8 : 1.0, anchor: .bottomLeading)
 //                .padding(.top, 40)
@@ -657,100 +726,42 @@ struct Order: View {
     }
     
     // 헤더 뷰
-    @ViewBuilder
-    func HeaderView()->some View{
-        
-        
-        HStack{
-            Button{
-                
-            } label: {
-                HStack(spacing: 10){
-                    Image(propile ? "Profile_Image" : "Pic1")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 35,height: 35)
-                        .clipShape(Circle())
-                    
-                    Text(propile ? "하명관" : "로그인")
-                        .font(.system(size: 14, weight: .semibold))
-                        .foregroundColor(.black)
-                }
-                .padding(.leading,8)
-                .padding(.horizontal,12)
-                .padding(.vertical,6)
-                .background{
-                    Capsule()
-                        .fill(Color("Color-2"))
-                }
-            }
-            .frame(maxWidth: .infinity,alignment: .leading)
-            .opacity(showDetail ? 0 : 1)
-            .opacity(showTeaDetail ? 0 : 1)
-            .opacity(showBubbleTeaDetail ? 0 : 1)
-            .opacity(showSmudiDetail ? 0 : 1)
-            
-            // going to show the same button from home view
-            
-            Button{
-                
-            }label: {
-                Image(systemName: "cart")
-                    .font(.title2)
-                    .foregroundColor(.black)
-                    .overlay(alignment: .topTrailing) {
-                        Circle()
-                            .fill(.red)
-                            .frame(width: 10,height: 10)
-                            .offset(x: 2, y: -5)
-                    }
-            }
-            
-        }
-        .padding(15)
-        
-    }
-    
-    var attributedTitle: AttributedString{
-        var attString = AttributedString(stringLiteral: "TAICO")
-        if let range = attString.range(of: "TAICO"){
-            attString[range].foregroundColor = .white
-        }
-        return attString
-    }
-    
-    var attributedSubTitle: AttributedString{
-        var attString = AttributedString(stringLiteral: "당신을 위한 음료")
-        if let range = attString.range(of: "당신을 위한 음료"){
-            attString[range].foregroundColor = .white
-        }
-        return attString
-    }
+
 }
 struct Order_Previews: PreviewProvider {
     static var previews: some View {
-        Order()
+        Order( )
     }
 }
 class UserSetting: ObservableObject{
     @Published var score : Int = 0
 }
+
+
 // 상세 뷰
 struct DrinkDetailView: View{
+    
+    @StateObject var homeData = OrderViewModel()
+    
     var animation: Namespace.ID
     var Drinkes: Drink
+    
     @ObservedObject var userSetting = UserSetting()
+    
+    
+    
     @Binding var show: Bool
     
     // view 속성들
     @State var orderType: String = "차갑게"
     @State var showContent: Bool = false
     
+    
+    
     var body: some View{
     
-        
         VStack{
-            HStack{
+            HStack(){
                 Button{
                     withAnimation(.easeInOut(duration: 0.35)){
                         showContent = false
@@ -766,14 +777,37 @@ struct DrinkDetailView: View{
                         .foregroundColor(.black)
                         .padding(15)
                 }
-                .frame(maxWidth: .infinity,alignment: .leading)
+                
+                Spacer()
+                
+                Text("주문")
+                    .font(.callout)
+                    .fontWeight(.semibold)
+                
+                Spacer()
+                
+                Button{
+                    
+                }label: {
+                    Image(systemName: "cart")
+                        .font(.title2)
+                        .foregroundColor(.black)
+                        .overlay(
+                            Text("\(homeData.cartItems)")
+                                .font(.caption)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .padding(10)
+                                .background(Color("orange"))
+                                .clipShape(Circle())
+                                .offset(x: 15, y: -10)
+                                .opacity(homeData.cartItems != 0 ? 1 : 0)
+                        )
+                }
+                
             }
-            .overlay {
-                    Text("주문")
-                        .font(.callout)
-                        .fontWeight(.semibold)
-            }
-            .padding(.top, 7)
+            .frame(maxWidth: .infinity)
+            .padding()
             .opacity(showContent ? 1 : 0)
             
             HStack(spacing: 0) {
@@ -813,6 +847,51 @@ struct DrinkDetailView: View{
                 MilkShakeDetails()
                     .offset(y: showContent ? 0 : size.height + 50)
             }
+            
+            if homeData.startAnimation{
+                
+                VStack{
+                    
+                    Spacer()
+                    
+                    ZStack{
+                        
+                        // Circle ANimatio Effect...
+                        
+                        Color.white
+                            .frame(width: homeData.shoeAnimation ? 100 : getRect().width * 1.3, height: homeData.shoeAnimation ? 100 : getRect().width * 1.3)
+                            .clipShape(Circle())
+                        // Opacit...
+                            .opacity(homeData.shoeAnimation ? 1 : 0)
+                        
+                        Image(Drinkes.image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .matchedGeometryEffect(id: Drinkes.id, in: animation)
+                            .frame(width: 80, height: 80)
+                    }
+                    .offset(y: homeData.saveCart ? 70 : -120)
+                    // scaling effect...
+                    .scaleEffect(homeData.saveCart ? 0.6 : 1)
+                    .onAppear(perform: homeData.performAnimations)
+                    
+                    if !homeData.saveCart{
+                        Spacer()
+                    }
+                    
+                    Image(systemName: "cart\(homeData.additemtocart ? ".fill" : "")")
+                        .font(.title)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(homeData.additemtocart ? Color("color2") : Color("color1"))
+                        .clipShape(Circle())
+                        .offset(y: homeData.showBag ? -50 : 300)
+                }
+                // setting external view width to screen width..
+                .frame(width: getRect().width)
+                // moving view down...
+                .offset(y: homeData.endAnimation ? 500 : 0)
+            }
         }
         .frame(maxWidth: .infinity,maxHeight: .infinity,alignment: .top)
         .transition(.asymmetric(insertion: .identity, removal: .offset(y:0.5)))
@@ -821,6 +900,17 @@ struct DrinkDetailView: View{
                 showContent = true
             }
         }
+        .onChange(of: homeData.endAnimation, perform: { value in
+            
+            if homeData.endAnimation{
+                
+                // reset...
+                homeData.resetAll()
+                
+            }
+        })
+        
+        
     }
     
     // 밑 부분 만들기
@@ -853,18 +943,18 @@ struct DrinkDetailView: View{
                         .font(.callout.bold())
                         
                     Button {
-                        if (userSetting.score > 0){
-                            self.userSetting.score -= 1
+                        if (homeData.scoreItems > 0){
+                            self.homeData.scoreItems -= 1
                         }
                     } label: {
                         Image(systemName: "minus")
                             .font(.title3)
                     }
-                    Text("\(self.userSetting.score)")
+                    Text("\(self.homeData.scoreItems)")
                         .font(.title3)
                     
                     Button {
-                        self.userSetting.score += 1
+                        self.homeData.scoreItems += 1
                     } label: {
                         Image(systemName: "plus")
                             .font(.title3)
@@ -874,6 +964,10 @@ struct DrinkDetailView: View{
                 
                 HStack{
                     Button {
+                        withAnimation(.easeInOut(duration: 0.7)){
+                            homeData.startAnimation.toggle()
+                            
+                        }
                         
                     } label: {
                         Text("장바구니 추가")
@@ -929,6 +1023,7 @@ struct TeaDetailView: View{
     var animation: Namespace.ID
     var Teas: Tea
     @ObservedObject var userSetting = UserSetting()
+    
     @Binding var show: Bool
     
     // view 속성들
@@ -956,15 +1051,34 @@ struct TeaDetailView: View{
                         .padding(15)
                 }
                 .frame(maxWidth: .infinity,alignment: .leading)
+                Text("주문")
+                    .font(.system(size: 20))
+                    .font(.callout)
+                Text("hi")
+                Button{
+                    
+                }label: {
+                Image(systemName: "cart")
+                    .font(.title2)
+                    .foregroundColor(.black)
+                    .overlay(
+                        Text("1")
+                            .font(.caption)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .padding(10)
+                            .background(Color("orange"))
+                            .clipShape(Circle())
+                            .offset(x: 15, y: -10)
+//                            .opacity(homeData.cartItems != 0 ? 1 : 0)
+                    )
             }
-            .overlay {
-                    Text("주문")
-                        .font(.system(size: 20))
-                        .font(.callout)
-                        
+                .padding(.top, 7)
             }
-            .padding(.top, 7)
-            .opacity(showContent ? 1 : 0)
+
+            
+
+            
             
             HStack(spacing: 0) {
                 ForEach(["현재 주문","지난 주문"], id: \.self){ order in
@@ -1015,6 +1129,7 @@ struct TeaDetailView: View{
     // 밑 부분 만들기
     @ViewBuilder
     func MilkShakeDetails()->some View{
+        
         VStack{
             VStack(spacing: 12) {
                 Text("512D Code")
@@ -1062,6 +1177,9 @@ struct TeaDetailView: View{
                 .foregroundColor(.black)
                 
                 Button {
+                    withAnimation(.easeInOut(duration: 0.7)){
+                        
+                    }
                     
                 } label: {
                     Text("장바구니 추가")
@@ -1183,10 +1301,7 @@ struct SmudiDetailView: View{
     func MilkShakeDetails()->some View{
         VStack{
             VStack(spacing: 12) {
-                Text("512D Code")
-                    .font(.caption)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.black)
+         
                 
                 Text(Smudis.title)
                     .font(.title2)
@@ -1423,3 +1538,9 @@ struct BubbleTeaDetailView: View{
 
 }
 
+extension View{
+    
+    func getRect()->CGRect{
+        return UIScreen.main.bounds
+    }
+}

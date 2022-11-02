@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @State var isOrderActive: Bool = false
     var body: some View {
         
         let customFont = "Raleway-Regular"

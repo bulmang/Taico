@@ -15,6 +15,7 @@ struct SignUpView: View {
     @State var cpassword: String = ""
     @State var isLinkActive = false
     @State var alert: Bool = false
+    @State var alert2: Bool = false
     
     
     var body: some View {
@@ -61,10 +62,21 @@ struct SignUpView: View {
                                     Button(action: {
                                         if name != "" && email != "" && password != "" {
                                             self.alert = true
+                                        }else {
+                                            self.alert2 = true
                                         }
                                     }, label: {
-                                        CustomButton(title: "회원가입 하기", bgColor: "color2")
+                                        Text("로그인")
                                             .fontWeight(.bold)
+                                            .foregroundColor(password == "" ? Color.black : Color.white)
+                                            .frame(height: 58)
+                                            .frame(minWidth: 0, maxWidth: .infinity)
+                                            .background(password == "" ? Color.gray : Color("color2"))
+                                            .cornerRadius(15)
+                                            .alert("모두 정확히 입력해주세요.", isPresented: $alert2){
+                                                Button("확인", role: .cancel){
+                                                }
+                                            }
                                             .alert("회원가입을 하셨습니다.", isPresented: $alert){
                                                 Button("확인", role: .cancel){
                                                     self.isLinkActive = true

@@ -15,8 +15,11 @@ struct LoginView: View {
     @State var isLinkActive = false
     @State var isOrderActive = false
     @State var alert: Bool = false
+    @State var alert2: Bool = false
     @State var login: Bool = false
     @State var Id: String = ""
+    
+    
     
     var body: some View {
         NavigationView {
@@ -106,11 +109,23 @@ struct LoginView: View {
                                             }else
                                             if email != "" && password != ""{
                                                 self.alert = true
+                                            }else{
+                                                self.alert2 = true
                                             }
                                             
                                         }, label: {
-                                            CustomButton(title: "로그인", bgColor: "color1")
+                                            Text("로그인")
                                                 .fontWeight(.bold)
+                                                .foregroundColor(password == "" ? Color.black : Color.white)
+                                                .frame(height: 58)
+                                                .frame(minWidth: 0, maxWidth: .infinity)
+                                                .background(password == "" ? Color.black.opacity(0.06) : Color("color2"))
+                                                .cornerRadius(15)
+                                                .fontWeight(.bold)
+                                                .alert("아이디와 비밀번호를 모두 정확히 입력해주세요.", isPresented: $alert2){
+                                                    Button("확인", role: .cancel){
+                                                    }
+                                                }
                                                 .alert("가입되지 않은 아이디입니다.회원가입을 하셔야합니다.", isPresented: $alert){
                                                     Button("확인", role: .cancel){
                                                         self.isLinkActive = true
@@ -119,7 +134,9 @@ struct LoginView: View {
                                                 .alert("로그인 되셨습니다.", isPresented: $login){
                                                     Button("확인", role: .cancel){
                                                         
+                                                        Order(profile: true)
                                                         self.isOrderActive = true
+                                                        
                                                     }
                                                 }
                                         })
