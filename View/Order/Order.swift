@@ -20,6 +20,8 @@ struct Order: View {
     
     
     
+    
+    
     @State var currentTab: Tab = tabs[1]
     @State var profile: Bool = false
     
@@ -45,270 +47,273 @@ struct Order: View {
     
     @StateObject var homeData = OrderViewModel()
     
+    @ObservedObject var userSetting = UserSetting()
+    @ObservedObject var cartIndex = CartIndex()
+    
     var body: some View {
         
-        
-        VStack {
-            HStack{
-                Button{
-                    
-                } label: {
-                    HStack(spacing: 10){
-                        Image(profile ? "Profile_Image" : "Pic1")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 35,height: 35)
-                            .clipShape(Circle())
+        ZStack{
+            VStack {
+                HStack{
+                    Button{
                         
-                        Text(profile ? "하명관" : "로그인")
-                            .font(.system(size: 14, weight: .semibold))
+                    } label: {
+                        HStack(spacing: 10){
+                            Image(profile ? "Profile_Image" : "Pic1")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 35,height: 35)
+                                .clipShape(Circle())
+                            
+                            Text(profile ? "하명관" : "로그인")
+                                .font(.system(size: 14, weight: .semibold))
+                                .foregroundColor(.black)
+                            
+                            
+                            
+                        }
+                        .padding(.leading,8)
+                        .padding(.horizontal,12)
+                        .padding(.vertical,6)
+                        .background{
+                            Capsule()
+                                .fill(Color("Color-2"))
+                        }
+                     
+                    }
+                    .frame(maxWidth: .infinity,alignment: .leading)
+                    .opacity(showDetail ? 0 : 1)
+                    .opacity(showTeaDetail ? 0 : 1)
+                    .opacity(showBubbleTeaDetail ? 0 : 1)
+                    .opacity(showSmudiDetail ? 0 : 1)
+                    
+                    // going to show the same button from home view
+                    
+                   
+                    Button{
+                        if !homeData.startAnimation{
+                            withAnimation(.easeInOut){
+                                homeData.showCart.toggle()
+                            }
+                        }
+                    }label: {
+                        Image(systemName: "cart")
+                            .font(.title2)
                             .foregroundColor(.black)
-                        
-                        
+                            .overlay(
+                                Text("\(self.cartIndex.cartscore)")
+                                    .font(.caption)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                                    .padding(10)
+                                    .background(Color("orange"))
+                                    .clipShape(Circle())
+                                    .offset(x: 15, y: -10)
+    //                                .opacity(cartIndex.cartscore != 0 ? 0 : 1)
+                            )
                     }
-                    .padding(.leading,8)
-                    .padding(.horizontal,12)
-                    .padding(.vertical,6)
-                    .background{
-                        Capsule()
-                            .fill(Color("Color-2"))
-                    }
+                    
                 }
-                .frame(maxWidth: .infinity,alignment: .leading)
-                .opacity(showDetail ? 0 : 1)
-                .opacity(showTeaDetail ? 0 : 1)
-                .opacity(showBubbleTeaDetail ? 0 : 1)
-                .opacity(showSmudiDetail ? 0 : 1)
                 
-                // going to show the same button from home view
-                
-//                Button{
-//
-//                }label: {
-//                    Image(systemName: "cart")
-//                        .font(.title2)
-//                        .foregroundColor(.black)
-//                        .overlay(
-//
-//                            Text("\(homeData.cartItems)")
-//                                .font(.caption)
-//                                .fontWeight(.bold)
-//                                .foregroundColor(.white)
-//                                .padding(10)
-//                                .background(Color("orange"))
-//                                .clipShape(Circle())
-//                                .offset(x: 15, y: -10)
-//                                .opacity(homeData.cartItems != 0 ? 1 : 0)
-//                        )
-//                }
-               
+                .padding(15)
+                .background(
+                    Rectangle()
+                        .foregroundColor(Color("color2"))
+                        .frame(height: 400)
+                        
+                )
+           
+         
+                    
+                ZStack{
+                        
+                    VStack(alignment: .leading, spacing: 8) {
+                        
+                        Text("TAICO")
+                            .foregroundColor(.white)
+                            .font(.largeTitle.bold())
+                            .padding(.leading)
+                        
+                        Text("당신을 위한 음료")
+                            .foregroundColor(.white)
+                            .font(.largeTitle.bold())
+                            .padding(.leading)
+                        
+                        
+                        HStack(spacing: 40){
+                            
+                            
+                            // 커피 버튼
+                            Button{
+                                showCarousel.toggle()
+                                showTeaCarousel = false
+                                showSmudiCarousel = false
+                                showBubbleTeaCarousel = false
+                                
+                            }label: {
+                                Image("커피")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 40,height: 50)
+                                    .padding(10)
+                                    .background{
+                                        Circle()
+                                            .fill(Color("Color"))
+                                    }
+                                    .background(content: {
+                                        Circle()
+                                    })
+                                    .shadow(color: .black.opacity(0.07), radius: 5, x: 5, y:5)
+                            }
+                            
+                            // 차 버튼
+                            Button{
+                                showTeaCarousel.toggle()
+                                showCarousel = false
+                                showSmudiCarousel = false
+                                showBubbleTeaCarousel = false
+                            }label: {
+                                Image("티")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 40,height: 50)
+                                    .padding(10)
+                                    .background{
+                                        Circle()
+                                            .fill(Color("Color"))
+                                    }
+                                    .background(content: {
+                                        Circle()
+                                    })
+                                    .shadow(color: .black.opacity(0.07), radius: 5, x: 5, y:5)
+                            }
+                            
+                            // 스무디 버튼
+                            Button{
+                                showSmudiCarousel.toggle()
+                                showTeaCarousel = false
+                                showCarousel = false
+                                showBubbleTeaCarousel = false
+                            }label: {
+                                Image("스무디")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 40,height: 50)
+                                    .padding(10)
+                                    .background{
+                                        Circle()
+                                            .fill(Color("Color"))
+                                    }
+                                    .background(content: {
+                                        Circle()
+                                    })
+                                    .shadow(color: .black.opacity(0.07), radius: 5, x: 5, y:5)
+                            }
+                            
+                            // 버블티 버튼
+                            Button{
+                                showBubbleTeaCarousel.toggle()
+                                showTeaCarousel = false
+                                showSmudiCarousel = false
+                                showCarousel = false
+                            }label: {
+                                Image("버블티")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 40,height: 50)
+                                    .padding(10)
+                                    .background{
+                                        Circle()
+                                            .fill(Color("Color"))
+                                    }
+                                    .background(content: {
+                                        Circle()
+                                    })
+                                    .shadow(color: .black.opacity(0.07), radius: 5, x: 5, y:5)
+                            }
+                            
+                        }
+                        .padding(.horizontal,15)
+                        ZStack{
+                            
+                            
+                                
+                            
+                            GeometryReader{ proxy in
+                                let size = proxy.size
+                                CarouselView(size: size)
+                            }
+                            .zIndex(-10)
+                            .opacity(showCarousel ? 1 : 0)
+                            
+                            GeometryReader{ proxy in
+                                let size = proxy.size
+                                TeaCarouselView(size: size)
+                            }
+                            .zIndex(-10)
+                            .opacity(showTeaCarousel ? 1 : 0)
+                            
+                            GeometryReader{ proxy in
+                                let size = proxy.size
+                                SmudiCarouselView(size: size)
+                            }
+                            .zIndex(-10)
+                            .opacity(showSmudiCarousel ? 1 : 0)
+                            
+                            GeometryReader{ proxy in
+                                let size = proxy.size
+                                BubbleTeaCarouselView(size: size)
+                            }
+                            .opacity(showBubbleTeaCarousel ? 1 : 0)
+                        }
+                    }
+
+                    
+                    .frame(maxWidth: .infinity,alignment: .leading)
+                    .opacity(showDetail ? 0 : 1)
+                    .opacity(showTeaDetail ? 0 : 1)
+                    .opacity(showSmudiDetail ? 0 : 1)
+                    .opacity(showBubbleTeaDetail ? 0 : 1)
+                    
+                   
                 
             }
+
+            .frame(maxWidth: .infinity,maxHeight: .infinity,alignment: .top)
             
-            .padding(15)
-            .background(
-                Rectangle()
-                    .foregroundColor(Color("color2"))
-                    .frame(height: 400)
-                    
-            )
-       
-     
-                
-            ZStack{
-                    
-                VStack(alignment: .leading, spacing: 8) {
-                    
-                    Text("TAICO")
-                        .foregroundColor(.white)
-                        .font(.largeTitle.bold())
-                        .padding(.leading)
-                    
-                    Text("당신을 위한 음료")
-                        .foregroundColor(.white)
-                        .font(.largeTitle.bold())
-                        .padding(.leading)
-                    
-                    
-                    HStack(spacing: 40){
-                        
-                        
-                        // 커피 버튼
-                        Button{
-                            showCarousel.toggle()
-                            showTeaCarousel = false
-                            showSmudiCarousel = false
-                            showBubbleTeaCarousel = false
-                            
-                        }label: {
-                            Image("커피")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 40,height: 50)
-                                .padding(10)
-                                .background{
-                                    Circle()
-                                        .fill(Color("Color"))
-                                }
-                                .background(content: {
-                                    Circle()
-                                })
-                                .shadow(color: .black.opacity(0.07), radius: 5, x: 5, y:5)
-                        }
-                        
-                        // 차 버튼
-                        Button{
-                            showTeaCarousel.toggle()
-                            showCarousel = false
-                            showSmudiCarousel = false
-                            showBubbleTeaCarousel = false
-                        }label: {
-                            Image("티")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 40,height: 50)
-                                .padding(10)
-                                .background{
-                                    Circle()
-                                        .fill(Color("Color"))
-                                }
-                                .background(content: {
-                                    Circle()
-                                })
-                                .shadow(color: .black.opacity(0.07), radius: 5, x: 5, y:5)
-                        }
-                        
-                        // 스무디 버튼
-                        Button{
-                            showSmudiCarousel.toggle()
-                            showTeaCarousel = false
-                            showCarousel = false
-                            showBubbleTeaCarousel = false
-                        }label: {
-                            Image("스무디")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 40,height: 50)
-                                .padding(10)
-                                .background{
-                                    Circle()
-                                        .fill(Color("Color"))
-                                }
-                                .background(content: {
-                                    Circle()
-                                })
-                                .shadow(color: .black.opacity(0.07), radius: 5, x: 5, y:5)
-                        }
-                        
-                        // 버블티 버튼
-                        Button{
-                            showBubbleTeaCarousel.toggle()
-                            showTeaCarousel = false
-                            showSmudiCarousel = false
-                            showCarousel = false
-                        }label: {
-                            Image("버블티")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 40,height: 50)
-                                .padding(10)
-                                .background{
-                                    Circle()
-                                        .fill(Color("Color"))
-                                }
-                                .background(content: {
-                                    Circle()
-                                })
-                                .shadow(color: .black.opacity(0.07), radius: 5, x: 5, y:5)
-                        }
-                        
-                    }
-                    .padding(.horizontal,15)
-                    ZStack{
-                        
-                        
-                            
-                        
-                        GeometryReader{ proxy in
-                            let size = proxy.size
-                            CarouselView(size: size)
-                        }
-                        .zIndex(-10)
-                        .opacity(showCarousel ? 1 : 0)
-                        
-                        GeometryReader{ proxy in
-                            let size = proxy.size
-                            TeaCarouselView(size: size)
-                        }
-                        .zIndex(-10)
-                        .opacity(showTeaCarousel ? 1 : 0)
-                        
-                        GeometryReader{ proxy in
-                            let size = proxy.size
-                            SmudiCarouselView(size: size)
-                        }
-                        .zIndex(-10)
-                        .opacity(showSmudiCarousel ? 1 : 0)
-                        
-                        GeometryReader{ proxy in
-                            let size = proxy.size
-                            BubbleTeaCarouselView(size: size)
-                        }
-                        .opacity(showBubbleTeaCarousel ? 1 : 0)
-                    }
+            .overlay(content: {
+                if let selectedMilkShake, showDetail{
+                    DrinkDetailView(animation: animation, Drinkes: selectedMilkShake, show: $showDetail)
                 }
-
-                
-                .frame(maxWidth: .infinity,alignment: .leading)
-                .opacity(showDetail ? 0 : 1)
-                .opacity(showTeaDetail ? 0 : 1)
-                .opacity(showSmudiDetail ? 0 : 1)
-                .opacity(showBubbleTeaDetail ? 0 : 1)
+            })
+            
+            .overlay(content: {
+                if let selectedTeaShake, showTeaDetail{
+                    TeaDetailView(animation: animation, Teas: selectedTeaShake, show: $showTeaDetail)
+                }
+            })
+        
+            .overlay(content: {
+                if let selectedSmudiShake, showSmudiDetail{
+                    SmudiDetailView(animation: animation, Smudis: selectedSmudiShake, show: $showSmudiDetail)
+                }
+            })
+            
+            .overlay(content: {
+                if let selectedBubbleTeaShake, showBubbleTeaDetail{
+                    BubbleTeaDetailView(animation: animation, BubbleTeas: selectedBubbleTeaShake, show: $showBubbleTeaDetail)
+                }
+            })
+            
+            .background{
+                Color(.white)
+                    .ignoresSafeArea()
             }
-            // 문자 속성
-
-            
-//            TabMenu()
-//                .opacity(showDetail ? 0 : 1)
-//                .offset(y:120)
-            
-            
-            
-            
-            
-                    
+            .navigationBarHidden(true)
         }
-        .frame(maxWidth: .infinity,maxHeight: .infinity,alignment: .top)
-        
-        .overlay(content: {
-            if let selectedMilkShake, showDetail{
-                DrinkDetailView(animation: animation, Drinkes: selectedMilkShake, show: $showDetail)
-            }
-        })
-        
-        .overlay(content: {
-            if let selectedTeaShake, showTeaDetail{
-                TeaDetailView(animation: animation, Teas: selectedTeaShake, show: $showTeaDetail)
-            }
-        })
-    
-        .overlay(content: {
-            if let selectedSmudiShake, showSmudiDetail{
-                SmudiDetailView(animation: animation, Smudis: selectedSmudiShake, show: $showSmudiDetail)
-            }
-        })
-        
-        .overlay(content: {
-            if let selectedBubbleTeaShake, showBubbleTeaDetail{
-                BubbleTeaDetailView(animation: animation, BubbleTeas: selectedBubbleTeaShake, show: $showBubbleTeaDetail)
-            }
-        })
-        
-        .background{
-            Color(.white)
-                .ignoresSafeArea()
-        }
-        .navigationBarHidden(true)
+            AddToCart(animation: animation)
+                .offset(y: homeData.showCart ? homeData.startAnimation ? 900 : 100 : 900)
+                .environmentObject(homeData)}
     }
     
     // 밀크쉐이크 카르셀 뷰
@@ -616,36 +621,36 @@ struct Order: View {
     
     
     // 탭 메뉴
-    @ViewBuilder
-    func TabMenu()-> some View {
-        HStack(spacing: 50){
-            ForEach(tabs){tab in
-                Image(tab.tabImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 40,height: 50)
-                    .padding(10)
-                    .background{
-                        Circle()
-                            .fill(Color("Color"))
-                    }
-                    .background(content: {
-                        Circle()
-                    })
-                    .shadow(color: .black.opacity(0.07), radius: 5, x: 5, y:5)
-                // 미리 위치를 준비해둠
-                    .offset(tab.tabOffset) // 탭 메뉴
-                    .scaleEffect(currentTab.id == tab.id ? 1.15 : 0.9, anchor: .bottom)
-                    .onTapGesture {
-                        withAnimation(.easeInOut){
-                            currentTab = tab
-                            
-                        }
-                    }
-            }
-        }
-        .padding(.leading,15)
-    }
+//    @ViewBuilder
+//    func TabMenu()-> some View {
+//        HStack(spacing: 50){
+//            ForEach(tabs){tab in
+//                Image(tab.tabImage)
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+//                    .frame(width: 40,height: 50)
+//                    .padding(10)
+//                    .background{
+//                        Circle()
+//                            .fill(Color("Color"))
+//                    }
+//                    .background(content: {
+//                        Circle()
+//                    })
+//                    .shadow(color: .black.opacity(0.07), radius: 5, x: 5, y:5)
+//                // 미리 위치를 준비해둠
+//                    .offset(tab.tabOffset) // 탭 메뉴
+//                    .scaleEffect(currentTab.id == tab.id ? 1.15 : 0.9, anchor: .bottom)
+//                    .onTapGesture {
+//                        withAnimation(.easeInOut){
+//                            currentTab = tab
+//
+//                        }
+//                    }
+//            }
+//        }
+//        .padding(.leading,15)
+//    }
     
     // Indicators
     @ViewBuilder
@@ -736,6 +741,9 @@ struct Order_Previews: PreviewProvider {
 class UserSetting: ObservableObject{
     @Published var score : Int = 0
 }
+class CartIndex: ObservableObject{
+    @Published var cartscore : Int = 0
+}
 
 
 // 상세 뷰
@@ -747,6 +755,7 @@ struct DrinkDetailView: View{
     var Drinkes: Drink
     
     @ObservedObject var userSetting = UserSetting()
+    @ObservedObject var cartIndex = CartIndex()
     
     
     
@@ -777,38 +786,42 @@ struct DrinkDetailView: View{
                         .foregroundColor(.black)
                         .padding(15)
                 }
+                .opacity(showContent ? 1 : 0)
                 
                 Spacer()
                 
                 Text("주문")
                     .font(.callout)
                     .fontWeight(.semibold)
+                    .opacity(showContent ? 1 : 0)
                 
                 Spacer()
                 
-                Button{
-                    
-                }label: {
-                    Image(systemName: "cart")
-                        .font(.title2)
-                        .foregroundColor(.black)
-                        .overlay(
-                            Text("\(homeData.cartItems)")
-                                .font(.caption)
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
-                                .padding(10)
-                                .background(Color("orange"))
-                                .clipShape(Circle())
-                                .offset(x: 15, y: -10)
-                                .opacity(homeData.cartItems != 0 ? 1 : 0)
-                        )
-                }
+//                Button{
+//                    
+//                }label: {
+//                    Image(systemName: "cart")
+//                        .font(.title2)
+//                        .foregroundColor(.black)
+//                        .overlay(
+//                            Text("\(homeData.cartItems)")
+//                                .font(.caption)
+//                                .fontWeight(.bold)
+//                                .foregroundColor(.white)
+//                                .padding(10)
+//                                .background(Color("orange"))
+//                                .clipShape(Circle())
+//                                .offset(x: 15, y: -10)
+//                                .opacity(homeData.cartItems != 0 ? 1 : 0)
+//                        )
+//                }
+                
+                
                 
             }
             .frame(maxWidth: .infinity)
             .padding()
-            .opacity(showContent ? 1 : 0)
+//            .opacity(showContent ? 1 : 0)
             
             HStack(spacing: 0) {
                 ForEach(["차갑게","뜨겁게"], id: \.self){ order in
@@ -918,10 +931,6 @@ struct DrinkDetailView: View{
     func MilkShakeDetails()->some View{
         VStack{
             VStack(spacing: 12) {
-                Text("512D Code")
-                    .font(.caption)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.black)
                 
                 Text(Drinkes.title)
                     .font(.title2)
@@ -955,6 +964,7 @@ struct DrinkDetailView: View{
                     
                     Button {
                         self.homeData.scoreItems += 1
+                        self.cartIndex.cartscore += 1
                     } label: {
                         Image(systemName: "plus")
                             .font(.title3)
@@ -964,10 +974,13 @@ struct DrinkDetailView: View{
                 
                 HStack{
                     Button {
+                        
+                        
                         withAnimation(.easeInOut(duration: 0.7)){
                             homeData.startAnimation.toggle()
                             
                         }
+                        
                         
                     } label: {
                         Text("장바구니 추가")
@@ -1538,6 +1551,107 @@ struct BubbleTeaDetailView: View{
 
 }
 
+struct AddToCart: View {
+    
+    @EnvironmentObject var homeData: OrderViewModel
+    var animation: Namespace.ID
+    
+    var body: some View{
+        
+        VStack(alignment: .leading){
+            Button{
+                if !homeData.startAnimation{
+                    withAnimation(.easeInOut){
+                        homeData.showCart.toggle()
+                    }
+                }
+            }label: {
+                Text("돌아가기")
+                    .font(.title2)
+                    .foregroundColor(.black)
+                    
+            }
+            
+            Spacer()
+            HStack(spacing: 15){
+                
+                
+                
+                VStack {
+                    
+                    Text("Air Max Exosense 'Atomic Powder'")
+                        .fontWeight(.semibold)
+                        .foregroundColor(.gray)
+                        .multilineTextAlignment(.trailing)
+                    
+                    Text("$270.00")
+                        .fontWeight(.bold)
+                        .foregroundColor(.black)
+                }
+            }
+            .padding(.top)
+            
+            Divider()
+            
+            Text("SELECT SIZE")
+                .font(.caption)
+                .fontWeight(.semibold)
+                .foregroundColor(.gray)
+                .padding(.vertical)
+            
+            
+            // Add to cart Button...
+            
+            Button(action: {
+                withAnimation(.easeInOut(duration: 0.7)){
+                    homeData.startAnimation.toggle()
+                }
+            }, label: {
+                Text("Add to cart")
+                    .fontWeight(.bold)
+//                    .foregroundColor(homeData.selectedSize == "" ? .black : .white)
+                    .padding(.vertical)
+                    .frame(maxWidth: .infinity)
+//                    .background(homeData.selectedSize == "" ? Color.black.opacity(0.06) : Color("orange"))
+                    .cornerRadius(18)
+            })
+            // disabling button when no size selected...
+//            .disabled(homeData.selectedSize == "")
+            .padding(.top)
+        }
+//        .padding()
+        
+        .background(
+            
+            RoundedRectangle(cornerRadius: 15)
+                .foregroundColor(Color.white)
+                .frame(height: 900)
+                
+        )
+        
+        
+        
+    }
+}
+let scenes = UIApplication.shared.connectedScenes
+let windowScenes = scenes.first as? UIWindowScene
+let window = windowScenes?.windows.first
+
+var edges = UIApplication.shared.windows.first?.safeAreaInsets.bottom
+
+struct CustomCorners: Shape {
+
+    var corners: UIRectCorner
+    var radius: CGFloat
+    
+    func path(in rect: CGRect) -> Path {
+        
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        
+        return Path(path.cgPath)
+    }
+    
+}
 extension View{
     
     func getRect()->CGRect{

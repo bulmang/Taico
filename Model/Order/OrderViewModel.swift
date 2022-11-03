@@ -82,9 +82,13 @@ class OrderViewModel: ObservableObject {
             showBag = false
             shoeAnimation = false
             saveCart = false
-            cartItems += scoreItems
             scoreItems = 1
         }
+    }
+    
+    func plusCart() {
+        cartItems += scoreItems
+        
     }
 }
 
