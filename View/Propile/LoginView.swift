@@ -19,6 +19,7 @@ struct LoginView: View {
     @State var login: Bool = false
     @State var Id: String = ""
     
+
     
     
     var body: some View {
@@ -53,6 +54,8 @@ struct LoginView: View {
                                     .foregroundColor(.white)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.leading, 80)
+                                
+
                             }
                             
                             
@@ -61,6 +64,7 @@ struct LoginView: View {
                         VStack (spacing: 30) {
                             
                             VStack (spacing: 30) {
+                                
                                 
                                 CustomTextField(placeHolder: "이메일", imageName: "envelope", bColor: "textColor1", tOpacity: 0.6, value: $email)
                                 
@@ -134,7 +138,7 @@ struct LoginView: View {
                                                 .alert("로그인 되셨습니다.", isPresented: $login){
                                                     Button("확인", role: .cancel){
                                                         
-                                                        Order(profile: true)
+                                                        
                                                         self.isOrderActive = true
                                                         
                                                     }
@@ -208,8 +212,8 @@ struct LoginView: View {
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
-    }
-}
+//struct LoginView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LoginView()
+//    }
+//}

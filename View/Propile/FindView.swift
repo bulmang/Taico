@@ -12,13 +12,17 @@ struct FindIdView: View {
     @State private var birth: String = ""
     @State private var number: String = ""
     @State private var permission: String = ""
+    
     @State var isLinkActive: Bool = false
     @State var ColorCircle : Bool = false
+    
     @State var alert: Bool = false
     @State var alert2: Bool = false
     @State var alert3: Bool = false
     @State var alert4: Bool = false
     @State var show: Bool = true
+    
+    @State private var findprofile: Bool = true
     
     var body: some View {
         VStack(spacing: 10){

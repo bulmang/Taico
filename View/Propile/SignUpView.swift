@@ -17,6 +17,8 @@ struct SignUpView: View {
     @State var alert: Bool = false
     @State var alert2: Bool = false
     
+    @State private var signprofile: Bool = false
+    
     
     var body: some View {
         NavigationView {

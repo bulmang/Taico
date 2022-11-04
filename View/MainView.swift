@@ -21,6 +21,9 @@ struct MainView: View {
         }
         return tabs
     }()
+    
+    @State var mainprofile: Bool = true
+    
     @Environment(\.colorScheme) var schme
     var body: some View {
         VStack(spacing: 0){
