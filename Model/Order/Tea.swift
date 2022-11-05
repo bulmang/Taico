@@ -16,9 +16,8 @@ struct Tea: Identifiable,Hashable{
 }
 
 var teas: [Tea] = [
-    .init(title: "티", price: "3000원", image: "티"),
-    .init(title: "티", price: "3000원", image: "티"),
-    .init(title: "티", price: "3000원", image: "티"),
-    .init(title: "티", price: "3000원", image: "티"),
-    .init(title: "티", price: "3000원", image: "티")
+    .init(title: "우롱티", price: "3000원", image: "우롱티"),
+    .init(title: "얼그레이티", price: "3000원", image: "얼그레이티"),
+    .init(title: "블랙티", price: "3000원", image: "블랙티"),
+    .init(title: "쟈스민그린티", price: "3000원", image: "쟈스민그린티")
 ]

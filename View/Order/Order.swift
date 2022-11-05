@@ -130,7 +130,7 @@ struct Order: View {
                             showBubbleTeaCarousel = false
                             
                         }label: {
-                            Image("커피")
+                            Image("아메리카노")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 40,height: 50)
@@ -152,7 +152,7 @@ struct Order: View {
                             showSmudiCarousel = false
                             showBubbleTeaCarousel = false
                         }label: {
-                            Image("티")
+                            Image("우롱티")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 40,height: 50)
