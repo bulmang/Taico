@@ -14,6 +14,7 @@
 		432BCA612900093500084438 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432BCA602900093500084438 /* Home.swift */; };
 		432BD09129090BBE00E981F4 /* FindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432BD09029090BBE00E981F4 /* FindView.swift */; };
 		4336FC21290F54380007A41A /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336FC20290F54380007A41A /* OrderViewModel.swift */; };
+		4339A0352916B3F700D63BCF /* Promotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4339A0342916B3F700D63BCF /* Promotion.swift */; };
 		435624F7290D767F000E60BC /* Shopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435624F6290D767F000E60BC /* Shopping.swift */; };
 		4369416328FE8BDC00A0771B /* hover-shopping.json in Resources */ = {isa = PBXBuildFile; fileRef = 4369416228FE8BDC00A0771B /* hover-shopping.json */; };
 		4369416B28FE8D5400A0771B /* 571-black-tea-lineal.json in Resources */ = {isa = PBXBuildFile; fileRef = 4369416A28FE8D5400A0771B /* 571-black-tea-lineal.json */; };
@@ -74,6 +75,7 @@
 		432BCA602900093500084438 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		432BD09029090BBE00E981F4 /* FindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindView.swift; sourceTree = "<group>"; };
 		4336FC20290F54380007A41A /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
+		4339A0342916B3F700D63BCF /* Promotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promotion.swift; sourceTree = "<group>"; };
 		435624F6290D767F000E60BC /* Shopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopping.swift; sourceTree = "<group>"; };
 		4369416228FE8BDC00A0771B /* hover-shopping.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "hover-shopping.json"; sourceTree = "<group>"; };
 		4369416A28FE8D5400A0771B /* 571-black-tea-lineal.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "571-black-tea-lineal.json"; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				439D7BCC28FDB60E006C92FD /* AnimatedIcon.swift */,
 				439D7BD028FDB6F8006C92FD /* ResizableLottieView.swift */,
 				432BCA5E2900082400084438 /* BlogModel.swift */,
+				4339A0342916B3F700D63BCF /* Promotion.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				437FDD562905AD2F00A42FF1 /* BubbleTea.swift in Sources */,
 				430AEC44291417F600A83A06 /* CartView.swift in Sources */,
 				432BD09129090BBE00E981F4 /* FindView.swift in Sources */,
+				4339A0352916B3F700D63BCF /* Promotion.swift in Sources */,
 				439D7BCB28FDB5F0006C92FD /* BottomTab.swift in Sources */,
 				437FDD4E29058B1400A42FF1 /* LoginView.swift in Sources */,
 				439D7B7B28FD9F3E006C92FD /* TaicoApp.swift in Sources */,

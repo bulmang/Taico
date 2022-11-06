@@ -964,6 +964,7 @@ struct DrinkDetailView: View{
                         }
                         childcartstate += homeData.scoreItems
                         
+                        
                     } label: {
                         Text("장바구니 추가")
                             .foregroundColor(.black)
