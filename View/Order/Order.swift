@@ -717,11 +717,11 @@ struct Order: View {
     // 헤더 뷰
 
 }
-//struct Order_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Order()
-//    }
-//}
+struct Order_Previews: PreviewProvider {
+    static var previews: some View {
+        Order()
+    }
+}
 class UserSetting: ObservableObject{
     @Published var score : Int = 0
 }
@@ -749,160 +749,177 @@ struct DrinkDetailView: View{
     
     
     var body: some View{
-    
-        VStack{
-            HStack(){
-                Button{
-                    withAnimation(.easeInOut(duration: 0.35)){
-                        showContent = false
-                    }
-                    DispatchQueue.main.asyncAfter(deadline: .now()+0.1 ){
-                        withAnimation(.easeInOut(duration: 0.35)){
-                            show = false
-                        }
-                    }
-                }label: {
-                    Image(systemName: "arrow.left")
-                        .font(.title2)
-                        .foregroundColor(.black)
-                        .padding(15)
-                }
-                .opacity(showContent ? 1 : 0)
-                
-                Spacer()
-                
-                Text("주문")
-                    .font(.callout)
-                    .fontWeight(.semibold)
-                    .opacity(showContent ? 1 : 0)
-                
-                Spacer()
-                
-//                Button{
-//                    
-//                }label: {
-//                    Image(systemName: "cart")
-//                        .font(.title2)
-//                        .foregroundColor(.black)
-//                        .overlay(
-//                            Text("\(homeData.cartItems)")
-//                                .font(.caption)
-//                                .fontWeight(.bold)
-//                                .foregroundColor(.white)
-//                                .padding(10)
-//                                .background(Color("orange"))
-//                                .clipShape(Circle())
-//                                .offset(x: 15, y: -10)
-//                                .opacity(homeData.cartItems != 0 ? 1 : 0)
-//                        )
-//                }
-                
-                
-                
-            }
-            .frame(maxWidth: .infinity)
-            .padding()
-//            .opacity(showContent ? 1 : 0)
+        
+        ZStack{
             
-            HStack(spacing: 0) {
-                ForEach(["차갑게","뜨겁게"], id: \.self){ order in
-                    Text(order)
-                        .font(.system(size: 15,weight: .semibold))
-                        .foregroundColor((orderType == order ? .black : .black))
-                        .fontWeight((orderType == order ? .bold : .light))
-                        .padding(.horizontal,20)
-                        .padding(.vertical,10)
-                        .background{
-                            if orderType == order{
-                                Capsule()
-                                    .fill(Color("Color-2"))
-                                    .matchedGeometryEffect(id: "ORDERTAB", in: animation)
+            Button{
+                
+            }label: {
+                Image(systemName: "star.fill")
+            }
+            .opacity(showContent ? 1 : 0)
+            
+            VStack{
+                HStack(){
+                    Button{
+                        withAnimation(.easeInOut(duration: 0.35)){
+                            showContent = false
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now()+0.1 ){
+                            withAnimation(.easeInOut(duration: 0.35)){
+                                show = false
                             }
                         }
-                        .onTapGesture {
-                            withAnimation(.easeInOut){orderType = order}
-                        }
-                }
-                    
-            }
-            .padding(.leading,15)
-            .frame(maxWidth: .infinity,alignment: .top)
-            .padding(.bottom)
-            
-            Image(Drinkes.image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .rotationEffect(.init(degrees: -2))
-                .matchedGeometryEffect(id: Drinkes.id, in: animation)
-            
-            GeometryReader{proxy in
-                let size = proxy.size
-                
-                MilkShakeDetails()
-                    .offset(y: showContent ? 0 : size.height + 50)
-            }
-            
-            if homeData.startAnimation{
-                
-                VStack{
+                    }label: {
+                        Image(systemName: "arrow.left")
+                            .font(.title2)
+                            .foregroundColor(.black)
+                            .padding(15)
+                    }
+                    .opacity(showContent ? 1 : 0)
                     
                     Spacer()
                     
-                    ZStack{
-                        
-                        // Circle ANimatio Effect...
-                        
-                        Color.white
-                            .frame(width: homeData.shoeAnimation ? 100 : getRect().width * 1.3, height: homeData.shoeAnimation ? 100 : getRect().width * 1.3)
-                            .clipShape(Circle())
-                        // Opacit...
-                            .opacity(homeData.shoeAnimation ? 1 : 0)
-                        
-                        Image(Drinkes.image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .matchedGeometryEffect(id: Drinkes.id, in: animation)
-                            .frame(width: 80, height: 80)
-                    }
-                    .offset(y: homeData.saveCart ? 70 : -120)
-                    // scaling effect...
-                    .scaleEffect(homeData.saveCart ? 0.6 : 1)
-                    .onAppear(perform: homeData.performAnimations)
                     
-                    if !homeData.saveCart{
-                        Spacer()
-                    }
                     
-                    Image(systemName: "cart\(homeData.additemtocart ? ".fill" : "")")
-                        .font(.title)
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(homeData.additemtocart ? Color("color2") : Color("color1"))
-                        .clipShape(Circle())
-                        .offset(y: homeData.showBag ? -50 : 300)
+                    Text("주문")
+                        .font(.callout)
+                        .fontWeight(.semibold)
+                        .padding(.trailing)
+                        .opacity(showContent ? 1 : 0)
+                    
+                    Spacer()
+                    
+                    
+                    Button{
+                        
+                    }label: {
+                        Image(systemName: "cart")
+                            .font(.title2)
+                            .foregroundColor(.black)
+                            .overlay(
+                                Text("\(homeData.cartItems)")
+                                    .font(.caption)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                                    .padding(10)
+                                    .background(Color("orange"))
+                                    .clipShape(Circle())
+                                    .offset(x: 15, y: -10)
+                                    
+                            )
+                    }.opacity(0)
+                    //
+                    
+                    
+                    
                 }
-                // setting external view width to screen width..
-                .frame(width: getRect().width)
-                // moving view down...
-                .offset(y: homeData.endAnimation ? 500 : 0)
-            }
-        }
-        .frame(maxWidth: .infinity,maxHeight: .infinity,alignment: .top)
-        .transition(.asymmetric(insertion: .identity, removal: .offset(y:0.5)))
-        .onAppear{
-            withAnimation(.easeInOut.delay(0.1)) {
-                showContent = true
-            }
-        }
-        .onChange(of: homeData.endAnimation, perform: { value in
-            
-            if homeData.endAnimation{
+                .frame(maxWidth: .infinity)
+                .padding()
+    //            .opacity(showContent ? 1 : 0)
                 
-                // reset...
-                homeData.resetAll()
+                HStack(spacing: 0) {
+                    ForEach(["차갑게","뜨겁게"], id: \.self){ order in
+                        Text(order)
+                            .font(.system(size: 15,weight: .semibold))
+                            .foregroundColor((orderType == order ? .black : .black))
+                            .fontWeight((orderType == order ? .bold : .light))
+                            .padding(.horizontal,20)
+                            .padding(.vertical,10)
+                            .background{
+                                if orderType == order{
+                                    Capsule()
+                                        .fill(Color("Color-2"))
+                                        .matchedGeometryEffect(id: "ORDERTAB", in: animation)
+                                }
+                            }
+                            .onTapGesture {
+                                withAnimation(.easeInOut){orderType = order}
+                            }
+                    }
+                        
+                }
+                .padding(.leading,15)
+                .frame(maxWidth: .infinity,alignment: .top)
+                .padding(.bottom)
                 
+                Image(Drinkes.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .rotationEffect(.init(degrees: -2))
+                    .matchedGeometryEffect(id: Drinkes.id, in: animation)
+                
+                GeometryReader{proxy in
+                    let size = proxy.size
+                    
+                    MilkShakeDetails()
+                        .offset(y: showContent ? 0 : size.height + 50)
+                }
+                
+                if homeData.startAnimation{
+                    
+                    VStack{
+                        
+                        Spacer()
+                        
+                        ZStack{
+                            
+                            // Circle ANimatio Effect...
+                            
+                            Color.white
+                                .frame(width: homeData.shoeAnimation ? 100 : getRect().width * 1.3, height: homeData.shoeAnimation ? 100 : getRect().width * 1.3)
+                                .clipShape(Circle())
+                            // Opacit...
+                                .opacity(homeData.shoeAnimation ? 1 : 0)
+                            
+                            Image(Drinkes.image)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .matchedGeometryEffect(id: Drinkes.id, in: animation)
+                                .frame(width: 80, height: 80)
+                        }
+                        .offset(y: homeData.saveCart ? 70 : -120)
+                        // scaling effect...
+                        .scaleEffect(homeData.saveCart ? 0.6 : 1)
+                        .onAppear(perform: homeData.performAnimations)
+                        
+                        if !homeData.saveCart{
+                            Spacer()
+                        }
+                        
+                        Image(systemName: "cart\(homeData.additemtocart ? ".fill" : "")")
+                            .font(.title)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(homeData.additemtocart ? Color("color2") : Color("color1"))
+                            .clipShape(Circle())
+                            .offset(y: homeData.showBag ? -50 : 300)
+                    }
+                    // setting external view width to screen width..
+                    .frame(width: getRect().width)
+                    // moving view down...
+                    .offset(y: homeData.endAnimation ? 500 : 0)
+                }
             }
-        })
+            .frame(maxWidth: .infinity,maxHeight: .infinity,alignment: .top)
+            .transition(.asymmetric(insertion: .identity, removal: .offset(y:0.5)))
+            .onAppear{
+                withAnimation(.easeInOut.delay(0.1)) {
+                    showContent = true
+                }
+            }
+            .onChange(of: homeData.endAnimation, perform: { value in
+                
+                if homeData.endAnimation{
+                    
+                    // reset...
+                    homeData.resetAll()
+                    
+                }
+            })
+        }
+    
+
         
         
     }
@@ -1050,6 +1067,7 @@ struct TeaDetailView: View{
                 Text("주문")
                     .font(.system(size: 20))
                     .font(.callout)
+                
                 Text("hi")
                 Button{
                     
