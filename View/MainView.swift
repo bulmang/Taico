@@ -21,23 +21,33 @@ struct MainView: View {
         }
         return tabs
     }()
+    @StateObject var sharedData: SharedDataModel = SharedDataModel()
+    
+    // Animation Namespace...
+    @Namespace var animation
+    
+    @State private var cartstate = 0
     
     @State var mainprofile: Bool = true
     
     @Environment(\.colorScheme) var schme
+    
     var body: some View {
         VStack(spacing: 0){
             TabView(selection: $currentTab) {
+                
                 Home()
                     .setBG()
                     .tag(BottomTab.home)
+                    
+
                 
                 Card()
                     .setBG()
                     .tag(BottomTab.card)
                 
-                Order()
-                    .setBG()
+                OrderView(animation: animation, childcartstate: $cartstate)
+                    .environmentObject(sharedData)
                     .tag(BottomTab.order)
                 
                 Text("Saved")
@@ -47,7 +57,7 @@ struct MainView: View {
                 LoginView()
                     .setBG()
                     .tag(BottomTab.account)
-                            
+                
                 
             }
             
@@ -59,6 +69,20 @@ struct MainView: View {
                 TabBar()
             }
         }
+        .background(Color("HomeBG").ignoresSafeArea())
+        .overlay(
+        
+            ZStack{
+                // Detail Page...
+                if let product = sharedData.detailProduct,sharedData.showDetailProduct{
+                    
+                    ProductDetailView(product: product, animation: animation, childcartstate: $cartstate )
+                        .environmentObject(sharedData)
+                    // adding transitions...
+                        .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .opacity))
+                }
+            }
+        )
     }
     
     @ViewBuilder // View를 만들어줌
@@ -75,11 +99,13 @@ struct MainView: View {
                     .onTapGesture {
                         // updating current tab&playing animation
                         currentTab = icon.tabIcon
+                        
                         icon.lottieView.play { _ in
                             // todo
                             
                         }
                     }
+                    
             }
         }
         .padding(.horizontal)

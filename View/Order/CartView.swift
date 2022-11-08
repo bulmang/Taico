@@ -9,76 +9,238 @@ import SwiftUI
 
 import SwiftUI
 
+// Since both of the views are mostly identical....
 struct CartView: View {
-    // MARK: Sample Promotion Cards
-    @State var promotions: [Promotion] = [
-        .init(title: "우롱티", price: "3000원", image: "우롱티"),
-        .init(title: "얼그레이티", price: "3000원", image: "얼그레이티"),
-        .init(title: "블랙티", price: "3000원", image: "블랙티"),
-        .init(title: "쟈스민그린티", price: "3000원", image: "쟈스민그린티")
-    ]
+    @EnvironmentObject var sharedData: SharedDataModel
     
-
+    // Delete Option...
+    @State var showDeleteOption: Bool = false
+    
+    @Binding var childcartstate: Int
+    
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack(spacing: 12){
-                HeaderView()
-                    .padding(15)
+        
+        NavigationView{
+            
+            VStack(spacing: 10){
                 
-                ForEach(promotions) { promotion in
-                    GooeyCell(promotion: promotion){
-                        let _ = withAnimation(.easeInOut(duration: 0.3)){
-                            promotions.remove(at: indexOf(promotion: promotion))
+                ScrollView(.vertical, showsIndicators: false) {
+                    
+                    VStack{
+                        
+                        HStack{
+                            
+                            Text("Basket")
+                                .font(.custom(customFont, size: 28).bold())
+                            
+                            Spacer()
+                            
+                            Button {
+                                withAnimation{
+                                    showDeleteOption.toggle()
+                                }
+                            } label: {
+                                Image("Delete")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 25, height: 25)
+                            }
+                            .opacity(sharedData.cartProducts.isEmpty ? 0 : 1)
+
+                        }
+                        
+                        // checking if liked products are empty...
+                        if sharedData.cartProducts.isEmpty{
+                            
+                            Group{
+                                Image("NoBasket")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .padding()
+                                    .padding(.top,35)
+                                
+                                Text("No Items added")
+                                    .font(.custom(customFont, size: 25))
+                                    .fontWeight(.semibold)
+                                
+                                Text("Hit the plus button to save into basket.")
+                                    .font(.custom(customFont, size: 18))
+                                    .foregroundColor(.gray)
+                                    .padding(.horizontal)
+                                    .padding(.top,10)
+                                    .multilineTextAlignment(.center)
+                            }
+                        }
+                        else{
+                         
+                            // Displaying Products...
+                            VStack(spacing: 15){
+                                
+                                // For Designing...
+                                ForEach($sharedData.cartProducts){$product in
+                                    
+                                    HStack(spacing: 0){
+                                        
+                                        if showDeleteOption{
+                                            
+                                            Button {
+                                                deleteProduct(product: product)
+                                                childcartstate -= 1
+                                            } label: {
+                                                Image(systemName: "minus.circle.fill")
+                                                    .font(.title2)
+                                                    .foregroundColor(.red)
+                                            }
+                                            .padding(.trailing)
+
+                                        }
+                                        
+                                        CardViews(product: $product)
+                                    }
+                                }
+                            }
+                            .padding(.top,25)
+                            .padding(.horizontal,10)
                         }
                     }
+                    .padding()
+                }
+                
+                // Showing Total and check out Button...
+                if !sharedData.cartProducts.isEmpty{
+                    
+                    Group{
+                        
+                        HStack{
+                            
+                            Text("Total")
+                                .font(.custom(customFont, size: 14))
+                                .fontWeight(.semibold)
+                            
+                            Spacer()
+                            
+                            Text(sharedData.getTotalPrice())
+                                .font(.custom(customFont, size: 18).bold())
+                                .foregroundColor(Color("color1"))
+                        }
+                        
+                        Button {
+                            
+                        } label: {
+                            
+                            Text("결제")
+                                .font(.custom(customFont, size: 18).bold())
+                                .foregroundColor(.white)
+                                .padding(.vertical,18)
+                                .frame(maxWidth: .infinity)
+                                .background(Color("color1"))
+                                .cornerRadius(15)
+                                .shadow(color: Color.black.opacity(0.05), radius: 5, x: 5, y: 5)
+                        }
+                        .padding(.vertical)
+                    }
+                    .padding(.horizontal,25)
                 }
             }
-            .padding(.vertical,15)
-        }
-        .frame(maxWidth: .infinity,maxHeight: .infinity)
-        .background {
-            Color("BG")
-                .ignoresSafeArea()
-        }
-    }
-    
-    func indexOf(promotion: Promotion)->Int{
-        if let index = promotions.firstIndex(where: { promotion_ in
-            promotion.id == promotion_.id
-        }){
-            return index
-        }
-        return 0
-    }
-    
-    // MARK: Header View
-    @ViewBuilder
-    func HeaderView()->some View{
-        VStack{
-            Text("장바구니")
-                .font(.system(size: 38))
-                .fontWeight(.bold)
-                .foregroundColor(Color("color1"))
-                .frame(maxWidth: .infinity,alignment: .center)
+            .navigationBarHidden(true)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(
             
-            HStack{
-                Text("주문 메뉴")
-                    .font(.system(size: 20))
-                    .fontWeight(.bold)
-                
-                Spacer()
-                
-                Text("총 주문 가능 수량 10개")
-                    .fontWeight(.semibold)
+                Color("HomeBG")
+                    .ignoresSafeArea()
+            )
+        }
+    }
+    
+    func deleteProduct(product: Product){
+        
+        if let index = sharedData.cartProducts.firstIndex(where: { currentProduct in
+            return product.id == currentProduct.id
+        }){
+            
+            let _ = withAnimation{
+                // removing...
+                sharedData.cartProducts.remove(at: index)
             }
-            .padding()
         }
     }
 }
 
-struct CartView_Previews: PreviewProvider {
-    static var previews: some View {
-        CartView()
+//struct CartView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CartView()
+//    }
+//}
+
+struct CardViews: View{
+    
+    // Making Product as Binding so as to update in Real time...
+    @Binding var product: Product
+    
+    var body: some View{
+        
+        HStack(spacing: 15){
+            
+            Image(product.productImage)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 100, height: 100)
+            
+            VStack(alignment: .leading, spacing: 8) {
+                
+                Text(product.title)
+                    .font(.custom(customFont, size: 18).bold())
+                    .lineLimit(1)
+                
+                Text(product.price)
+                    .font(.custom(customFont, size: 17))
+                    .fontWeight(.semibold)
+                    .foregroundColor(Color("color1"))
+                
+                // Quantity Buttons...
+                HStack(spacing: 10){
+                    
+                    Text("Quantity")
+                        .font(.custom(customFont, size: 14))
+                        .foregroundColor(.gray)
+                    
+                    Button {
+                        product.quantity = (product.quantity > 0 ? (product.quantity - 1) : 0)
+                    } label: {
+                        Image(systemName: "minus")
+                            .font(.caption)
+                            .foregroundColor(.white)
+                            .frame(width: 20, height: 20)
+                            .background(Color("color1"))
+                            .cornerRadius(4)
+                    }
+
+                    Text("\(product.quantity)")
+                        .font(.custom(customFont, size: 14))
+                        .fontWeight(.semibold)
+                        .foregroundColor(.black)
+                    
+                    Button {
+                        product.quantity += 1
+                    } label: {
+                        Image(systemName: "plus")
+                            .font(.caption)
+                            .foregroundColor(.white)
+                            .frame(width: 20, height: 20)
+                            .background(Color("color1"))
+                            .cornerRadius(4)
+                    }
+                }
+            }
+        }
+        .padding(.horizontal,10)
+        .padding(.vertical,10)
+        .frame(maxWidth: .infinity,alignment: .leading)
+        .background(
+        
+            Color.white
+                .cornerRadius(10)
+        )
     }
 }
 
