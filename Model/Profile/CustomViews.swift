@@ -18,6 +18,34 @@ struct CustomViews_Previews: PreviewProvider {
         CustomViews()
     }
 }
+struct SearcgTextField: View {
+    
+    var placeHolder: String
+    var imageName: String
+    var bColor: String
+    var tOpacity: Double
+    @Binding var value: String
+    
+    var body: some View{
+        HStack{
+            ZStack (alignment: .leading){
+                if value.isEmpty {
+                    Text(placeHolder)
+                        .foregroundColor(Color(bColor).opacity((tOpacity)))
+                        .padding()
+                        .font(.system(size: 20))
+                }
+                
+                TextField("", text: $value)
+                    .padding(.vertical,12)
+                    .padding(.horizontal)
+                    .font((.system(size: 20)))
+                    .foregroundColor(Color(bColor))
+            }
+        }
+    }
+    
+}
 
 struct CustomTextField: View {
     

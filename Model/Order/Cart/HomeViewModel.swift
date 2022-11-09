@@ -19,10 +19,9 @@ class HomeViewModel: ObservableObject {
     @Published var products: [Product] = [
     
         .init(type: .커피, title: "아메리카노", subtitle: "Series 6: Red", price: "2000원",productImage: "아메리카노"),
-        .init(type: .커피, title: "바닐라 아메리카노", subtitle: "Gear: Black", price: "2500원", productImage: "헤이즐넛아메리카노"),
-        .init(type: .커피, title: "헤이즐넛 아메리카노", subtitle: "Series 4: Black", price: "2500원", productImage: "헤이즐넛아메리카노"),
-        .init(type: .커피, title: "카라멜 마끼야또", subtitle: "A15 - Pink", price: "3000원", productImage: "카라멜마끼야또"),
         .init(type: .커피, title: "카페라떼", subtitle: "A14 - Blue", price: "3000원", productImage: "카페라떼"),
+        .init(type: .커피, title: "헤이즐넛 아메리카노", subtitle: "Gear: Black", price: "2500원", productImage: "헤이즐넛아메리카노"),
+        .init(type: .커피, title: "카라멜 마끼야또", subtitle: "A15 - Pink", price: "3000원", productImage: "카라멜마끼야또"),        
         .init(type: .차, title: "블랙티", subtitle: "A13 - Purple", price: "3000원", productImage: "블랙티"),
         .init(type: .차, title: "얼그레이티", subtitle: "A13 - White", price: "3000원", productImage: "얼그레이티"),
         .init(type: .차, title: "우롱티", subtitle: "M1 - Gold", price: "3000원", productImage: "우롱티"),

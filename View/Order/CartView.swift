@@ -30,7 +30,7 @@ struct CartView: View {
                         
                         HStack{
                             
-                            Text("Basket")
+                            Text("장바구니")
                                 .font(.custom(customFont, size: 28).bold())
                             
                             Spacer()
@@ -59,11 +59,11 @@ struct CartView: View {
                                     .padding()
                                     .padding(.top,35)
                                 
-                                Text("No Items added")
+                                Text("장바구니가 비어있습니다.")
                                     .font(.custom(customFont, size: 25))
                                     .fontWeight(.semibold)
                                 
-                                Text("Hit the plus button to save into basket.")
+                                Text("원하는 메뉴를 장바구니에 담고 한번에 주문해보세요.")
                                     .font(.custom(customFont, size: 18))
                                     .foregroundColor(.gray)
                                     .padding(.horizontal)

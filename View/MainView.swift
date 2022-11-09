@@ -50,8 +50,8 @@ struct MainView: View {
                     .environmentObject(sharedData)
                     .tag(BottomTab.order)
                 
-                Text("Saved")
-                    .setBG()
+                LikedPage()
+                    .environmentObject(sharedData)
                     .tag(BottomTab.shopping)
                 
                 LoginView()

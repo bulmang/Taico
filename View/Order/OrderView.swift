@@ -21,6 +21,8 @@ struct OrderView: View {
     
     @State var currentIndex: Int = 0
     
+    @State var search: String = ""
+    
     @available(iOS 16.0, *)
     
     var body: some View {
@@ -49,13 +51,14 @@ struct OrderView: View {
                     .onTapGesture {
                         withAnimation(.easeInOut){
                             homeData.searchActivated = true
+                            sharedData.showDetailProduct = false
                             
                         }
                     }
                     .background(
                         Rectangle()
                             .foregroundColor(Color("color2"))
-                            .frame(width: 500,height: 300)
+                            .frame(width: 500,height: 350)
                             
                     )
                     Button{
@@ -91,7 +94,8 @@ struct OrderView: View {
                 
                 Text("Taico\n당신을 위한 음료")
                     .foregroundColor(.white)
-                    .font(.custom(customFont, size: 38).bold())
+                    .font(.system(size: 40))
+                    .fontWeight(.heavy)
                     .frame(maxWidth: .infinity,alignment: .leading)
                     .padding(.top)
                     .padding(.horizontal,25)
@@ -190,13 +194,17 @@ struct OrderView: View {
     func SearchBar()->some View{
         
         HStack(spacing: 15){
+            
             Image(systemName: "magnifyingglass")
                 .font(.title2)
                 .foregroundColor(.white)
-            
+
             // Since we need a separate view for search bar....
-            TextField("Search", text: .constant(""))
+
+            TextField("검색", text: .constant(""))
                 .disabled(true)
+                
+            
                 
         }
         .padding(.vertical,12)
@@ -238,13 +246,13 @@ struct OrderView: View {
             
             Text(product.title)
                 .font(.custom(customFont, size: 18))
-                .fontWeight(.semibold)
+                .fontWeight(.heavy)
                 .padding(.top)
             
             
             Text(product.price)
                 .font(.custom(customFont, size: 16))
-                .fontWeight(.bold)
+                .fontWeight(.heavy)
                 .foregroundColor(Color("color1"))
                 .padding(.top,5)
         }
@@ -265,6 +273,7 @@ struct OrderView: View {
                 
                 sharedData.detailProduct = product
                 sharedData.showDetailProduct = true
+                homeData.searchActivated = false
             }
         }
         
@@ -282,7 +291,7 @@ struct OrderView: View {
             
             Text(type.rawValue)
                 .font(.custom(customFont, size: 25))
-                .fontWeight(.semibold)
+                .fontWeight(.heavy)
             // Changing Color based on Current product Type...
                 .foregroundColor(homeData.productType == type ? Color("color1") : Color.gray)
                 .padding(.bottom,10)
@@ -295,13 +304,13 @@ struct OrderView: View {
                             Capsule()
                                 .fill(Color("color1"))
                                 .matchedGeometryEffect(id: "PRODUCTTAB", in: animation)
-                                .frame(height: 2)
+                                .frame(height: 4)
                         }
                         else{
                             
                             Capsule()
                                 .fill(Color.clear)
-                                .frame(height: 2)
+                                .frame(height: 4)
                         }
                     }
                     .padding(.horizontal,-5)

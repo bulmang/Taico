@@ -46,7 +46,7 @@ struct SearchView: View {
                         .foregroundColor(.gray)
                     
                     // Since we need a separate view for search bar....
-                    TextField("Search", text: $homeData.searchText)
+                    TextField("검색", text: $homeData.searchText)
                         .focused($startTF)
                         .textCase(.lowercase)
                         .disableAutocorrection(true)
@@ -90,7 +90,7 @@ struct SearchView: View {
                         VStack(spacing: 0){
                             
                             // Found Text...
-                            Text("Found \(products.count) results")
+                            Text(" \(products.count) 건을 찾았습니다.")
                                 .font(.custom(customFont, size: 24).bold())
                                 .padding(.vertical)
                             
@@ -177,6 +177,7 @@ struct SearchView: View {
                 sharedData.fromSearchPage = true
                 sharedData.detailProduct = product
                 sharedData.showDetailProduct = true
+                homeData.searchActivated = false
                 
                 
             }

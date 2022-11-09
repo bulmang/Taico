@@ -232,8 +232,8 @@ struct ProductDetailView: View {
                         Button {
                             
                         } label: {
-                            Text("바로결제")
-                                .font(.custom(customFont, size: 20).bold())
+                            Text("결제")
+                                .font(.custom(customFont, size: 20).bold())                            
                                 .foregroundColor(.white)
                                 .padding(.vertical,20)
                                 .frame(maxWidth: .infinity)
