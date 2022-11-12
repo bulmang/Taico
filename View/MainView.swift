@@ -40,7 +40,6 @@ struct MainView: View {
                     .setBG()
                     .tag(BottomTab.home)
                     
-
                 
                 Card()
                     .setBG()

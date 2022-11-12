@@ -12,6 +12,7 @@ struct PayView: View {
     
     @State private var isShowingCard = false
     @State var ColorCircle : Bool = false
+    @State var ColorCircle1 : Bool = false
     
     var body: some View {
         VStack(alignment: .leading){
@@ -31,12 +32,77 @@ struct PayView: View {
                 }
                 
             Text("결제 수단")
-                .font(.system(size: 20))
+                .font(.system(size: 30))
                 .fontWeight(.semibold)
                 .padding()
+                .padding(.bottom, 20)
+            
+            VStack{
+                
+                
+                Button{
+                    
+                    ColorCircle1.toggle()
+                    
+                } label: {
+                    
+                    Label{
+                        Image(systemName: "creditcard.fill")
+                            .foregroundColor(.black)
+                        Text("신용카드")
+                            .font(.system(size: 20))
+                            .foregroundColor(Color(.black))
+                            .fontWeight(.bold)
+                    }icon: {
+                        Circle()
+                            .fill(ColorCircle1 ? Color("color2") : Color(.white))
+                            .frame(width: 10, height: 10)
+                            .overlay{
+                                Circle()
+                                    .stroke(.black,lineWidth: 3)
+                                    .frame(width: 20, height: 20)
+                            }
+                            .padding(.horizontal,20)
+                    }
+                    
+                    
+                }
+                .frame(maxWidth: .infinity,alignment: .leading)
+                .padding(.bottom, 40)
+                
+                Button{
+                    
+                    ColorCircle.toggle()
+                    
+                } label: {
+                    Label{
+                        Text("카카오페이")
+                            .font(.system(size: 20))
+                            .foregroundColor(Color(.black))
+                            .fontWeight(.bold)
+                    }icon: {
+                        Circle()
+                            .fill(ColorCircle ? Color("color2") : Color(.white))
+                            .frame(width: 10, height: 10)
+                            .overlay{
+                                Circle()
+                                    .stroke(.black,lineWidth: 3)
+                                    .frame(width: 20, height: 20)
+                            }
+                            .padding(.horizontal,20)
+                    }
+                    
+                }
+                .frame(maxWidth: .infinity,alignment: .leading)
+                .padding(.bottom, 40)
+                    Spacer()
+//                    .presentationDetents([.medium, .large])
+                    .presentationDetents([ .fraction(0.90)])
+                    .persistentSystemOverlays(.visible)
+            }
             
             Button{
-                isShowingCard.toggle()                
+                               
             }label: {
                 HStack{
                     Image(systemName: "creditcard.fill")
@@ -67,73 +133,7 @@ struct PayView: View {
                     .offset(y : 20)
                 ,alignment: .bottom
             )
-            .sheet(isPresented: $isShowingCard){
-                
-                VStack{
-                    Text("결제 수단")
-                        .foregroundColor(.black)
-                        .font(.system(size: 40))
-                        .fontWeight(.bold)
-                        .padding()
-                    
-                    Button{
-                        
-                        ColorCircle.toggle()
-                        
-                    } label: {
-                        Label{
-                            Text("신용카드")
-                                .font(.system(size: 30))
-                                .foregroundColor(Color(.black))
-                                .fontWeight(.bold)
-                        }icon: {
-                            Circle()
-                                .fill(ColorCircle ? Color("color2") : Color(.white))
-                                .frame(width: 20, height: 20)
-                                .overlay{
-                                    Circle()
-                                        .stroke(.black,lineWidth: 3)
-                                        .frame(width: 30, height: 30)
-                                }
-                                .padding(.horizontal,20)
-                        }
-                        
-                    }
-                    .frame(maxWidth: .infinity,alignment: .leading)
-                    .padding(.bottom, 40)
-                    
-                    Button{
-                        
-                        ColorCircle.toggle()
-                        
-                    } label: {
-                        Label{
-                            Text("신용카드")
-                                .font(.system(size: 30))
-                                .foregroundColor(Color(.black))
-                                .fontWeight(.bold)
-                        }icon: {
-                            Circle()
-                                .fill(ColorCircle ? Color("color2") : Color(.white))
-                                .frame(width: 20, height: 20)
-                                .overlay{
-                                    Circle()
-                                        .stroke(.black,lineWidth: 3)
-                                        .frame(width: 30, height: 30)
-                                }
-                                .padding(.horizontal,20)
-                        }
-                        
-                    }
-                    .frame(maxWidth: .infinity,alignment: .leading)
-                        Spacer()
-    //                    .presentationDetents([.medium, .large])
-                        .presentationDetents([ .fraction(0.90)])
-                        .persistentSystemOverlays(.visible)
-                }
-                
-                
-            }
+
             
 
             
