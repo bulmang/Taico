@@ -39,4 +39,26 @@ class SharedDataModel: ObservableObject {
         
         return "\(total)원"
     }
+    func getResultPrice()->String{
+        
+        @ObservedObject var userSetting = UserSetting()
+        
+        var result: Int = 0
+        
+        var end: Int = 0
+        
+        cartProducts.forEach { product in
+            
+            let price = product.price.replacingOccurrences(of: "$", with: "") as NSString
+            
+            let quantity = product.quantity
+            let priceTotal = quantity * price.integerValue
+            
+            result += priceTotal
+        }
+        
+        end = result - userSetting.score
+        
+        return "\(end)원"
+    }
 }

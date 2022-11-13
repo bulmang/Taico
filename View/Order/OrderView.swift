@@ -84,7 +84,7 @@ struct OrderView: View {
                         CartView( childcartstate: $childcartstate)
                             .environmentObject(sharedData)
     //                    .presentationDetents([.medium, .large])
-                            .presentationDetents([.fraction(0.40), .fraction(0.80)])
+                            .presentationDetents([.fraction(0.90), .fraction(0.40)])
                             .persistentSystemOverlays(.visible)
                     }
                     

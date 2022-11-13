@@ -16,6 +16,8 @@ struct CartView: View {
     // Delete Option...
     @State var showDeleteOption: Bool = false
     
+    @State var isShowingPay: Bool = false
+    
     @Binding var childcartstate: Int
     
     var body: some View {
@@ -125,7 +127,7 @@ struct CartView: View {
                         }
                         
                         Button {
-                            
+                            isShowingPay.toggle()
                         } label: {
                             
                             Text("결제")
@@ -136,6 +138,11 @@ struct CartView: View {
                                 .background(Color("color1"))
                                 .cornerRadius(15)
                                 .shadow(color: Color.black.opacity(0.05), radius: 5, x: 5, y: 5)
+                        }
+                        .sheet(isPresented: $isShowingPay){
+                            CartPayView( childcartstate: $childcartstate)
+                                .presentationDetents([ .fraction(1.0)])
+                                .persistentSystemOverlays(.visible)
                         }
                         .padding(.vertical)
                     }

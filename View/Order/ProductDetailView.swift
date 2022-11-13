@@ -29,6 +29,10 @@ struct ProductDetailView: View {
     
     @State var showContent: Bool = false
     
+    @State var isShowingPay: Bool = false
+    
+    @State var isShowingSheet: Bool = false
+    
     var body: some View {
         
         VStack{
@@ -230,7 +234,8 @@ struct ProductDetailView: View {
                         }
                         
                         Button {
-                            
+                            isShowingSheet.toggle()
+                            addToCart()
                         } label: {
                             Text("결제")
                                 .font(.custom(customFont, size: 20).bold())                            
@@ -241,7 +246,14 @@ struct ProductDetailView: View {
                                     Capsule()
                                         .fill(Color("color1"))
                                 }
+                        }.sheet(isPresented: $isShowingSheet){
+                            CartView( childcartstate: $childcartstate)
+                                .environmentObject(sharedData)
+        //                    .presentationDetents([.medium, .large])
+                                .presentationDetents([ .fraction(0.99)])
+                                .persistentSystemOverlays(.visible)
                         }
+                        
                         Spacer()
                     }
                     

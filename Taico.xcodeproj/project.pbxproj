@@ -23,6 +23,8 @@
 		4336FC21290F54380007A41A /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336FC20290F54380007A41A /* OrderViewModel.swift */; };
 		4339A0352916B3F700D63BCF /* Promotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4339A0342916B3F700D63BCF /* Promotion.swift */; };
 		43518B5D291DEDFF00BD461B /* PayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43518B5C291DEDFF00BD461B /* PayView.swift */; };
+		43518B602921050F00BD461B /* GiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43518B5F2921050F00BD461B /* GiftView.swift */; };
+		43518B622921128000BD461B /* CartPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43518B612921128000BD461B /* CartPayView.swift */; };
 		4369416328FE8BDC00A0771B /* hover-shopping.json in Resources */ = {isa = PBXBuildFile; fileRef = 4369416228FE8BDC00A0771B /* hover-shopping.json */; };
 		4369416B28FE8D5400A0771B /* 571-black-tea-lineal.json in Resources */ = {isa = PBXBuildFile; fileRef = 4369416A28FE8D5400A0771B /* 571-black-tea-lineal.json */; };
 		4369416D28FE8E1700A0771B /* in-card.json in Resources */ = {isa = PBXBuildFile; fileRef = 4369416C28FE8E1700A0771B /* in-card.json */; };
@@ -95,6 +97,8 @@
 		4336FC20290F54380007A41A /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
 		4339A0342916B3F700D63BCF /* Promotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promotion.swift; sourceTree = "<group>"; };
 		43518B5C291DEDFF00BD461B /* PayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayView.swift; sourceTree = "<group>"; };
+		43518B5F2921050F00BD461B /* GiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftView.swift; sourceTree = "<group>"; };
+		43518B612921128000BD461B /* CartPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPayView.swift; sourceTree = "<group>"; };
 		4369416228FE8BDC00A0771B /* hover-shopping.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "hover-shopping.json"; sourceTree = "<group>"; };
 		4369416A28FE8D5400A0771B /* 571-black-tea-lineal.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "571-black-tea-lineal.json"; sourceTree = "<group>"; };
 		4369416C28FE8E1700A0771B /* in-card.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "in-card.json"; sourceTree = "<group>"; };
@@ -186,12 +190,12 @@
 		432BD09429090BFA00E981F4 /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				43518B5E292104FA00BD461B /* Pay */,
 				4394CE59291A9F9B000B0328 /* nouse */,
 				4331D6B229195EB900830081 /* ProductDetailView.swift */,
 				4331D6BC291A92A400830081 /* SearchView.swift */,
 				430AEC43291417F600A83A06 /* CartView.swift */,
 				4394CE57291A95AF000B0328 /* OrderView.swift */,
-				43518B5C291DEDFF00BD461B /* PayView.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -233,6 +237,16 @@
 				4331D6B82919685A00830081 /* Raleway-SemiBold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		43518B5E292104FA00BD461B /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				43518B5C291DEDFF00BD461B /* PayView.swift */,
+				43518B5F2921050F00BD461B /* GiftView.swift */,
+				43518B612921128000BD461B /* CartPayView.swift */,
+			);
+			path = Pay;
 			sourceTree = "<group>";
 		};
 		437FDD572905AD3400A42FF1 /* Order */ = {
@@ -526,6 +540,7 @@
 				431162142902E2F500565BA3 /* Card.swift in Sources */,
 				4331D6AE29195A5900830081 /* SharedDataModel.swift in Sources */,
 				4331D6B129195A8D00830081 /* Product.swift in Sources */,
+				43518B602921050F00BD461B /* GiftView.swift in Sources */,
 				439D7BAE28FDA436006C92FD /* Tab.swift in Sources */,
 				439D7BA728FDA266006C92FD /* Drink.swift in Sources */,
 				4336FC21290F54380007A41A /* OrderViewModel.swift in Sources */,
@@ -537,6 +552,7 @@
 				43151825291B82A000811DDB /* LikedPage.swift in Sources */,
 				432BD09129090BBE00E981F4 /* FindView.swift in Sources */,
 				43518B5D291DEDFF00BD461B /* PayView.swift in Sources */,
+				43518B622921128000BD461B /* CartPayView.swift in Sources */,
 				4339A0352916B3F700D63BCF /* Promotion.swift in Sources */,
 				439D7BCB28FDB5F0006C92FD /* BottomTab.swift in Sources */,
 				4331D6BD291A92A400830081 /* SearchView.swift in Sources */,
@@ -629,6 +645,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -681,6 +698,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
