@@ -18,6 +18,7 @@ struct CartView: View {
     
     @State var isShowingPay: Bool = false
     
+    
     @Binding var childcartstate: Int
     
     var body: some View {
@@ -115,7 +116,7 @@ struct CartView: View {
                         
                         HStack{
                             
-                            Text("Total")
+                            Text("가격")
                                 .font(.custom(customFont, size: 14))
                                 .fontWeight(.semibold)
                             
@@ -125,25 +126,39 @@ struct CartView: View {
                                 .font(.custom(customFont, size: 18).bold())
                                 .foregroundColor(Color("color1"))
                         }
-                        
-                        Button {
-                            isShowingPay.toggle()
-                        } label: {
+                        NavigationLink(destination: CartPayView(childcartstate: $childcartstate), isActive: $isShowingPay){
+                            Button(action: {
+                                self.isShowingPay = true
+                            }, label: {
+                                Text("결제")
+                                    .font(.custom(customFont, size: 18).bold())
+                                    .foregroundColor(.white)
+                                    .padding(.vertical,18)
+                                    .frame(maxWidth: .infinity)
+                                    .background(Color("color1"))
+                                    .cornerRadius(15)
+                                    .shadow(color: Color.black.opacity(0.05), radius: 5, x: 5, y: 5)
+                            })
                             
-                            Text("결제")
-                                .font(.custom(customFont, size: 18).bold())
-                                .foregroundColor(.white)
-                                .padding(.vertical,18)
-                                .frame(maxWidth: .infinity)
-                                .background(Color("color1"))
-                                .cornerRadius(15)
-                                .shadow(color: Color.black.opacity(0.05), radius: 5, x: 5, y: 5)
                         }
-                        .sheet(isPresented: $isShowingPay){
-                            CartPayView( childcartstate: $childcartstate)
-                                .presentationDetents([ .fraction(1.0)])
-                                .persistentSystemOverlays(.visible)
-                        }
+//                        Button {
+//                            isShowingPay.toggle()
+//                        } label: {
+//
+//                            Text("결제")
+//                                .font(.custom(customFont, size: 18).bold())
+//                                .foregroundColor(.white)
+//                                .padding(.vertical,18)
+//                                .frame(maxWidth: .infinity)
+//                                .background(Color("color1"))
+//                                .cornerRadius(15)
+//                                .shadow(color: Color.black.opacity(0.05), radius: 5, x: 5, y: 5)
+//                        }
+//                        .sheet(isPresented: $isShowingPay){
+//                            CartPayView( childcartstate: $childcartstate)
+//                                .presentationDetents([ .fraction(1.0)])
+//                                .persistentSystemOverlays(.visible)
+//                        }
                         .padding(.vertical)
                     }
                     .padding(.horizontal,25)

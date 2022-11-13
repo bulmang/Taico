@@ -20,7 +20,15 @@ struct CartPayView: View {
     
     @Binding var childcartstate: Int
     
-    @State var discount: Bool = false
+    @State var discount: Bool = true
+    
+    @State private var isShowingCoupone = false
+    @State private var isShowingGift = false
+    @State private var isShowing = false
+    
+    @State var ColorCard : Bool = true
+    @State var ColorPay : Bool = false
+    @State var ColorCoupone: Bool = false
     
     
     var body: some View {
@@ -35,7 +43,289 @@ struct CartPayView: View {
                     VStack{
                         
                         
-                        PayView()
+                        VStack(alignment: .leading){
+                            
+                            Text("결제하기")
+                                .foregroundColor(.black)
+                                .font(.system(size: 50))
+                                .fontWeight(.heavy)
+                                .frame(maxWidth: .infinity,alignment: .leading)
+                                .padding(.horizontal)
+
+
+                            
+                            Text("쿠폰 및 할인")
+                                .font(.system(size: 30))
+                                .fontWeight(.semibold)
+                                .padding()
+                                .padding(.bottom, 10)
+                            
+                            
+                            
+                            
+                            Button{
+                                
+                                ColorCard.toggle()
+                                ColorPay = false
+                            
+                            
+                                
+                            } label: {
+                                
+                                Label{
+                                    Image(systemName: "creditcard.fill")
+                                        .font(.system(size: 20))
+                                        .foregroundColor(.black)
+                                    
+                                    Text("신용카드")
+                                        .font(.system(size: 20))
+                                        .foregroundColor(Color(.black))
+                                        .fontWeight(.bold)
+                                }icon: {
+                                    Circle()
+                                        .fill(ColorCard ? Color("color2") : Color(.white))
+                                        .frame(width: 10, height: 10)
+                                        .overlay{
+                                            Circle()
+                                                .stroke(.black,lineWidth: 3)
+                                                .frame(width: 20, height: 20)
+                                        }
+                                        .padding(.horizontal,20)
+                                }
+                                
+                                
+                            }
+                            .frame(maxWidth: .infinity,alignment: .leading)
+                            .padding(.bottom, 40)
+                            
+                            Button{
+                                
+                                ColorPay.toggle()
+                                ColorCard = false
+                                
+                                
+                            } label: {
+                                Label{
+                                    Image(systemName: "p.square.fill")
+                                        .font(.system(size: 20))
+                                        .foregroundColor(.black)
+                                    
+                                    Text("카카오페이")
+                                        .font(.system(size: 20))
+                                        .foregroundColor(Color(.black))
+                                        .fontWeight(.bold)
+                                }icon: {
+                                    Circle()
+                                        .fill(ColorPay ? Color("color2") : Color(.white))
+                                        .frame(width: 10, height: 10)
+                                        .overlay{
+                                            Circle()
+                                                .stroke(.black,lineWidth: 3)
+                                                .frame(width: 20, height: 20)
+                                        }
+                                        .padding(.horizontal,20)
+                                }
+                                
+                            }
+                            .frame(maxWidth: .infinity,alignment: .leading)
+                            .padding(.bottom, 20)
+                            .overlay (
+                                Divider()
+                                    .overlay(
+                                        Color(.black).opacity(0.7)
+                                    )
+                                    .padding(.horizontal, 20)
+                                    .offset(y : 0)
+                                ,alignment: .bottom
+                            )
+                            
+                            //                    .presentationDetents([.medium, .large])
+                            
+                            Text("결제 수단")
+                                .font(.system(size: 30))
+                                .fontWeight(.semibold)
+                                .padding()
+                                .padding(.bottom, 10)
+                            
+                            Button{
+                                
+                                isShowingCoupone.toggle()
+                                
+                            }label: {
+                                HStack{
+                                    Image(systemName: "percent")
+                                        .foregroundColor(.black)
+                                        .font(.system(size: 25))
+                                    
+                                    Text("쿠폰")
+                                        .foregroundColor(.black)
+                                        .font(.system(size: 25))
+                                        .fontWeight(.bold)
+                                    
+                                    Spacer()
+                                    
+                                    Image(systemName: "chevron.right")
+                                        .foregroundColor(.black)
+                                        .font(.system(size: 25))
+                                    
+                                    
+                                    
+                                }
+                                .padding()
+                                
+                                
+                            }.sheet(isPresented: $isShowingCoupone){
+                                VStack{
+                                    Text("쿠폰")
+                                        .foregroundColor(.black)
+                                        .fontWeight(.heavy)
+                                        .font(.system(size: 25))
+                                        .padding()
+                                    
+                                    ZStack{
+                                        
+                                        NeuromorphicUI {
+                                            
+                                            RoundedRectangle(cornerRadius: 25)
+                                                .frame(maxWidth: .infinity)
+                                                .frame(height: 180)
+                                            
+                                        }
+                                        .padding()
+                                        .ignoresSafeArea()
+                                        HStack{
+                                            
+                                            Button{
+                                                
+                                                ColorCoupone.toggle()
+                                                discount.toggle()
+                                                
+                                            } label: {
+                                                
+                                                VStack{
+
+                                                        
+                                                    
+                                                    Text("10 쿠폰%")
+                                                        .foregroundColor(.black)
+                                                        .fontWeight(.heavy)
+                                                        .font(.system(size: 30))
+                                                        .offset(x:-80,y:-50)
+                                                    
+                                                    Text("융합소프트웨어학과 할인")
+                                                        .foregroundColor(.black)
+                                                        .fontWeight(.heavy)
+                                                        .font(.system(size: 30))
+                                                        .padding(.horizontal)
+                                                }
+                                                .frame(width: 335,height: 200)
+                                                
+                                                
+
+                                            }
+                                            .offset(y:30)
+                                            
+                                            Spacer()
+                                            
+                                            Circle()
+                                                .fill(ColorCoupone ? Color("color2") : Color(.white))
+                                                .frame(width: 20, height: 20)
+                                                .overlay{
+                                                    Circle()
+                                                        .stroke(.black,lineWidth: 3)
+                                                        .frame(width: 30, height: 30)
+                                                }
+                                                .padding(.horizontal,20)
+                                                .offset(y:-40)
+                                            
+                                            
+                                            
+                                        }
+                                        .padding()
+                                        .frame(maxWidth: .infinity,alignment: .leading)
+                                    }
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    Spacer()
+                                    
+                                }
+                                
+                                .presentationDetents([ .fraction(0.90)])
+                                .persistentSystemOverlays(.visible)
+                            }
+                            
+                            Button{
+                                isShowingGift.toggle()
+                            }label: {
+                                HStack{
+                                    Image(systemName: "gift")
+                                        .foregroundColor(.black)
+                                        .font(.system(size: 25))
+                                    
+                                    Text("선물")
+                                        .foregroundColor(.black)
+                                        .font(.system(size: 25))
+                                        .fontWeight(.bold)
+                                    
+                                    Spacer()
+                                    
+                                    Image(systemName: "chevron.right")
+                                        .foregroundColor(.black)
+                                        .font(.system(size: 25))
+                                    
+                                    
+                                    
+                                }.sheet(isPresented: $isShowingGift){
+                                    
+                                    GiftView()
+                                    .presentationDetents([ .fraction(0.90)])
+                                    .persistentSystemOverlays(.visible)
+                                }
+                                .padding()
+                                
+                                
+                                
+                            }
+                            
+                            Button{
+                                
+                            }label: {
+                                HStack{
+                                    Image(systemName: "ipad.and.iphone")
+                                        .foregroundColor(.black)
+                                        .font(.system(size: 25))
+                                    
+                                    Text("통신사 제휴 할인")
+                                        .foregroundColor(.black)
+                                        .font(.system(size: 25))
+                                        .fontWeight(.bold)
+                                    
+                                    Spacer()
+                                    
+                                    Image(systemName: "chevron.right")
+                                        .foregroundColor(.black)
+                                        .font(.system(size: 25))
+                                    
+                                    
+                                    
+                                }
+                                .padding()
+                                
+                                
+                                
+                            }
+                            Spacer()
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        }
                             
                             
 
@@ -125,7 +415,7 @@ struct CartPayView: View {
                             
                             Spacer()
                             
-                            Text("\(self.userSetting.score)")
+                            Text(discount ? "\(self.userSetting.score)" : sharedData.Discount())
                                 .font(.custom(customFont, size: 15).bold())
                                 .foregroundColor(Color("color1"))
                         }
@@ -139,7 +429,7 @@ struct CartPayView: View {
                             
                             Spacer()
                             
-                            Text(sharedData.getResultPrice())
+                            Text(discount ?sharedData.getResultPrice() :sharedData.getDiscountPrice())
                                 .font(.custom(customFont, size: 20).bold())
                                 .foregroundColor(Color("color1"))
                         }
@@ -147,6 +437,8 @@ struct CartPayView: View {
 
                         
                         Button {
+                            
+                            
                             
                         } label: {
                             

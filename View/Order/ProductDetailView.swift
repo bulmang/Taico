@@ -33,6 +33,8 @@ struct ProductDetailView: View {
     
     @State var isShowingSheet: Bool = false
     
+    @State var isShowingGift: Bool = false
+    
     var body: some View {
         
         VStack{
@@ -50,6 +52,7 @@ struct ProductDetailView: View {
                         }
                     } label: {
                         Image(systemName: "arrow.left")
+                            .foregroundColor(.white)
                             .font(.title2)
                             .foregroundColor(Color.black.opacity(0.7))
                     }
@@ -57,6 +60,7 @@ struct ProductDetailView: View {
                     Spacer()
                     
                     Text("주문")
+                        .foregroundColor(.white)
                         .font(.system(size: 20,weight: .bold))
                         .fontWeight(.semibold)
                         .padding(.trailing)
@@ -70,7 +74,7 @@ struct ProductDetailView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 22, height: 22)
-                            .foregroundColor(isLiked() ? .red : Color.black.opacity(0.7))
+                            .foregroundColor(isLiked() ? .red : Color.white.opacity(0.7))
                     }
 
 
@@ -78,24 +82,7 @@ struct ProductDetailView: View {
                 .padding()
                 
                 HStack(spacing: 0) {
-                    ForEach(["차갑게","뜨겁게"], id: \.self){ order in
-                        Text(order)
-                            .font(.system(size: 20,weight: .semibold))
-                            .foregroundColor((orderType == order ? .black : .black))
-                            .fontWeight((orderType == order ? .bold : .light))
-                            .padding(.horizontal,20)
-                            .padding(.vertical,10)
-                            .background{
-                                if orderType == order {
-                                    Capsule()
-                                        .fill(Color("Color-2"))
-                                        .matchedGeometryEffect(id: "ORDERTAB", in: animation)
-                                }
-                            }
-                            .onTapGesture {
-                                withAnimation(.easeInOut){orderType = order}
-                            }
-                    }
+                    
                         
                 }
                 .background{
@@ -140,9 +127,11 @@ struct ProductDetailView: View {
                                 .matchedGeometryEffect(id: product.id, in: animation)
                                 .frame(width: 80, height: 80)
                         }
-                        .offset(y: orderData.saveCart ? 70 : -120)
+                        .frame(width: getRect().width)
+                        .frame(height: getRect().height / 2.7)
+                        .offset(y: orderData.saveCart ? 90 : -120)
                         // scaling effect...
-                        .scaleEffect(orderData.saveCart ? 0.6 : 1.2)
+                        .scaleEffect(orderData.saveCart ? 0 : 1.2)
                         .onAppear(perform: orderData.performAnimations)
                         
                         if !orderData.saveCart{
@@ -153,17 +142,19 @@ struct ProductDetailView: View {
                             .font(.title)
                             .foregroundColor(.white)
                             .padding()
-                            .background(orderData.additemtocart ? Color("color2") : Color("color1"))
+                            .background(orderData.additemtocart ? Color("orange") : Color("color1"))
                             .clipShape(Circle())
-                            .offset(y: orderData.showBag ? -50 : 300)
+                            .offset(y: orderData.showBag ? -250 : 300)
+                            .frame(width: 150)
+                            .frame(height: 150)
                     }
                     // setting external view width to screen width..
-                    .frame(width: getRect().width)
+                    
                     // moving view down...
                     .offset(y: orderData.endAnimation ? 500 : 0)
                 }
             }
-            .frame(height: getRect().height / 2.7)
+            
             .zIndex(1)
             .onAppear{
                 withAnimation(.easeInOut.delay(0.1)) {
@@ -184,35 +175,92 @@ struct ProductDetailView: View {
             
                 
                 // Product Data...
-                VStack(alignment: .center, spacing: 15) {
+            ScrollView(.vertical, showsIndicators: false) {
+                
+                // Product Data...
+                VStack(alignment: .leading, spacing: 15) {
                     
                     Text(product.title)
-                        .font(.custom(customFont, size: 20).bold())
-                        .fontWeight(.bold)
-                        .multilineTextAlignment(.center)
-                        .padding(.bottom)
-
-       
-                    Text("대기시간 10분")
-                        .font(.custom(customFont, size: 20).bold())
-                        .fontWeight(.bold)
-                        .foregroundColor(.black)
-                        .padding(.bottom)
+                        .font(.custom(customFont, size: 25).bold())
                     
-
+                    Text(product.subtitle)
+                        .font(.custom(customFont, size: 20))
+                        .foregroundColor(.gray)
+                    
+                    
+                    Text(product.describe)
+                        .font(.custom(customFont, size: 18))
+                        .foregroundColor(.black.opacity(0.8))
+                    
                     HStack{
+                        Text("가격 ")
+                            .font(.custom(customFont, size: 26).bold())
                         
-                        Text("가격")
-                            .font(.custom(customFont, size: 20).bold())
+                        Spacer()
                         
-                        Text("\(product.price)")
-                            .font(.custom(customFont, size: 20).bold())
-                            
+                        Text(product.price)
+                            .font(.custom(customFont, size: 26).bold())
                     }
-                    .foregroundColor(.black)
-                    .padding(.vertical,20)
-                    .padding(.bottom)
+                    .padding(.top)
                     
+                    .overlay (
+                        Divider()
+                            .overlay(
+                                Color(.black).opacity(0.7)
+                            )
+                            
+                            .offset(y : 20)
+                        ,alignment: .bottom
+                    )
+                    .frame(maxWidth: .infinity)
+                    Button{
+                        isShowingGift.toggle()
+                    }label: {
+                        HStack{
+                            
+                            
+                            Text("제품 영양 정보")
+                                .foregroundColor(.black)
+                                .font(.system(size: 25))
+                                .fontWeight(.bold)
+                            
+                            Spacer()
+                            
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.black)
+                                .font(.system(size: 25))
+                            
+                            
+                            
+                        }.sheet(isPresented: $isShowingGift){
+                            
+                            VStack{
+                                Text("제품 영양 정보")
+                                    .foregroundColor(.black)
+                                    .fontWeight(.heavy)
+                                    .font(.system(size: 30))
+                                    .padding()
+                                
+                                Image("제품")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .padding()
+                                    .padding(.top,35)
+                                
+                                Spacer()
+                            }
+                        }
+                        .padding()
+                        
+                        
+                        
+                    }
+                    
+
+
+                    .padding(.vertical,20)
+                    
+                    // Add button...
                     HStack{
                         
                         Spacer()
@@ -238,7 +286,7 @@ struct ProductDetailView: View {
                             addToCart()
                         } label: {
                             Text("결제")
-                                .font(.custom(customFont, size: 20).bold())                            
+                                .font(.custom(customFont, size: 20).bold())
                                 .foregroundColor(.white)
                                 .padding(.vertical,20)
                                 .frame(maxWidth: .infinity)
@@ -246,33 +294,35 @@ struct ProductDetailView: View {
                                     Capsule()
                                         .fill(Color("color1"))
                                 }
-                        }.sheet(isPresented: $isShowingSheet){
+                        }
+                        .sheet(isPresented: $isShowingSheet){
                             CartView( childcartstate: $childcartstate)
                                 .environmentObject(sharedData)
-        //                    .presentationDetents([.medium, .large])
                                 .presentationDetents([ .fraction(0.99)])
                                 .persistentSystemOverlays(.visible)
                         }
                         
                         Spacer()
                     }
-                    
-                    
 
                 }
-                .padding(.vertical,20)
-                .frame(maxWidth: .infinity)
-                .background{
-                    RoundedRectangle(cornerRadius: 40,style: .continuous)
-                        .fill(Color(.white))
-                }
-                .padding(.horizontal)
+                .padding([.horizontal,.bottom],20)
+                .padding(.top,25)
+                .frame(maxWidth: .infinity,alignment: .leading)
+            }
+            .frame(maxWidth: .infinity,maxHeight: .infinity)
+            .background(
+                Color.white
+                // Corner Radius for only top side....
+                    .clipShape(CustomCorners(corners: [.topLeft,.topRight], radius: 25))
+                    .ignoresSafeArea()
+            )
 //                .offset(y: orderData.showBag ? -230 : 0)
                 
                 
          
         }
-        .background(Color("HomeBG").ignoresSafeArea())
+        .background(Color("color2").ignoresSafeArea())
     }
     
 
@@ -325,3 +375,15 @@ struct ProductDetailView: View {
     }
 }
 
+struct CustomCorners: Shape {
+
+    var corners: UIRectCorner
+    var radius: CGFloat
+    
+    func path(in rect: CGRect) -> Path {
+        
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        
+        return Path(path.cgPath)
+    }
+}

@@ -13,6 +13,7 @@ struct Product: Identifiable,Hashable {
     var type: ProductType
     var title: String
     var subtitle: String
+    var describe: String
     var description: String = ""
     var price: String
     var productImage: String = ""
@@ -23,6 +24,6 @@ struct Product: Identifiable,Hashable {
 enum ProductType: String,CaseIterable{
     case 커피 = "커피"
     case 차 = "차"
-    case 스무디 = "스무디"
-    case 버블티 = "버블티"
+    case 프라푸치노 = "프라푸치노"
+    case 블렌디드 = "블렌디드"
 }

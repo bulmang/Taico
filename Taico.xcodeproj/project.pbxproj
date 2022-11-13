@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		430AEC44291417F600A83A06 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430AEC43291417F600A83A06 /* CartView.swift */; };
-		430AEC4629141DE800A83A06 /* CartDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430AEC4529141DE800A83A06 /* CartDrink.swift */; };
 		431162142902E2F500565BA3 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431162132902E2F500565BA3 /* Card.swift */; };
 		43151825291B82A000811DDB /* LikedPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43151824291B82A000811DDB /* LikedPage.swift */; };
 		432BCA5F2900082400084438 /* BlogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432BCA5E2900082400084438 /* BlogModel.swift */; };
@@ -25,15 +24,13 @@
 		43518B5D291DEDFF00BD461B /* PayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43518B5C291DEDFF00BD461B /* PayView.swift */; };
 		43518B602921050F00BD461B /* GiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43518B5F2921050F00BD461B /* GiftView.swift */; };
 		43518B622921128000BD461B /* CartPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43518B612921128000BD461B /* CartPayView.swift */; };
+		43518B6429213F2C00BD461B /* CouponeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43518B6329213F2C00BD461B /* CouponeView.swift */; };
 		4369416328FE8BDC00A0771B /* hover-shopping.json in Resources */ = {isa = PBXBuildFile; fileRef = 4369416228FE8BDC00A0771B /* hover-shopping.json */; };
 		4369416B28FE8D5400A0771B /* 571-black-tea-lineal.json in Resources */ = {isa = PBXBuildFile; fileRef = 4369416A28FE8D5400A0771B /* 571-black-tea-lineal.json */; };
 		4369416D28FE8E1700A0771B /* in-card.json in Resources */ = {isa = PBXBuildFile; fileRef = 4369416C28FE8E1700A0771B /* in-card.json */; };
 		437FDD4C29058AF400A42FF1 /* CustomViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437FDD4B29058AF400A42FF1 /* CustomViews.swift */; };
 		437FDD4E29058B1400A42FF1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437FDD4D29058B1400A42FF1 /* LoginView.swift */; };
 		437FDD5029058B3100A42FF1 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437FDD4F29058B3100A42FF1 /* SignUpView.swift */; };
-		437FDD522905A02800A42FF1 /* Tea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437FDD512905A02800A42FF1 /* Tea.swift */; };
-		437FDD542905A48400A42FF1 /* Smudi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437FDD532905A48400A42FF1 /* Smudi.swift */; };
-		437FDD562905AD2F00A42FF1 /* BubbleTea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437FDD552905AD2F00A42FF1 /* BubbleTea.swift */; };
 		4394CE58291A95AF000B0328 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4394CE57291A95AF000B0328 /* OrderView.swift */; };
 		439D7B7B28FD9F3E006C92FD /* TaicoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7B7A28FD9F3E006C92FD /* TaicoApp.swift */; };
 		439D7B7D28FD9F3E006C92FD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7B7C28FD9F3E006C92FD /* ContentView.swift */; };
@@ -42,7 +39,6 @@
 		439D7B8D28FD9F40006C92FD /* TaicoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7B8C28FD9F40006C92FD /* TaicoTests.swift */; };
 		439D7B9728FD9F40006C92FD /* TaicoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7B9628FD9F40006C92FD /* TaicoUITests.swift */; };
 		439D7B9928FD9F40006C92FD /* TaicoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7B9828FD9F40006C92FD /* TaicoUITestsLaunchTests.swift */; };
-		439D7BA728FDA266006C92FD /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7BA628FDA266006C92FD /* Drink.swift */; };
 		439D7BAA28FDA40B006C92FD /* CustomCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7BA928FDA40B006C92FD /* CustomCarousel.swift */; };
 		439D7BAC28FDA425006C92FD /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7BAB28FDA425006C92FD /* Order.swift */; };
 		439D7BAE28FDA436006C92FD /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D7BAD28FDA436006C92FD /* Tab.swift */; };
@@ -79,7 +75,6 @@
 
 /* Begin PBXFileReference section */
 		430AEC43291417F600A83A06 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
-		430AEC4529141DE800A83A06 /* CartDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDrink.swift; sourceTree = "<group>"; };
 		431162132902E2F500565BA3 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; usesTabs = 0; };
 		43151824291B82A000811DDB /* LikedPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikedPage.swift; sourceTree = "<group>"; };
 		432BCA5E2900082400084438 /* BlogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogModel.swift; sourceTree = "<group>"; };
@@ -99,15 +94,13 @@
 		43518B5C291DEDFF00BD461B /* PayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayView.swift; sourceTree = "<group>"; };
 		43518B5F2921050F00BD461B /* GiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftView.swift; sourceTree = "<group>"; };
 		43518B612921128000BD461B /* CartPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPayView.swift; sourceTree = "<group>"; };
+		43518B6329213F2C00BD461B /* CouponeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponeView.swift; sourceTree = "<group>"; };
 		4369416228FE8BDC00A0771B /* hover-shopping.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "hover-shopping.json"; sourceTree = "<group>"; };
 		4369416A28FE8D5400A0771B /* 571-black-tea-lineal.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "571-black-tea-lineal.json"; sourceTree = "<group>"; };
 		4369416C28FE8E1700A0771B /* in-card.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "in-card.json"; sourceTree = "<group>"; };
 		437FDD4B29058AF400A42FF1 /* CustomViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViews.swift; sourceTree = "<group>"; };
 		437FDD4D29058B1400A42FF1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		437FDD4F29058B3100A42FF1 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		437FDD512905A02800A42FF1 /* Tea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tea.swift; sourceTree = "<group>"; };
-		437FDD532905A48400A42FF1 /* Smudi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smudi.swift; sourceTree = "<group>"; };
-		437FDD552905AD2F00A42FF1 /* BubbleTea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleTea.swift; sourceTree = "<group>"; };
 		4394CE57291A95AF000B0328 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		439D7B7728FD9F3E006C92FD /* Taico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		439D7B7A28FD9F3E006C92FD /* TaicoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaicoApp.swift; sourceTree = "<group>"; };
@@ -120,7 +113,6 @@
 		439D7B9228FD9F40006C92FD /* TaicoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaicoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		439D7B9628FD9F40006C92FD /* TaicoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaicoUITests.swift; sourceTree = "<group>"; };
 		439D7B9828FD9F40006C92FD /* TaicoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaicoUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		439D7BA628FDA266006C92FD /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		439D7BA928FDA40B006C92FD /* CustomCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCarousel.swift; sourceTree = "<group>"; };
 		439D7BAB28FDA425006C92FD /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		439D7BAD28FDA436006C92FD /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
@@ -245,6 +237,7 @@
 				43518B5C291DEDFF00BD461B /* PayView.swift */,
 				43518B5F2921050F00BD461B /* GiftView.swift */,
 				43518B612921128000BD461B /* CartPayView.swift */,
+				43518B6329213F2C00BD461B /* CouponeView.swift */,
 			);
 			path = Pay;
 			sourceTree = "<group>";
@@ -253,12 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				4331D6AF29195A7F00830081 /* Cart */,
-				439D7BA628FDA266006C92FD /* Drink.swift */,
-				437FDD512905A02800A42FF1 /* Tea.swift */,
-				437FDD532905A48400A42FF1 /* Smudi.swift */,
-				437FDD552905AD2F00A42FF1 /* BubbleTea.swift */,
 				4336FC20290F54380007A41A /* OrderViewModel.swift */,
-				430AEC4529141DE800A83A06 /* CartDrink.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -524,16 +512,13 @@
 			files = (
 				439D7BAA28FDA40B006C92FD /* CustomCarousel.swift in Sources */,
 				439D7B7D28FD9F3E006C92FD /* ContentView.swift in Sources */,
-				437FDD542905A48400A42FF1 /* Smudi.swift in Sources */,
 				4394CE58291A95AF000B0328 /* OrderView.swift in Sources */,
 				439D7BCD28FDB60E006C92FD /* AnimatedIcon.swift in Sources */,
 				439D7BCF28FDB639006C92FD /* MainView.swift in Sources */,
 				439D7BB028FDAB81006C92FD /* CustomArcShape.swift in Sources */,
 				439D7BAC28FDA425006C92FD /* Order.swift in Sources */,
-				437FDD522905A02800A42FF1 /* Tea.swift in Sources */,
 				432BCA612900093500084438 /* Home.swift in Sources */,
 				439D7BD128FDB6F8006C92FD /* ResizableLottieView.swift in Sources */,
-				430AEC4629141DE800A83A06 /* CartDrink.swift in Sources */,
 				4331D6B329195EB900830081 /* ProductDetailView.swift in Sources */,
 				432BCA5F2900082400084438 /* BlogModel.swift in Sources */,
 				4331D6BF291A933700830081 /* StaggeredGrid.swift in Sources */,
@@ -542,14 +527,13 @@
 				4331D6B129195A8D00830081 /* Product.swift in Sources */,
 				43518B602921050F00BD461B /* GiftView.swift in Sources */,
 				439D7BAE28FDA436006C92FD /* Tab.swift in Sources */,
-				439D7BA728FDA266006C92FD /* Drink.swift in Sources */,
 				4336FC21290F54380007A41A /* OrderViewModel.swift in Sources */,
 				437FDD5029058B3100A42FF1 /* SignUpView.swift in Sources */,
 				437FDD4C29058AF400A42FF1 /* CustomViews.swift in Sources */,
 				43BAEBED290ED653003773FF /* ProfileView.swift in Sources */,
-				437FDD562905AD2F00A42FF1 /* BubbleTea.swift in Sources */,
 				430AEC44291417F600A83A06 /* CartView.swift in Sources */,
 				43151825291B82A000811DDB /* LikedPage.swift in Sources */,
+				43518B6429213F2C00BD461B /* CouponeView.swift in Sources */,
 				432BD09129090BBE00E981F4 /* FindView.swift in Sources */,
 				43518B5D291DEDFF00BD461B /* PayView.swift in Sources */,
 				43518B622921128000BD461B /* CartPayView.swift in Sources */,

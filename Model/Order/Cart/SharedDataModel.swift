@@ -61,4 +61,58 @@ class SharedDataModel: ObservableObject {
         
         return "\(end)원"
     }
+    
+    func getDiscountPrice()->String{
+        
+        @ObservedObject var userSetting = UserSetting()
+        
+        var result: Int = 0
+        
+        var end: Int = 0
+        
+        var discount: Int = 0
+        
+        cartProducts.forEach { product in
+            
+            let price = product.price.replacingOccurrences(of: "$", with: "") as NSString
+            
+            let quantity = product.quantity
+            let priceTotal = quantity * price.integerValue
+            
+            result += priceTotal
+            
+            
+        }
+        discount = result / 10
+        end = result - discount
+        
+        return "\(end)원"
+    }
+    
+    func Discount()->String{
+        
+        @ObservedObject var userSetting = UserSetting()
+        
+        var result: Int = 0
+        
+        
+        
+        var discount: Int = 0
+        
+        cartProducts.forEach { product in
+            
+            let price = product.price.replacingOccurrences(of: "$", with: "") as NSString
+            
+            let quantity = product.quantity
+            let priceTotal = quantity * price.integerValue
+            
+            result += priceTotal
+            
+            
+        }
+        discount = result / 10
+        
+        
+        return "\(discount)원"
+    }
 }

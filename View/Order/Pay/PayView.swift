@@ -45,7 +45,7 @@ struct PayView: View {
                 ColorCard.toggle()
                 ColorPay = false
                 
-                
+            
                 
             } label: {
                 

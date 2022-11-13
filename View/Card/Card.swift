@@ -21,7 +21,7 @@ struct Card: View {
             
             NeuromorphicUI {
                         RoundedRectangle(cornerRadius: 25)
-                            .frame(width: 400, height: 450)
+                            .frame(width: 400, height: 400)
                             .offset(y:-50)
                     }.ignoresSafeArea()
             
