@@ -17,6 +17,9 @@ struct OrderView: View {
     
     @State private var isShowingSheet = false
     
+    @State private var isShowingOrdered = false
+    
+    
     @Binding var childcartstate: Int
     
     @State var currentIndex: Int = 0
@@ -33,7 +36,9 @@ struct OrderView: View {
                 
                 // Search Bar...
                 HStack{
-                    Spacer()
+
+                    
+                    
                     ZStack{
                         
                         if homeData.searchActivated{
@@ -61,12 +66,13 @@ struct OrderView: View {
                             .frame(width: 500,height: 350)
                             
                     )
+                    
                     Button{
-                        isShowingSheet.toggle()
+                        sharedData.showPay.toggle()
                     }label: {
                         Image(systemName: "cart")
                             .font(.title2)
-                            .foregroundColor(.black)
+                            .foregroundColor(.white)
                             .overlay(
                                 Text("\(childcartstate)")
                                     .font(.caption)
@@ -80,13 +86,14 @@ struct OrderView: View {
                             )
                             
                     }
-                    .sheet(isPresented: $isShowingSheet){
+                    .sheet(isPresented: $sharedData.showPay){
                         CartView( childcartstate: $childcartstate)
                             .environmentObject(sharedData)
     //                    .presentationDetents([.medium, .large])
-                            .presentationDetents([.fraction(0.90), .fraction(0.40)])
+                            .presentationDetents([.fraction(0.99), .fraction(0.50)])
                             .persistentSystemOverlays(.visible)
                     }
+                    
                     
                 }
                 .padding(.horizontal)

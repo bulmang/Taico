@@ -135,10 +135,74 @@
             filePath = "View/Order/ProductDetailView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "body"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3E8CB354-1CC1-4962-9532-13D7E78B8B00"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "View/Propile/ProfileView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D5685CD6-626B-47AC-B29D-7A4A42AFA919"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "View/Order/Pay/CartPayView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "CartPayView"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "D5685CD6-626B-47AC-B29D-7A4A42AFA919 - b42ac09fc92c5f4f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of Taico.CartPayView.isShowingCoupone : Swift.Bool"
+                  moduleName = "Taico"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hamyeong-gwan/Desktop/SwiftUI/Taico/View/Order/Pay/CartPayView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "D5685CD6-626B-47AC-B29D-7A4A42AFA919 - 7b3c93eb3f60b602"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Taico.CartPayView.init(userSetting: Taico.UserSetting, sharedData: SwiftUI.EnvironmentObject&lt;Taico.SharedDataModel&gt;, showDeleteOption: Swift.Bool, childcartstate: SwiftUI.Binding&lt;Swift.Int&gt;, discount: Swift.Bool, ColorCard: Swift.Bool, ColorPay: Swift.Bool, ColorCoupone: Swift.Bool, pay: Swift.Bool) -&gt; Taico.CartPayView"
+                  moduleName = "Taico"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hamyeong-gwan/Desktop/SwiftUI/Taico/View/Order/Pay/CartPayView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "164">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -105,7 +105,7 @@ struct LoginView: View {
                                 
                                 
                                 NavigationLink(destination: SignUpView(), isActive: $isLinkActive) {
-                                    NavigationLink(destination: ProfileView(),isActive: $isOrderActive) {
+                                    NavigationLink(destination: MainView(),isActive: $isOrderActive) {
                                         Button(action: {
                                             if email == "하명관" && password == "1234"{
                                                 self.login = true
@@ -145,6 +145,7 @@ struct LoginView: View {
                                                 }
                                         })
                                     }
+                                    .navigationBarHidden(true)
                                     
                                     
                                 }.padding(.horizontal, 20)

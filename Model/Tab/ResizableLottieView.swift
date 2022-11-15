@@ -11,7 +11,7 @@ import Lottie
 //Mark : Resizable Lottie View
 struct ResizableLottieView: UIViewRepresentable {
     var lottieView: AnimationView
-    var color: SwiftUI.Color = .black
+    @Binding var color: SwiftUI.Color 
     
     func makeUIView(context: Context) -> UIView  {
         let view = UIView()
@@ -63,3 +63,5 @@ struct ResizableLottieView: UIViewRepresentable {
         to.addConstraints(constraints)
     }
 }
+
+

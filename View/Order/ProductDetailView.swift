@@ -11,6 +11,7 @@ let customFont = "Raleway-Regular"
 
 // Since both of the views are mostly identical....
 struct ProductDetailView: View {
+    
     var product: Product
     
     // For Matched Geometry Effect...
@@ -266,6 +267,7 @@ struct ProductDetailView: View {
                         Spacer()
                         
                         Button {
+                            
                             addToCart()
                             
 
@@ -277,12 +279,12 @@ struct ProductDetailView: View {
                                 .frame(maxWidth: .infinity)
                                 .background{
                                     Capsule()
-                                        .fill(isAddedToCart() ? Color("color2") : Color("color1"))
+                                        .fill(isAddedToCart() ? Color("orange") : Color("color1"))
                                 }
                         }
                         
                         Button {
-                            isShowingSheet.toggle()
+                            sharedData.showPay.toggle()
                             addToCart()
                         } label: {
                             Text("결제")
@@ -295,7 +297,7 @@ struct ProductDetailView: View {
                                         .fill(Color("color1"))
                                 }
                         }
-                        .sheet(isPresented: $isShowingSheet){
+                        .sheet(isPresented: $sharedData.showPay){
                             CartView( childcartstate: $childcartstate)
                                 .environmentObject(sharedData)
                                 .presentationDetents([ .fraction(0.99)])
@@ -355,7 +357,30 @@ struct ProductDetailView: View {
         }
     }
     
+    
+    
+    
+    
     func addToCart(){
+        
+        if let index = sharedData.cartProducts.firstIndex(where: { product in
+            return self.product.id == product.id
+        }){
+            // Remove from liked....
+            sharedData.cartProducts.remove(at: index)
+            childcartstate -= 1
+        }
+        else{
+            // add to liked
+            withAnimation(.easeInOut(duration: 0.7)){
+                orderData.startAnimation.toggle()
+            }
+            sharedData.cartProducts.append(product)
+            childcartstate += 1
+        }
+    }
+    
+    func addToOrder(){
         
         if let index = sharedData.cartProducts.firstIndex(where: { product in
             return self.product.id == product.id

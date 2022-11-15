@@ -11,6 +11,8 @@ import SwiftUI
 
 // Since both of the views are mostly identical....
 struct CartView: View {
+    
+    
     @EnvironmentObject var sharedData: SharedDataModel
     
     // Delete Option...
@@ -183,10 +185,13 @@ struct CartView: View {
             let _ = withAnimation{
                 // removing...
                 sharedData.cartProducts.remove(at: index)
+                
             }
         }
     }
 }
+
+
 
 //struct CartView_Previews: PreviewProvider {
 //    static var previews: some View {
@@ -222,7 +227,7 @@ struct CardViews: View{
                 // Quantity Buttons...
                 HStack(spacing: 10){
                     
-                    Text("Quantity")
+                    Text("수량")
                         .font(.custom(customFont, size: 14))
                         .foregroundColor(.gray)
                     

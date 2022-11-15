@@ -10,8 +10,8 @@ import SwiftUI
 // Mark: Tab Model
 enum BottomTab: String,CaseIterable{
     case home = "Home"
-    case card = "in-card"
+    case card = "hover-card"
     case order = "571-black-tea-lineal"
-    case shopping = "hover-shopping"
+    case heart = "heart"
     case account = "Account"
 } // json으로 불러온 움직이는 아이콘들을 가져와서 Tab에 저장

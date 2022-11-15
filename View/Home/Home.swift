@@ -16,23 +16,38 @@ struct Home: View {
 
                         
                         Text("안녕하세요\nTAICO입니다")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .frame(maxWidth: .infinity)
-
-                            .padding(.trailing, 150.0)
+                            .padding(.top,40)
+                            .foregroundColor(.white)
+                            .font(.system(size: 40))
+                            .fontWeight(.heavy)
+                            .frame(maxWidth: .infinity,alignment: .leading)
+                            .padding(.bottom,80)
+                            .padding(.horizontal)
+                            
+                            .background{
+                                Color("color2")
+                                    .frame(height: 200)
+                                    .ignoresSafeArea()
+                                    .offset(y:-60)
+                                    
+                            }
+                            .offset(y:-40)
 
                         VStack(spacing: 40){
+                            
+                            Text("")
                             
                             ForEach(blogs) { blog in
                                 CardView(image: blog.image, category: blog.category, heading: blog.heading, author: blog.author, site: blog.site)
                             }
+                            .padding(.top,-80)
+                            .padding()
                         }
                         
                     }
                     
                 }
-                .padding()
+                
             }
         }
         
@@ -59,35 +74,35 @@ struct CardView: View {
             VStack (alignment: .leading){
                 
                 Link(destination: URL(string:  site)!) {
-                    NeuromorphicUI {
-                        RoundedRectangle(cornerRadius: 25)
-                                .overlay(Image(image)
+                    
+                        
+                                Image(image)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                         
-                            )
-                            .frame(width: 350,height: 250)
-                        
-                        .padding()
-                        }
-                    .ignoresSafeArea()
+                                .frame(width: 350,height: 250)
+                                .padding()
+                                .ignoresSafeArea()
                     
 
                 
               
             }
+                
                 Text(category)
                     .font(.headline)
                     .foregroundColor(.secondary)
+                    .padding(.bottom,7)
                 
                 Text(heading)
                     .font(.title)
                     .fontWeight(.black)
                     .foregroundColor(.primary)
                     .lineLimit(3)
+                    .padding(.bottom,7)
                 
-                Text("작성자 : ".uppercased()+author.uppercased())
-                    .font(.caption)
+                Text(author.uppercased())
+                    .font(.system(size: 20))
+                    .fontWeight(.semibold)
                     .foregroundColor(.secondary)
                 
             }

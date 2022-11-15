@@ -22,19 +22,20 @@ struct Card: View {
             NeuromorphicUI {
                         RoundedRectangle(cornerRadius: 25)
                             .frame(width: 400, height: 400)
-                            .offset(y:-50)
+                            .offset(y:-20)
                     }.ignoresSafeArea()
             
 
             VStack(spacing: 10){
                 
                 Text("Pay")
+                    .padding(.top,40)
                     .foregroundColor(.white)
-                    .font(.system(size: 50))
+                    .font(.system(size: 40))
                     .fontWeight(.heavy)
                     .frame(maxWidth: .infinity,alignment: .leading)
+                    .padding(.bottom,80)
                     .padding(.horizontal)
-                    .padding(.bottom,90)
                     .background{
                         Color("color2")
                             .frame(height: 200)
@@ -42,7 +43,7 @@ struct Card: View {
                             .offset(y:-60)
                             
                     }
-                    .offset(y:-40)
+                    .offset(y:-67)
                     
                     
             
@@ -189,7 +190,7 @@ struct CustomModifier: ViewModifier{
 
 struct Card_Previews: PreviewProvider {
     static var previews: some View {
-        Card()
+        ContentView()
     }
 }
 

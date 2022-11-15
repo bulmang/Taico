@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CartPayView: View {
     
+    
     @ObservedObject var userSetting = UserSetting()
     
     @EnvironmentObject var sharedData: SharedDataModel
@@ -29,6 +30,8 @@ struct CartPayView: View {
     @State var ColorCard : Bool = true
     @State var ColorPay : Bool = false
     @State var ColorCoupone: Bool = false
+    
+    @State var pay: Bool = false
     
     
     var body: some View {
@@ -438,7 +441,7 @@ struct CartPayView: View {
                         
                         Button {
                             
-                            
+                            self.pay = true
                             
                         } label: {
                             
@@ -452,6 +455,19 @@ struct CartPayView: View {
                                 .shadow(color: Color.black.opacity(0.05), radius: 5, x: 5, y: 5)
                         }
                         .padding(.vertical)
+                        .alert("결제 되었습니다.", isPresented: $pay){
+                            Button("확인", role: .cancel){
+                                
+                                
+                                withAnimation(.easeInOut){
+                                    sharedData.showDetailProduct = false
+                                }
+                                sharedData.showPay = false
+                                sharedData.cartProducts.removeAll()
+                                childcartstate = 0
+//                                addToOrder()
+                            }
+                        }
                     }
                     .padding(.horizontal,25)
                 }
@@ -478,6 +494,20 @@ struct CartPayView: View {
             }
         }
     }
+    
+//    func addToOrder(){
+//
+//        if let index = sharedData.orderProducts.firstIndex(where: { product in
+//            return self.product.id == product.id
+//        }){
+//            // Remove from liked....
+//            sharedData.orderProducts.remove(at: index)
+//        }
+//        else{
+//            // add to liked
+//            sharedData.orderProducts.append(product)
+//        }
+//    }
 }
 
 
