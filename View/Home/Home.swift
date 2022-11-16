@@ -32,10 +32,16 @@ struct Home: View {
                                     
                             }
                             .offset(y:-40)
+                        
+                        Text("공지사항")
+                            .font(.system(size: 50))
+                            .fontWeight(.heavy)
+                            .offset(y:-80)
+                        
 
                         VStack(spacing: 40){
                             
-                            Text("")
+                            
                             
                             ForEach(blogs) { blog in
                                 CardView(image: blog.image, category: blog.category, heading: blog.heading, author: blog.author, site: blog.site)

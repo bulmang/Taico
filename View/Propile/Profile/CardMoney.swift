@@ -88,6 +88,9 @@ struct CardMoney: View {
                     .transition(.asymmetric(insertion: .identity, removal: .offset(y: 1)))
             }
         }
+        .background(
+            Color("HomeBG")
+        )
     }
     
     // MARK: Cards ScrollView

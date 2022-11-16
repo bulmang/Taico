@@ -25,6 +25,8 @@
 		43518B602921050F00BD461B /* GiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43518B5F2921050F00BD461B /* GiftView.swift */; };
 		43518B622921128000BD461B /* CartPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43518B612921128000BD461B /* CartPayView.swift */; };
 		43518B6429213F2C00BD461B /* CouponeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43518B6329213F2C00BD461B /* CouponeView.swift */; };
+		436197A82924B4E900BE349F /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436197A72924B4E900BE349F /* SplashScreen.swift */; };
+		436197AA2924CC8700BE349F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436197A92924CC8700BE349F /* ImagePicker.swift */; };
 		4369416328FE8BDC00A0771B /* hover-shopping.json in Resources */ = {isa = PBXBuildFile; fileRef = 4369416228FE8BDC00A0771B /* hover-shopping.json */; };
 		4369416B28FE8D5400A0771B /* 571-black-tea-lineal.json in Resources */ = {isa = PBXBuildFile; fileRef = 4369416A28FE8D5400A0771B /* 571-black-tea-lineal.json */; };
 		4369416D28FE8E1700A0771B /* in-card.json in Resources */ = {isa = PBXBuildFile; fileRef = 4369416C28FE8E1700A0771B /* in-card.json */; };
@@ -103,6 +105,8 @@
 		43518B5F2921050F00BD461B /* GiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftView.swift; sourceTree = "<group>"; };
 		43518B612921128000BD461B /* CartPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPayView.swift; sourceTree = "<group>"; };
 		43518B6329213F2C00BD461B /* CouponeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponeView.swift; sourceTree = "<group>"; };
+		436197A72924B4E900BE349F /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		436197A92924CC8700BE349F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		4369416228FE8BDC00A0771B /* hover-shopping.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "hover-shopping.json"; sourceTree = "<group>"; };
 		4369416A28FE8D5400A0771B /* 571-black-tea-lineal.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "571-black-tea-lineal.json"; sourceTree = "<group>"; };
 		4369416C28FE8E1700A0771B /* in-card.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "in-card.json"; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				432BCA602900093500084438 /* Home.swift */,
+				436197A72924B4E900BE349F /* SplashScreen.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 				43BAEBEC290ED652003773FF /* ProfileView.swift */,
 				4377CC362923276E007F5E7A /* QuestionView.swift */,
 				4377CC4029236020007F5E7A /* DepositView.swift */,
+				436197A92924CC8700BE349F /* ImagePicker.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -570,6 +576,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				436197A82924B4E900BE349F /* SplashScreen.swift in Sources */,
 				439D7BAA28FDA40B006C92FD /* CustomCarousel.swift in Sources */,
 				439D7B7D28FD9F3E006C92FD /* ContentView.swift in Sources */,
 				4377CC3C292336E3007F5E7A /* CardModel.swift in Sources */,
@@ -586,6 +593,7 @@
 				4331D6BF291A933700830081 /* StaggeredGrid.swift in Sources */,
 				4377CC4129236020007F5E7A /* DepositView.swift in Sources */,
 				431162142902E2F500565BA3 /* Card.swift in Sources */,
+				436197AA2924CC8700BE349F /* ImagePicker.swift in Sources */,
 				4331D6AE29195A5900830081 /* SharedDataModel.swift in Sources */,
 				4331D6B129195A8D00830081 /* Product.swift in Sources */,
 				4377CC522923F236007F5E7A /* IntroView.swift in Sources */,

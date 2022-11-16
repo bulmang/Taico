@@ -107,7 +107,7 @@ struct LoginView: View {
                                 NavigationLink(destination: SignUpView(), isActive: $isLinkActive) {
                                     NavigationLink(destination: MainView(),isActive: $isOrderActive) {
                                         Button(action: {
-                                            if email == "하명관" && password == "1234"{
+                                            if email == "2017121052@ptu.ac.kr" && password == "1234"{
                                                 self.login = true
                                                 
                                             }else

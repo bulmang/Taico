@@ -16,8 +16,11 @@ struct IntroView: View {
     @Namespace var animation
     
     var body: some View {
+        
         ZStack{
+            
             if showHomeView{
+                
                 withAnimation{
                     LoginView()
                         .transition(.move(edge: .trailing))
@@ -77,7 +80,7 @@ struct IntroView: View {
                         .opacity(!isLast ? 1 : 0)
                     
                     HStack{
-                        Text("로그인")
+                        Text("시작하기")
                             .font(.system(size: 20))
                             .fontWeight(.bold)
                             .foregroundColor(.white)
@@ -148,6 +151,7 @@ struct IntroView: View {
         
         VStack(spacing: 10){
             Text(intro.title)
+                .foregroundColor(.white)
                 .font(.system(size: 38))
                 .fontWeight(.bold)
                 // MARK: Applying Offset For Each Screen's
@@ -162,6 +166,7 @@ struct IntroView: View {
                 .animation(.interactiveSpring(response: 0.9, dampingFraction: 0.8, blendDuration: 0.5).delay(currentIndex == index ? 0.2 : 0).delay(currentIndex == index ? 0.2 : 0), value: currentIndex)
             
             Text(intro.subtitle)
+                .foregroundColor(.white)
                 .font(.system(size: 24))
                 .multilineTextAlignment(.center)
                 .padding(.top,30)
@@ -193,7 +198,7 @@ struct IntroView: View {
                 .offset(x: -size.width * CGFloat(currentIndex - index))
                 .animation(.interactiveSpring(response: 0.9, dampingFraction: 0.8, blendDuration: 0.5).delay(currentIndex == index ? 0 : 0.2).delay(currentIndex == index ? 0.1 : 0), value: currentIndex)
             
-            Text("안녕하세요\nTAICO입니다.")
+            Text("환영합니다\nTAICO입니다.")
                 .font(.system(size: 38).bold())
                 .foregroundColor(.white)
                 .offset(x: -size.width * CGFloat(currentIndex - index))
@@ -253,7 +258,8 @@ struct IntroView: View {
                     .frame(width: size.width, height: size.height / 3)
                     .padding(.top,150)
                 
-                Text("다양한 음료를 만나보세요.")
+                Text("TAICO를 소개합니다.")
+                    .foregroundColor(.white)
                     .font(.system(size: 28).bold())
                     .padding(.top,55)
                 

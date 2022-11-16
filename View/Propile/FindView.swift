@@ -195,6 +195,9 @@ struct FindIdView: View {
             }
             Spacer()
         }
+        .background(
+            Color("HomeBG")
+        )
         
         
         

@@ -24,11 +24,14 @@ struct CartPayView: View {
     @State var discount: Bool = true
     
     @State private var isShowingCoupone = false
+    
     @State private var isShowingGift = false
     @State private var isShowing = false
     
     @State var ColorCard : Bool = true
     @State var ColorPay : Bool = false
+    @State var ColorTaico : Bool = false
+    
     @State var ColorCoupone: Bool = false
     
     @State var pay: Bool = false
@@ -57,7 +60,7 @@ struct CartPayView: View {
 
 
                             
-                            Text("쿠폰 및 할인")
+                            Text("결제수단")
                                 .font(.system(size: 30))
                                 .fontWeight(.semibold)
                                 .padding()
@@ -70,6 +73,7 @@ struct CartPayView: View {
                                 
                                 ColorCard.toggle()
                                 ColorPay = false
+                                ColorTaico = false
                             
                             
                                 
@@ -105,7 +109,7 @@ struct CartPayView: View {
                                 
                                 ColorPay.toggle()
                                 ColorCard = false
-                                
+                                ColorTaico = false
                                 
                             } label: {
                                 Label{
@@ -131,7 +135,41 @@ struct CartPayView: View {
                                 
                             }
                             .frame(maxWidth: .infinity,alignment: .leading)
+                            .padding(.bottom, 40)
+                            
+                            Button{
+                                
+                                ColorPay = false
+                                ColorCard = false
+                                ColorTaico = true
+                                
+                            } label: {
+                                Label{
+                                    Image(systemName: "t.square.fill")
+                                        .font(.system(size: 20))
+                                        .foregroundColor(.black)
+                                    
+                                    Text("TAICO 카드")
+                                        .font(.system(size: 20))
+                                        .foregroundColor(Color(.black))
+                                        .fontWeight(.bold)
+                                }icon: {
+                                    Circle()
+                                        .fill(ColorPay ? Color("color2") : Color(.white))
+                                        .frame(width: 10, height: 10)
+                                        .overlay{
+                                            Circle()
+                                                .stroke(.black,lineWidth: 3)
+                                                .frame(width: 20, height: 20)
+                                        }
+                                        .padding(.horizontal,20)
+                                }
+                                
+                            }
+                            .frame(maxWidth: .infinity,alignment: .leading)
                             .padding(.bottom, 20)
+                            
+                            
                             .overlay (
                                 Divider()
                                     .overlay(
@@ -144,7 +182,7 @@ struct CartPayView: View {
                             
                             //                    .presentationDetents([.medium, .large])
                             
-                            Text("결제 수단")
+                            Text("쿠폰 및 할인")
                                 .font(.system(size: 30))
                                 .fontWeight(.semibold)
                                 .padding()

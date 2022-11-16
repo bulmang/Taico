@@ -9,6 +9,10 @@ import SwiftUI
 
 struct GiftView: View {
     
+    @State private var openPhoto = false
+    @State private var image = UIImage()
+    
+    
     @EnvironmentObject var sharedData: SharedDataModel
     
     @State private var isShowingCoupone = false
@@ -58,21 +62,7 @@ struct GiftView: View {
                     
                     
                 }.sheet(isPresented: $isShowingCoupone){
-                    VStack{
-                        Text("제휴사 쿠폰")
-                            .foregroundColor(.green)
-                            .fontWeight(.heavy)
-                            .font(.system(size: 25))
-                            .padding()
-                        
-                        Spacer()
-                        
-                        Text("사용 가능한 선물이 없습니다.")
-                        
-                        Spacer()
-                        
-                    }
-                    
+                    ImagePicker(sourceType: .photoLibrary)
                     .presentationDetents([ .fraction(0.40)])
                     .persistentSystemOverlays(.visible)
                 }
