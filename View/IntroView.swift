@@ -224,6 +224,7 @@ struct IntroView: View {
                 }
             } label: {
                 Image(systemName: "chevron.left")
+                    .font(.system(size: 20))
                     .font(.title3)
                     .fontWeight(.semibold)
                     .foregroundColor(Color("color1"))
@@ -234,7 +235,8 @@ struct IntroView: View {
             Button("Skip"){
                 currentIndex = intros.count
             }
-            .font(.system(size: 14))
+            .fontWeight(.bold)
+            .font(.system(size: 20))
             .foregroundColor(Color("color1"))
             .opacity(isLast ? 0 : 1)
             .animation(.easeInOut, value: isLast)

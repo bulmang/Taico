@@ -32,7 +32,7 @@ struct LikedPage: View {
                                 .fontWeight(.heavy)
                                 .frame(maxWidth: .infinity,alignment: .leading)
                                 .padding(.leading,15)
-                                .offset(y:10)
+                                .offset(y:-10)
                             
                             
                             Spacer()
@@ -42,16 +42,15 @@ struct LikedPage: View {
                                     showDeleteOption.toggle()
                                 }
                             } label: {
-                                Image(systemName: "minus.rectangle.fill")
-                                    .foregroundColor(.white)
-                                    .frame(width: 25, height: 25)
+                                Image(systemName: "trash.fill")
+                                    .foregroundColor(.red)
+                                    .frame(width: 35, height: 35)
                             }
                             .background{
                                 Circle()
-                                    .foregroundColor(.red)
+                                    .foregroundColor(.white)
                                     .frame(width: 45, height: 45)
                             }
-                            .padding(.top,40)
                             .opacity(sharedData.likedProducts.isEmpty ? 0 : 1)
                             .padding(.trailing,40)
                         }
@@ -59,7 +58,7 @@ struct LikedPage: View {
                             Color("color2")
                                 .frame(height: 200)
                                 .ignoresSafeArea()
-                                .offset(y:-25)
+                                .offset(y:-55)
                                 
                         }
                         
@@ -195,6 +194,6 @@ struct LikedPage: View {
 
 struct LikedPage_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainView()
     }
 }

@@ -37,7 +37,7 @@ struct OrderView: View {
                 // Search Bar...
                 HStack{
 
-                    
+                    Spacer()
                     
                     ZStack{
                         
@@ -339,5 +339,10 @@ extension View{
 
     func getRect()->CGRect{
         return UIScreen.main.bounds
+    }
+}
+struct OrderView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView()
     }
 }

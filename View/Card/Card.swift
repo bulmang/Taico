@@ -21,29 +21,28 @@ struct Card: View {
             
             NeuromorphicUI {
                         RoundedRectangle(cornerRadius: 25)
-                            .frame(width: 400, height: 400)
-                            .offset(y:-20)
+                            .frame(width: 400, height: 500)
+                            .offset(y:-40)
                     }.ignoresSafeArea()
             
 
             VStack(spacing: 10){
                 
                 Text("Pay")
-                    .padding(.top,40)
+                    .padding(.top,0)
                     .foregroundColor(.white)
                     .font(.system(size: 40))
                     .fontWeight(.heavy)
                     .frame(maxWidth: .infinity,alignment: .leading)
-                    .padding(.bottom,80)
                     .padding(.horizontal)
                     .background{
                         Color("color2")
-                            .frame(height: 200)
+                            .frame(height: 120)
                             .ignoresSafeArea()
-                            .offset(y:-60)
+                            
                             
                     }
-                    .offset(y:-67)
+                    .offset(y:-70)
                     
                     
             
@@ -51,10 +50,12 @@ struct Card: View {
                 GlassMorphicCard()
                     .frame(maxWidth: .infinity)
                     .padding(.bottom)
+                    .padding(.top,30)
                 
                 Text("Taico 카드를 등록하셨습니다.")
                     .font(.system(size: 25))
                     .fontWeight(.bold)
+                    .padding(.top,30)
                     
                 
                 // MARK: Slider to show Demo
@@ -67,7 +68,8 @@ struct Card: View {
                     }
                     
                     .padding(.horizontal,25)
-                                                                        
+                    .padding(.top,30)
+                    .offset(y:40)
 
                 
                 Text("융합소프트웨어 X TAICO \n융합소프트웨어학과 10% 할인")
@@ -80,6 +82,7 @@ struct Card: View {
                     .clipShape(Rectangle())
                     )
                     .padding(.top,90)
+                    .offset(y: 50)
                     
 
                   
@@ -190,7 +193,7 @@ struct CustomModifier: ViewModifier{
 
 struct Card_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainView()
     }
 }
 

@@ -21,76 +21,93 @@ struct CardMoney: View {
     @State var showDetailContent: Bool = false
     @State var showExpenses: Bool = false
     
+    @EnvironmentObject var sharedData: SharedDataModel
+    
+    @State private var money = 50000
+    
     var body: some View {
-        VStack{
-            VStack(alignment: .leading, spacing: 6) {
-                Text("안녕하세요\nTAICO 카드입니다.")
-                    .foregroundColor(.black)
-                    .font(.title.bold())
-                    .frame(maxWidth: .infinity,alignment: .leading)
-                
-                Text("하명관 고객님")
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.black)
-                    .frame(maxWidth: .infinity,alignment: .trailing)
-            }
-            
-            .overlay(alignment: .trailing, content: {
-                // MARK: Profile Button
-                Button {
-                    
-                } label: {
-                    Image("Pic")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 55, height: 55)
-                        .clipShape(Circle())
-                        .offset(x: -20 , y:-15)
-                }
-            })
-            .padding(.horizontal,15)
-            .padding(.top,20)
-            
-            VStack(alignment: .leading, spacing: 6) {
+        NavigationView{
+            VStack{
                 
                 HStack{
                     
-                    Text("카드 잔액 : ")
-                        .font(.title.bold())
-                        .fontWeight(.semibold)
-                        .foregroundColor(.black)
+                    Button {
+                        // Closing View...
+                        withAnimation(.easeInOut){
+                            sharedData.showCardMoney = false
+                        }
+                    } label: {
+                        Image(systemName: "arrow.left")
+                            .foregroundColor(.white)
+                            .font(.title2)
+                            .foregroundColor(Color.black.opacity(0.7))
+                    }
                     
-                    Text("38,000원")
-                        .foregroundColor(.black)
-                        .font(.title.bold())
+                    Spacer()
+                    
+                    Text("카드 내역")
+                        .foregroundColor(.white)
+                        .font(.system(size: 20,weight: .bold))
+                        .fontWeight(.semibold)
+                        .padding(.trailing)
+                    
+                    Spacer()
+
+
+
+                }
+                .padding()
+                .background{
+                    Color("color2")
+                        .ignoresSafeArea()
+                }
+                VStack(alignment: .leading, spacing: 6) {
+                    
+                        
+                        Text("카드를 누르시면 결제내역이 나옵니다.")
+                        .font(.system(size: 25))
+                            .fontWeight(.semibold)
+                            .foregroundColor(.black)
+                            .offset(y:50)
+      
+                    
+
+
                 }
                 
+                .overlay(alignment: .trailing, content: {
+                    // MARK: Profile Button
+                    
+                })
+                .padding(.horizontal,15)
+                .padding(.top,20)
+                
+                
+                    
 
+                
+                CardsScrollView()
+                    .offset(x:30)
             }
-            .padding(.leading)
-            .padding(.top,30)
-            .frame(maxWidth: .infinity,alignment: .leading)
-            
-            CardsScrollView()
-                .offset(x:30)
-        }
-        .frame(maxWidth: .infinity,maxHeight: .infinity,alignment: .top)
-        .opacity(showDetail ? 0 : 1)
-//        .background {
-//            Color("HomeBG")
-//                .ignoresSafeArea()
-//        }
-        .overlay {
-            if let selectedCard,showDetail{
-                DetailView(card: selectedCard)
-                // MARK: For More Fluent Transition Adding Transition
-                    .transition(.asymmetric(insertion: .identity, removal: .offset(y: 1)))
+            .frame(maxWidth: .infinity,maxHeight: .infinity,alignment: .top)
+            .opacity(showDetail ? 0 : 1)
+    //        .background {
+    //            Color("HomeBG")
+    //                .ignoresSafeArea()
+    //        }
+            .overlay {
+                if let selectedCard,showDetail{
+                    DetailView(card: selectedCard)
+                    // MARK: For More Fluent Transition Adding Transition
+                        .transition(.asymmetric(insertion: .identity, removal: .offset(y: 1)))
+                }
             }
+            .background(
+                Color("HomeBG")
+            )
         }
-        .background(
-            Color("HomeBG")
-        )
+        .navigationBarHidden(true)
+
     }
     
     // MARK: Cards ScrollView
@@ -126,6 +143,7 @@ struct CardMoney: View {
                                         showDetail = true
                                     }
                                 }
+                                .scaleEffect(1.1)
                         }
                     }
                     .frame(width: 300)

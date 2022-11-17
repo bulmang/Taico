@@ -42,6 +42,7 @@ struct MainView: View {
                     
                     Home()
                         .setBG()
+                        .environmentObject(sharedData)
                         .tag(BottomTab.home)
                     
                     
@@ -58,6 +59,7 @@ struct MainView: View {
                         .tag(BottomTab.heart)
                     
                     ProfileView()
+                        .environmentObject(sharedData)
                         .setBG()
                         .tag(BottomTab.account)
                     

@@ -14,6 +14,25 @@ class SharedDataModel: ObservableObject {
     
     @Published var showDetailProduct: Bool = false
     
+    @Published var showQueston: Bool = false
+    
+    @Published var showAgree: Bool = false
+    
+    @Published var showDeposit: Bool = false
+    
+    @Published var showCardMoney: Bool = false
+    
+    @Published var blog1: Bool = false
+    
+    @Published var blog2: Bool = false
+    @Published var blog3: Bool = false
+    @Published var blog4: Bool = false
+    @Published var blog5: Bool = false
+    
+    
+    @Published var CardPay: Bool = false
+    
+    
     @Published var showPay: Bool = false
     
     // matched Geoemtry Effect from Search page...
@@ -92,6 +111,38 @@ class SharedDataModel: ObservableObject {
         end = result - discount
         
         return "\(end)원"
+    }
+    
+    func getCardPrice()->String{
+        
+        @ObservedObject var userSetting = UserSetting()
+        
+        var result: Int = 0
+        
+        var end: Int = 0
+        
+        var discount: Int = 0
+        
+        var cardprice1: Int = 50000
+        
+        var cardprice: Int = 0
+        
+        cartProducts.forEach { product in
+            
+            let price = product.price.replacingOccurrences(of: "$", with: "") as NSString
+            
+            let quantity = product.quantity
+            let priceTotal = quantity * price.integerValue
+            
+            result += priceTotal
+            
+            
+        }
+        discount = result / 10
+        end = result - discount
+        cardprice = cardprice1 - end
+        
+        return "\(cardprice)원"
     }
     
     func Discount()->String{

@@ -193,11 +193,11 @@ struct CartView: View {
 
 
 
-//struct CartView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CartView()
-//    }
-//}
+struct CartView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView()
+    }
+}
 
 struct CardViews: View{
     

@@ -167,13 +167,13 @@
             filePath = "View/Order/Pay/CartPayView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "CartPayView"
             landmarkType = "14">
             <Locations>
                <Location
-                  uuid = "D5685CD6-626B-47AC-B29D-7A4A42AFA919 - b42ac09fc92c5f4f"
+                  uuid = "D5685CD6-626B-47AC-B29D-7A4A42AFA919 - b42ac09fc92c5ed3"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -183,24 +183,24 @@
                   urlString = "file:///Users/hamyeong-gwan/Desktop/SwiftUI/Taico/View/Order/Pay/CartPayView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
                   offsetFromSymbolStart = "32">
                </Location>
                <Location
-                  uuid = "D5685CD6-626B-47AC-B29D-7A4A42AFA919 - 7b3c93eb3f60b602"
+                  uuid = "D5685CD6-626B-47AC-B29D-7A4A42AFA919 - 2ea4dd29a70a11ec"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Taico.CartPayView.init(userSetting: Taico.UserSetting, sharedData: SwiftUI.EnvironmentObject&lt;Taico.SharedDataModel&gt;, showDeleteOption: Swift.Bool, childcartstate: SwiftUI.Binding&lt;Swift.Int&gt;, discount: Swift.Bool, ColorCard: Swift.Bool, ColorPay: Swift.Bool, ColorCoupone: Swift.Bool, pay: Swift.Bool) -&gt; Taico.CartPayView"
+                  symbolName = "Taico.CartPayView.init(userSetting: Taico.UserSetting, sharedData: SwiftUI.EnvironmentObject&lt;Taico.SharedDataModel&gt;, showDeleteOption: Swift.Bool, childcartstate: SwiftUI.Binding&lt;Swift.Int&gt;, money: Swift.Int, discount: Swift.Bool, ColorCard: Swift.Bool, ColorPay: Swift.Bool, ColorTaico: Swift.Bool, ColorCoupone: Swift.Bool, pay: Swift.Bool) -&gt; Taico.CartPayView"
                   moduleName = "Taico"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hamyeong-gwan/Desktop/SwiftUI/Taico/View/Order/Pay/CartPayView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "164">
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "196">
                </Location>
             </Locations>
          </BreakpointContent>

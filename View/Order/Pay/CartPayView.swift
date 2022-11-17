@@ -21,9 +21,15 @@ struct CartPayView: View {
     
     @Binding var childcartstate: Int
     
+    @State var money: Int  = 50000
+    
+    
+    
     @State var discount: Bool = true
     
     @State private var isShowingCoupone = false
+    
+    @State private var isShowingkt = false
     
     @State private var isShowingGift = false
     @State private var isShowing = false
@@ -141,7 +147,7 @@ struct CartPayView: View {
                                 
                                 ColorPay = false
                                 ColorCard = false
-                                ColorTaico = true
+                                ColorTaico.toggle()
                                 
                             } label: {
                                 Label{
@@ -155,7 +161,7 @@ struct CartPayView: View {
                                         .fontWeight(.bold)
                                 }icon: {
                                     Circle()
-                                        .fill(ColorPay ? Color("color2") : Color(.white))
+                                        .fill(ColorTaico ? Color("color2") : Color(.white))
                                         .frame(width: 10, height: 10)
                                         .overlay{
                                             Circle()
@@ -330,8 +336,9 @@ struct CartPayView: View {
                                 
                                 
                             }
-                            
                             Button{
+                                
+                                isShowingkt.toggle()
                                 
                             }label: {
                                 HStack{
@@ -356,8 +363,38 @@ struct CartPayView: View {
                                 .padding()
                                 
                                 
+                            }.sheet(isPresented: $isShowingkt){
+                                VStack{
+                                    
+                                    Text("통신사 제휴 할인")
+                                        .foregroundColor(.black)
+                                        .fontWeight(.heavy)
+                                        .font(.system(size: 25))
+                                        .padding()
+                                    
+                                    Spacer()
+                                    
+                                    
+                                    Text("통신사 할인 이벤트가 끝났습니다.")
+                                        .foregroundColor(.black)
+                                    
+                                        .fontWeight(.semibold)
+                                        .font(.system(size: 25))
+                                        .padding()
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    Spacer()
+                                    
+                                }
                                 
+                                .presentationDetents([ .fraction(0.90)])
+                                .persistentSystemOverlays(.visible)
                             }
+                            
                             Spacer()
                             
                             
@@ -435,6 +472,7 @@ struct CartPayView: View {
                     
                     Group{
                         
+                        
                         HStack{
                             
                             Text("결제금액")
@@ -503,6 +541,9 @@ struct CartPayView: View {
                                 sharedData.showPay = false
                                 sharedData.cartProducts.removeAll()
                                 childcartstate = 0
+                                
+                                
+                                
 //                                addToOrder()
                             }
                         }
@@ -550,11 +591,11 @@ struct CartPayView: View {
 
 
 
-//struct CartPayView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CartPayView()
-//    }
-//}
+struct CartPayView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView()
+    }
+}
 class UserSetting: ObservableObject{
     
     @Published var score : Int = 0

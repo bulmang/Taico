@@ -66,7 +66,7 @@ struct LoginView: View {
                             VStack (spacing: 30) {
                                 
                                 
-                                CustomTextField(placeHolder: "이메일", imageName: "envelope", bColor: "textColor1", tOpacity: 0.6, value: $email)
+                                CustomTextField(placeHolder: "이름", imageName: "person", bColor: "textColor1", tOpacity: 0.6, value: $email)
                                 
                                 CustomTextField(placeHolder: "비밀번호", imageName: "lock", bColor: "textColor1", tOpacity: 0.6, value: $password)
                             }
@@ -74,7 +74,7 @@ struct LoginView: View {
                             VStack (alignment: .center){
                                 HStack(spacing: 15){
                                     
-                                    NavigationLink(destination: FindIdView(), isActive: $isFindActive){
+                                    NavigationLink(destination: FindView(), isActive: $isFindActive){
                                         Button(action: {
                                             self.isFindActive = true
                                         }, label: {
@@ -87,7 +87,7 @@ struct LoginView: View {
                                     
                                     Text("|")
                                     
-                                    NavigationLink(destination: FindIdView(), isActive: $isFindActive){
+                                    NavigationLink(destination: FindView(), isActive: $isFindActive){
                                         Button(action: {
                                             self.isFindActive = true
                                         }, label: {
@@ -107,7 +107,7 @@ struct LoginView: View {
                                 NavigationLink(destination: SignUpView(), isActive: $isLinkActive) {
                                     NavigationLink(destination: MainView(),isActive: $isOrderActive) {
                                         Button(action: {
-                                            if email == "2017121052@ptu.ac.kr" && password == "1234"{
+                                            if email == "하명관" && password == "1234"{
                                                 self.login = true
                                                 
                                             }else

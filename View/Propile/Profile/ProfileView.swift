@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ProfileView: View {
     
+    @EnvironmentObject var sharedData: SharedDataModel
+    
     @State var isOrderActive: Bool = false
     
     @State var isFindActive: Bool = false
@@ -40,19 +42,19 @@ struct ProfileView: View {
             
             ScrollView(.vertical, showsIndicators: false) {
                 Text("프로필")
-                    .padding(.top)
-                    .padding(.leading)
+                    .padding(.top,30)
                     .foregroundColor(.white)
-                    .font(.system(size: 50))
+                    .font(.system(size: 40))
                     .fontWeight(.heavy)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .frame(maxWidth: .infinity,alignment: .leading)
+                    .padding(.horizontal)
                     .background{
                         Color("color2")
-                            .frame(height: 200)
+                            .frame(height: 120)
                             .ignoresSafeArea()
-                            .offset(y:-20)
-                        
+                            
                     }
+                    .offset(y:-30)
                 VStack{
                     
 
@@ -88,18 +90,18 @@ struct ProfileView: View {
                         .padding()
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
-                    .padding()
+                    
                     .background(
                         Color.white
                             .cornerRadius(12)
                     )
                     .padding()
-                    .padding(.top,40)
+                    
                     
                     // Custom Navigation Links...
-                    NavigationLink(destination: FindIdView(), isActive: $isFindActive){
+                    NavigationLink(destination: FindIdView(), isActive: $sharedData.showAgree){
                         Button(action: {
-                            self.isFindActive = true
+                            sharedData.showAgree = true
                         }, label: {
                             HStack{
                                 
@@ -156,9 +158,9 @@ struct ProfileView: View {
                     
                     
                     
-                    NavigationLink(destination: DepositView(), isActive: $isLikedActive){
+                    NavigationLink(destination: DepositView(), isActive: $sharedData.showDeposit){
                         Button(action: {
-                            self.isLikedActive = true
+                            sharedData.showDeposit = true
                         }, label: {
                             HStack{
                                 
@@ -187,9 +189,9 @@ struct ProfileView: View {
                         
                     }
                     
-                    NavigationLink(destination: CardMoney(), isActive: $isCardActive){
+                    NavigationLink(destination: CardMoney(), isActive: $sharedData.showCardMoney){
                         Button(action: {
-                            self.isCardActive = true
+                            sharedData.showCardMoney = true
                         }, label: {
                             HStack{
                                 
@@ -220,10 +222,10 @@ struct ProfileView: View {
                     }.foregroundColor(Color(.systemBackground))
                     
                     
-                    NavigationLink(destination: QuestionView(), isActive: $isQuestionActive){
+                    NavigationLink(destination: QuestionView(), isActive: $sharedData.showQueston){
                         
                         Button(action: {
-                            self.isQuestionActive = true
+                            sharedData.showQueston = true
                         }, label: {
                             HStack{
                                 
@@ -314,6 +316,6 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        MainView()
     }
 }
