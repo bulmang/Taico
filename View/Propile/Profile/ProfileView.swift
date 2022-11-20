@@ -70,7 +70,7 @@ struct ProfileView: View {
                             .offset(y: -30)
                             .padding(.bottom,-30)
                         
-                        Text("하명관")
+                        Text( " 그동안 고생했다 이제 들어가")
                             .font(.custom(customFont, size: 26))
                             .fontWeight(.semibold)
                         

@@ -215,7 +215,7 @@ struct FindIdView: View {
                                                 .alert(
                                                     "인증되었습니다.", isPresented: $alert2){
                                                     Button("확인", role: .cancel){
-                                                        self.isLinkActive = true
+                                                        sharedData.showAgree = false
                                                     }
                                                 }
                                                 

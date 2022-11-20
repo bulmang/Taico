@@ -23,7 +23,7 @@ struct CardMoney: View {
     
     @EnvironmentObject var sharedData: SharedDataModel
     
-    @State private var money = 50000
+    
     
     var body: some View {
         NavigationView{

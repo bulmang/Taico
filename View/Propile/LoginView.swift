@@ -151,7 +151,7 @@ struct LoginView: View {
                                 }.padding(.horizontal, 20)
                                 
                                 HStack {
-                                    Link(destination: URL(string:  "https://secure4.store.apple.com/kr/shop/signIn?ssi=1AAABhB7FxbEgym-F8PQOsAc0h_3XgHkgNHymWJFyHaYnXeev-bEYrqUAAAA-aHR0cHM6Ly93d3cuYXBwbGUuY29tL2tyL3N0b3JlfGh0dHBzOi8vd3d3LmFwcGxlLmNvbS9rci9zdG9yZXwAAgFIdQmIArEB8XeDgyOXsnU7PZlLcsWl04jL8OlGECGcyA")!) {
+                                    Link(destination: URL(string:  "https://secure5.store.apple.com/kr/shop/signIn?ssi=1AAABhIZraSwgLzi2Ll1kD28GfL9vw86MfX0Nz8prLWl8h5Wxk6j8ufkAAABsaHR0cHM6Ly93d3cuYXBwbGUuY29tL2tyL3Nob3Avc29ycnkvaWxsZWdhbF9hcmd1bWVudHN8aHR0cHM6Ly93d3cuYXBwbGUuY29tL2tyL3Nob3Avc29ycnkvaWxsZWdhbF9hcmd1bWVudHN8AAIBQB9pOkCeI35aUFwAEZ5Mg5NJP2RLHnNYX33IapCLeKs")!) {
                                         Image("apple")
                                             .resizable()
                                             .frame(width: 30, height: 30)
