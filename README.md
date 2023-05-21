@@ -1,6 +1,6 @@
 # TAICO(학과 공모전)
+<img width="619" alt="스크린샷 2023-05-21 오후 3 10 48" src="https://github.com/bulmang/Taico/assets/114594496/abbf946a-b8c1-4153-90a2-71d4f3ecf09a">
 
-<img width="619" alt="스크린샷 2023-05-21 오후 3 09 06" src="https://github.com/bulmang/Taico/assets/114594496/35d7b873-d589-49c8-86cc-3940023023de">
 
 
 ## 프로젝트를 시작하게 된 계기
